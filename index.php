@@ -3,6 +3,6 @@
  <TITLE>Você Prefeito!</TITLE>
 </HEAD>
 <BODY>
-      PÁGINA EM CONSTRUÇÃO...
+      <img src="C:\Users\Vainer\Documents\sistema\img" border="0">
 </BODY>
 </HTML>
