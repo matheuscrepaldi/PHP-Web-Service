@@ -9,10 +9,10 @@
 	
 	$res = mysqli_query($conexao, $sql);
 	
-	$reg = mysqli_fetch_array($res);
+	while($reg = mysqli_fetch_array($res)){
 	
 	echo "Nome do usuario: " . $reg['nome_usu'];
 	
-	
+	}
 
 ?>
