@@ -7,7 +7,7 @@
 	
 	$sql = "select * from Usuario";
 	
-	$res = mysqli_query($sql);
+	$res = mysqli_query($conexao, $sql);
 	
 	$reg = mysqli_fetch_array($res);
 	
