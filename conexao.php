@@ -11,7 +11,7 @@
 	
 	while($reg = mysqli_fetch_array($res)){
 	
-	echo "Nome do usuario: " . $reg['nome_usu'];
+	echo "Nome do usuario: " . $reg['nome_usu'] . "<br>";
 	
 	}
 
