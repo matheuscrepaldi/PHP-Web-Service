@@ -1,8 +1,8 @@
 <?php
 
-	$conexao = mysql_connect("mysql.hostinger.com.br", "u633448963_root", "masterkey") or die ("Erro: " . mysql_error());
+	$conexao = mysqli_connect("mysql.hostinger.com.br", "u633448963_root", "masterkey") or die ("Erro: " . mysqli_error());
 	
-	$base = mysql_select_db("u633448963_tcc") or die ("Erro: " . mysql_error());
+	$base = mysqli_select_db("u633448963_tcc") or die ("Erro: " . mysqli_error());
 	
 	
 	$sql = "select * from Usuario";
