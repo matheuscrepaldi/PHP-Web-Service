@@ -5,13 +5,13 @@
 	$base = mysqli_select_db($conexao, "u633448963_tcc") or die ("Erro: " . mysqli_error());
 	
 	
-	/*$sql = "select * from Usuario";
+	$sql = "select * from Usuario";
 	
-	$res = mysql_query($sql);
+	$res = mysqli_query($sql);
 	
-	$reg = mysql_fetch_array($res);
+	$reg = mysqli_fetch_array($res);
 	
-	echo "Nome do usuario: " . $reg['nome_usu'];*/
+	echo "Nome do usuario: " . $reg['nome_usu'];
 	
 	
 
