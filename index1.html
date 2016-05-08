@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+  include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+  protegePagina(); // Chama a função que protege a página
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -61,6 +65,10 @@
         <a href="register.html" class="text-center">Registrar-se</a>
 
       </div><!-- /.login-box-body -->
+        <?php
+  include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
+  protegePagina(); // Chama a função que protege a página
+?>
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->
