@@ -17,11 +17,11 @@ $_SG['abreSessao'] = true;         // Inicia a sessão com um session_start()?
 $_SG['caseSensitive'] = false;     // Usar case-sensitive? Onde 'thiago' é diferente de 'THIAGO'
 $_SG['validaSempre'] = true;       // Deseja validar o usuário e a senha a cada carregamento de página?
 // Evita que, ao mudar os dados do usuário no banco de dado o mesmo contiue logado.
-$_SG['servidor'] = 'localhost';    // Servidor MySQL
-$_SG['usuario'] = 'root';          // Usuário MySQL
-$_SG['senha'] = '';                // Senha MySQL
-$_SG['banco'] = 'test';            // Banco de dados MySQL
-$_SG['paginaLogin'] = 'login.php'; // Página de login
+$_SG['servidor'] = 'mysql.hostinger.com.br';    // Servidor MySQL
+$_SG['usuario'] = 'u633448963_admin';          // Usuário MySQL
+$_SG['senha'] = '12345';                // Senha MySQL
+$_SG['banco'] = 'u633448963_login';            // Banco de dados MySQL
+$_SG['paginaLogin'] = 'login.html'; // Página de login
 $_SG['tabela'] = 'usuarios';       // Nome da tabela onde os usuários são salvos
 // ==============================
 // ======================================
