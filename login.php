@@ -3,7 +3,7 @@
     $entrar = $_POST['entrar'];
     $senha = md5($_POST['senha']);
 	
-	$connect = mysql_connect('mysql.hostinger.com.br','u633448963_admin','123456');
+	$connect = mysqli_connect('mysql.hostinger.com.br','u633448963_admin','123456');
 	$db = mysql_select_db('u633448963_login');
 
         if (isset($entrar)) {

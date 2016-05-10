@@ -30,7 +30,7 @@
 	}
 	
 	//Se não houve nenhum aviso
-	$connect = mysql_connect('mysql.hostinger.com.br','u633448963_admin','123456');
+	$connect = mysqli_connect('mysql.hostinger.com.br','u633448963_admin','123456');
 	$db = mysql_select_db('u633448963_login');
 	
 	// Verifica se login ou email já existe
