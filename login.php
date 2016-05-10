@@ -1,7 +1,7 @@
 <?php
-    $login = $_POST['login'];
-    $entrar = $_POST['entrar'];
-    $senha = md5($_POST['senha']);
+    $login = $_POST['Email'];
+    $entrar = $_POST['Entrar'];
+    $senha = md5($_POST['Senha']);
 	
 	$connect = mysql_connect('mysql.hostinger.com.br','u633448963_admin','123456');
 	$db = mysql_select_db('u633448963_login');
