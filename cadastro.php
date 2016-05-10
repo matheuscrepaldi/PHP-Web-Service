@@ -30,13 +30,13 @@
 	}
 	
 	//Se não houve nenhum aviso
-	$connect = mysqli_connect('mysql.hostinger.com.br','u633448963_admin','123456');
-	$db = mysqli_select_db('u633448963_login');
+	$connect = mysql_connect('mysql.hostinger.com.br','u633448963_admin','123456');
+	$db = mysql_select_db('u633448963_login');
 	
 	// Verifica se login ou email já existe
 	$query_select = "SELECT login FROM usuarios WHERE login = '$login' or email = '$email' ";
-	$select = mysqli_query($query_select,$connect);
-	$array = mysqli_fetch_array($select);
+	$select = mysql_query($query_select,$connect);
+	$array = mysql_fetch_array($select);
 	$logarray = $array['login'];		
 	
 	//Se existir dispara aviso
@@ -46,7 +46,7 @@
 	}else{
 		//Se não existir cria
 		$query = "INSERT INTO usuarios (nome,email,login,senha) VALUES ('$nome','$email','$login','$senha')";
-		$insert = mysqli_query($query,$connect);
+		$insert = mysql_query($query,$connect);
 		 
 		if($insert){
 			echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
