@@ -18,7 +18,7 @@
                 }else{	
                     setcookie("login",$login);
 					setcookie("nome",$nome);
-                    header("Location:main.php");
+                    header("Location:index.php");
                 }
         }
 ?>
