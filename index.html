@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<?php
-  include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
-  protegePagina(); // Chama a função que protege a página
-?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -29,6 +26,7 @@
     <![endif]-->
   </head>
   <body class="hold-transition login-page">
+  <form method="POST" action="login.php">
     <div class="login-box">
       <div class="login-logo"><img src="logo.png"<br>
       </div><!-- /.login-logo -->
@@ -65,10 +63,7 @@
         <a href="register.html" class="text-center">Registrar-se</a>
 
       </div><!-- /.login-box-body -->
-        <?php
-  include("seguranca.php"); // Inclui o arquivo com o sistema de segurança
-  protegePagina(); // Chama a função que protege a página
-?>
+
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->
