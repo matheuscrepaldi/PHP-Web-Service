@@ -28,7 +28,7 @@ if(isset($_POST['btn-signup']))
 	{
 		try
 		{
-			$stmt = $user->runQuery("UPDATE user_pass FROM users WHERE user_name=:uname");
+			$stmt = $user->runQuery("UPDATE users SET user_pass=:upass WHERE user_name=:uname");
 			$stmt->execute(array(':uname'=>$uname, ':upass'=>$upass));
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
 		
