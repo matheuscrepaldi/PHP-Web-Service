@@ -20,7 +20,7 @@ if(isset($_POST['btn-login']))
 	}
 	else
 	{
-		$error = "Wrong Details !";
+		$error = "Dados Incorretos!";
 	}	
 }
 ?>
@@ -28,7 +28,7 @@ if(isset($_POST['btn-login']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Coding Cage : Login</title>
+<title>VcPrefeito : Login</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="style.css" type="text/css"  />
@@ -42,7 +42,7 @@ if(isset($_POST['btn-login']))
         
        <form class="form-signin" method="post" id="login-form">
       
-        <h2 class="form-signin-heading">Log In to WebApp.</h2><hr />
+        <h2 class="form-signin-heading">Login</h2><hr />
         
         <div id="error">
         <?php
@@ -70,11 +70,11 @@ if(isset($_POST['btn-login']))
         
         <div class="form-group">
             <button type="submit" name="btn-login" class="btn btn-default">
-                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; SIGN IN
+                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
             </button>
         </div>  
       	<br />
-            <label>Don't have account yet ! <a href="sign-up.php">Sign Up</a></label>
+            <label>Não possui uma conta? <a href="sign-up.php">Registre-se</a></label>
       </form>
 
     </div>
