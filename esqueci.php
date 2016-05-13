@@ -37,6 +37,10 @@ if(isset($_POST['btn-signup']))
 				$user->redirect('index.php?joined');
 			}
 		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
 	}
 }
 
