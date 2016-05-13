@@ -48,10 +48,10 @@
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			  <span class="glyphicon glyphicon-user"></span>&nbsp;Hi' <?php echo $userRow['user_email']; ?>&nbsp;<span class="caret"></span></a>
+			  <span class="glyphicon glyphicon-user"></span>&nbsp;Olá' <?php echo $userRow['user_name']; ?>&nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span>&nbsp;View Profile</a></li>
-                <li><a href="logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a></li>
+                <li><a href="logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sair</a></li>
               </ul>
             </li>
           </ul>
@@ -67,7 +67,7 @@
 	
     <div class="container">
     
-    	<label class="h5">welcome : <?php print($userRow['user_name']); ?></label>
+    	<label class="h5">Bem vindo : <?php print($userRow['user_name']); ?></label>
         <hr />
         
         <h1>
