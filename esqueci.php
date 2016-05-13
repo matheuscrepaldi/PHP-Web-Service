@@ -10,17 +10,19 @@ if($user->is_loggedin()!="")
 
 if(isset($_POST['btn-signup']))
 {
-	$upass = strip_tags($_POST['txt_upass']);	
-	
+	$upass = strip_tags($_POST['txt_upass']);
+
 	if($upass=="")	{
 		$error[] = "Digite uma senha!";
 	}
+
 	else if(strlen($upass) < 6){
 		$error[] = "A senha deve possuir no mínimo 6 caracteres!";	
 	}
 
-	if($user->register($upass)){	
-		$user->redirect('index.php?joined');	
+	if($user->register($uname,$umail,$upass)){	
+		$user->redirect('index.php?joined');
+	}	
 }
 
 ?>
@@ -28,7 +30,7 @@ if(isset($_POST['btn-signup']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registrar-se</title>
+<title>Redefinir senha</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="style.css" type="text/css"  />
@@ -40,7 +42,7 @@ if(isset($_POST['btn-signup']))
 <div class="container">
     	
         <form method="post" class="form-signin">
-            <h2 class="form-signin-heading">Redefinir senha</h2><hr />
+            <h2 class="form-signin-heading">Redefinir senha.</h2><hr />
             <?php
 			if(isset($error))
 			{
@@ -57,7 +59,7 @@ if(isset($_POST['btn-signup']))
 			{
 				 ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Instruções para redefinição foram enviadas por email.
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Senha alterada com sucesso <a href='index.php'>Entrar</a> aqui
                  </div>
                  <?php
 			}
@@ -66,8 +68,8 @@ if(isset($_POST['btn-signup']))
             	<input type="password" class="form-control" name="txt_upass" placeholder="Senha" />
             </div>
 
-             <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Digite Novamente" />
+            <div class="form-group">
+            	<input type="password" class="form-control" name="txt_upass" placeholder="Digite novamente" />
             </div>
 
             <div class="clearfix"></div><hr />
@@ -77,7 +79,7 @@ if(isset($_POST['btn-signup']))
                 </button>
             </div>
             <br />
-            <label><a href="index.php">Voltar</a></label>
+            <label>Já possui uma conta? <a href="index.php">Entrar</a></label>
         </form>
        </div>
 </div>
