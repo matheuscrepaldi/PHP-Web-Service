@@ -11,6 +11,7 @@ if($user->is_loggedin()!="")
 if(isset($_POST['btn-signup']))
 {
 	$upass = strip_tags($_POST['txt_upass']);
+	$uname = strip_tags($_POST['txt_uname']);
 
 	if($upass=="")	{
 		$error[] = "Digite uma senha!";
@@ -19,10 +20,24 @@ if(isset($_POST['btn-signup']))
 	else if(strlen($upass) < 6){
 		$error[] = "A senha deve possuir no mínimo 6 caracteres!";	
 	}
+	elseif (strlen($uname=="")) {
+		$error[] = "Preencha o nome de usuario!";
+	}
 
-	if($user->register($uname,$umail,$upass)){	
-		$user->redirect('index.php?joined');
-	}	
+	else
+	{
+		try
+		{
+			$stmt = $user->runQuery("UPDATE user_pass FROM users WHERE user_name=:uname");
+			$stmt->execute(array(':uname'=>$uname, ':upass'=>$upass));
+			$row=$stmt->fetch(PDO::FETCH_ASSOC);
+		
+
+			if($user->register($uname,$upass)){	
+				$user->redirect('index.php?joined');
+			}
+		}
+	}
 }
 
 ?>
@@ -64,6 +79,11 @@ if(isset($_POST['btn-signup']))
                  <?php
 			}
 			?>
+
+			<div class="form-group">
+            	<input type="text" class="form-control" name="txt_uname" placeholder="Usuário" />
+            </div>
+
             <div class="form-group">
             	<input type="password" class="form-control" name="txt_upass" placeholder="Senha" />
             </div>
