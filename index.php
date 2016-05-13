@@ -76,7 +76,7 @@ if(isset($_POST['btn-login']))
       	<br />
             <label>Não possui uma conta? <a href="sign-up.php">Registre-se</a></label>
             <br>
-            <label><a href="#">Esqueci minha senha</label>
+            <label><a href="esqueci.php">Esqueci minha senha</a></label>
       </form>
 
     </div>
