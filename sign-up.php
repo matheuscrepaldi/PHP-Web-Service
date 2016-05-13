@@ -15,19 +15,19 @@ if(isset($_POST['btn-signup']))
 	$upass = strip_tags($_POST['txt_upass']);	
 	
 	if($uname=="")	{
-		$error[] = "provide username !";	
+		$error[] = "Preencha o nome de usuário.";	
 	}
 	else if($umail=="")	{
-		$error[] = "provide email id !";	
+		$error[] = "Preencha o email.";	
 	}
 	else if(!filter_var($umail, FILTER_VALIDATE_EMAIL))	{
-	    $error[] = 'Please enter a valid email address !';
+	    $error[] = 'Digite um email válido!';
 	}
 	else if($upass=="")	{
-		$error[] = "provide password !";
+		$error[] = "Digite uma senha!";
 	}
 	else if(strlen($upass) < 6){
-		$error[] = "Password must be atleast 6 characters";	
+		$error[] = "A senha deve possuir no mínimo 6 caracteres!";	
 	}
 	else
 	{
@@ -38,10 +38,10 @@ if(isset($_POST['btn-signup']))
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
 				
 			if($row['user_name']==$uname) {
-				$error[] = "sorry username already taken !";
+				$error[] = "Nome de usuário existente!";
 			}
 			else if($row['user_email']==$umail) {
-				$error[] = "sorry email id already taken !";
+				$error[] = "Email já cadastrado!";
 			}
 			else
 			{
@@ -62,7 +62,7 @@ if(isset($_POST['btn-signup']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Coding Cage : Sign up</title>
+<title>Registrar-se</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="style.css" type="text/css"  />
@@ -74,7 +74,7 @@ if(isset($_POST['btn-signup']))
 <div class="container">
     	
         <form method="post" class="form-signin">
-            <h2 class="form-signin-heading">Sign up.</h2><hr />
+            <h2 class="form-signin-heading">Registrar-se.</h2><hr />
             <?php
 			if(isset($error))
 			{
@@ -91,28 +91,28 @@ if(isset($_POST['btn-signup']))
 			{
 				 ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Registrado com sucesso! <a href='index.php'>login</a> here
                  </div>
                  <?php
 			}
 			?>
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            <input type="text" class="form-control" name="txt_uname" placeholder="Nome de usuário" value="<?php if(isset($error)){echo $uname;}?>" />
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail ID" value="<?php if(isset($error)){echo $umail;}?>" />
+            <input type="text" class="form-control" name="txt_umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
             </div>
             <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />
+            	<input type="password" class="form-control" name="txt_upass" placeholder="Senha" />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
             	<button type="submit" class="btn btn-primary" name="btn-signup">
-                	<i class="glyphicon glyphicon-open-file"></i>&nbsp;SIGN UP
+                	<i class="glyphicon glyphicon-open-file"></i>&nbsp;Registrar-se
                 </button>
             </div>
             <br />
-            <label>have an account ! <a href="index.php">Sign In</a></label>
+            <label>Já possui uma conta? <a href="index.php">Entrar</a></label>
         </form>
        </div>
 </div>
