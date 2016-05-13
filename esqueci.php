@@ -1,50 +1,19 @@
 <?php
-session_start();
-require_once('class.user.php');
-$user = new USER();
+  //1 – Definimos Para quem vai ser enviado o email
+  $para = "vainer_fabri@hotmail.com";
+  
+//5 – agora inserimos as codificações corretas e  tudo mais.
+  $headers =  "Content-Type:text/html; charset=UTF-8\n";
+  $headers .= "From:  vcprefeito.com.br<sysadmin@vcprefeito.com.br>\n"; //Vai ser //mostrado que  o email partiu deste email e seguido do nome
+  $headers .= "X-Sender:  <sysadmin@vcprefeito.com.br>\n"; //email do servidor //que enviou
+  $headers .= "X-Mailer: PHP  v".phpversion()."\n";
+  $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
+  $headers .= "Return-Path:  <sysadmin@vcprefeito.com.br>\n"; //caso a msg //seja respondida vai para  este email.
+  $headers .= "MIME-Version: 1.0\n";
 
-if($user->is_loggedin()!="")
-{
-	$user->redirect('home.php');
-}
+		mail($para, $headers);  //função que faz o envio do email.
+  ?>
 
-if(isset($_POST['btn-signup']))
-{
-	$upass = strip_tags($_POST['txt_upass']);
-	$uname = strip_tags($_POST['txt_uname']);
-
-	if($upass=="")	{
-		$error[] = "Digite uma senha!";
-	}
-
-	else if(strlen($upass) < 6){
-		$error[] = "A senha deve possuir no mínimo 6 caracteres!";	
-	}
-	elseif (strlen($uname=="")) {
-		$error[] = "Preencha o nome de usuario!";
-	}
-
-	else
-	{
-		try
-		{
-			$stmt = $user->runQuery("UPDATE users SET user_pass=:upass WHERE user_name=:uname");
-			$stmt->execute(array(':uname'=>$uname, ':upass'=>$upass));
-			$row=$stmt->fetch(PDO::FETCH_ASSOC);
-		
-
-			if($user->register($uname,$upass)){	
-				$user->redirect('index.php?joined');
-			}
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}
-}
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -78,22 +47,13 @@ if(isset($_POST['btn-signup']))
 			{
 				 ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Senha alterada com sucesso <a href='index.php'>Entrar</a> aqui
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Email enviado! <a href='index.php'>Entrar</a> aqui
                  </div>
                  <?php
 			}
 			?>
-
-			<div class="form-group">
-            	<input type="text" class="form-control" name="txt_uname" placeholder="Usuário" />
-            </div>
-
             <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Senha" />
-            </div>
-
-            <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Digite novamente" />
+            	<input type="text" class="form-control" name="txt_upass" placeholder="Email para redefinição" />
             </div>
 
             <div class="clearfix"></div><hr />
