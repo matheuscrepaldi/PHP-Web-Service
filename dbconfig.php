@@ -2,8 +2,8 @@
 class Database
 {   
     private $host = "mysql.hostinger.com.br";
-    private $db_name = "u633448963_root";
-    private $username = "root";
+    private $db_name = "u633448963_login";
+    private $username = "u633448963_root";
     private $password = "123456";
     public $conn;
      
