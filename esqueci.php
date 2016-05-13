@@ -12,7 +12,7 @@ if(isset($_POST['btn-signup']))
 {
 	$upass = strip_tags($_POST['txt_upass']);	
 	
-	else if($upass=="")	{
+	if($upass=="")	{
 		$error[] = "Digite uma senha!";
 	}
 	else if(strlen($upass) < 6){
