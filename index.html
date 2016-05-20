@@ -29,36 +29,25 @@
     </nav>
 
     <style>
-   		 .google-maps {
-      		  position: relative;
-      		  padding-bottom: 75%;
-        	  height: 0;
-       		  overflow: hidden;
-   		 }
-	   	 .google-maps iframe {
-	      	  position: absolute;
-	       	 top: 0;
-	       	 left: 0;
-	      	 width: 100% !important;
-	      	 height: 100% !important;
-   			 }
+   		 .map-responsive{
+    		overflow:hidden;
+   			padding-bottom:56.25%;
+    		position:relative;
+    		height:0;
+		}
+		.map-responsive iframe{
+		    left:0;
+		    top:0;
+		    height:100%;
+		    width:100%;
+		    position:absolute;
+		}
 	</style>
 
 <p>
-    <div class="google-maps">
-   		 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-		<div style='overflow:hidden;height:450px;width:600px;'>
-			<div id='gmap_canvas' style='height:450px;width:600px;'></div>
-			<div><small><a href="http://embedgooglemaps.com">embed google map</a></small></div>
-				<div>
-					<small><a href="http://proxysitereviews.com/instantproxies/">instant proxies</a></small>
-				</div>
-			<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-		</div>
-
-		<script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(-21.4044336,-50.475110599999994),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-21.4044336,-50.475110599999994)});infowindow = new google.maps.InfoWindow({content:'<strong>Denúncias</strong><br>Bilac, Brasil<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
-		</script>
-	</div>
+	<div class="map-responsive">
+  	  <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463764622779" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  	</div>
 </p>
 
 	<p class="blockquote-reverse" style="margin-top:200px;">
