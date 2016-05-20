@@ -79,7 +79,7 @@
        
         
     <p class="blockquote-reverse" style="margin-top:200px;">
-    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:700px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">									embed google map							</a></small></div><div><small><a href="http://www.proxysitereviews.com /lime-proxies/">lime proxies</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(-21.2028539,-50.453679299999976),mapTypeId: google.maps.MapTypeId.SATELLITE};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-21.2028539,-50.453679299999976)});infowindow = new google.maps.InfoWindow({content:'<strong>Denúncias Locais</strong><br>Araçatuba,Brazil<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463762108690" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </p>
 
     <p class="blockquote-reverse" style="margin-top:200px;">
