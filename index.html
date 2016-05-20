@@ -29,30 +29,19 @@
     </nav>
 
     <style>
-
-    #map_canvas {
-   		display: block;
-  		 height: 400px;
-	}
-	
-    <div class="map_container">
-   	 <div id="map_canvas" class="map_canvas"></div>
-	</div>
    		 .map-responsive{
-    		position: relative;
-    		width: 100%;
-    		padding-bottom: 56.25%;
+    		overflow:hidden;
+   			padding-bottom:48%;
+    		position:relative;
+    		height:0;
 		}
-		
-		.map-responsive  {
-		position: absolute;
-	   	top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    margin: 0;
-	    padding: 0;
-	}
+		.map-responsive iframe{
+		    left:0;
+		    top:0;
+		    height:100%;
+		    width:100%;
+		    position:absolute;
+		}
 	</style>
 
 <p>
