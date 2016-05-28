@@ -31,7 +31,7 @@ if(isset($_POST['btn-login']))
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -59,26 +59,28 @@ if(isset($_POST['btn-login']))
       </div><!-- /.login-logo -->
       <div class="login-box-body">
 <form action="index2.html" method="post">
-      <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Senha">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Manter conectado
-                </label>
-              </div>
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
-            </div><!-- /.col -->
-          </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
+          <span id="check-e"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="txt_password" placeholder="Senha" />
+        </div>
+
+          <hr />
+        
+        <div class="form-group">
+            <button type="submit" name="btn-login" class="btn btn-default">
+                  <i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
+            </button>
+        </div>  
+        <br />
+            <label>Não possui uma conta? <a href="sign-up.php">Registre-se</a></label>
+            <br>
+            <label><a href="esqueci.php">Esqueci minha senha</a></label>
+            
         </form>
 
         <div class="social-auth-links text-center">
