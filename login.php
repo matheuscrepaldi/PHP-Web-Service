@@ -68,8 +68,6 @@ if(isset($_POST['btn-login']))
         <div class="form-group">
             <input type="password" class="form-control" name="txt_password" placeholder="Senha" />
         </div>
-
-          <hr />
         
         <div class="form-group">
             <div class="col-xs-4">
