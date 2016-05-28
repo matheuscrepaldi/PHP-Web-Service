@@ -72,9 +72,9 @@ if(isset($_POST['btn-login']))
           <hr />
         
         <div class="form-group">
-            <button type="submit" name="btn-login" class="btn btn-default">
-                  <i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
-            </button>
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+            </div><!-- /.col -->
         </div>  
         <br />
             <label>Não possui uma conta? <a href="sign-up.php">Registre-se</a></label>
