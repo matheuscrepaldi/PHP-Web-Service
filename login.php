@@ -89,9 +89,6 @@ if(isset($_POST['btn-login']))
           <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar com o Facebook</a>
         </div><!-- /.social-auth-links -->
 
-        <a href="esqueci.php">Esqueci minha senha</a><br>
-        <a href="sign-up.php" class="text-center">Registrar-se</a>
-
       </div><!-- /.login-box-body -->
 
     </div><!-- /.login-box -->
