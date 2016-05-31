@@ -52,11 +52,6 @@ if(isset($_POST['btn-login']))
       <div class="login-logo"><img src="img/logo.png"><br>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-<<<<<<< HEAD
-=======
-      
-<form action="index2.html" method="post">
->>>>>>> origin/master
 
       <div class="form-group">
           <input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
