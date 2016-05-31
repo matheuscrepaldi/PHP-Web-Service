@@ -47,7 +47,7 @@ if(isset($_POST['btn-login']))
 
   </head>
   <body class="hold-transition login-page">
-  <form method="POST" action="index2.html">
+  <!--<form method="POST" action="index2.html">-->
     <div class="login-box">
       <div class="login-logo"><img src="img/logo.png"><br>
       </div><!-- /.login-logo -->
