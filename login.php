@@ -47,13 +47,12 @@ if(isset($_POST['btn-login']))
 
   </head>
   <body class="hold-transition login-page">
-  <form method="POST" action="login.php">
     <div class="login-box">
       <div class="login-logo"><img src="img/logo.png"><br>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       
-<form action="index2.html" method="post">
+<form action="home.php" method="post">
 
       <div class="form-group">
           <input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
