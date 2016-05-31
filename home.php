@@ -3,7 +3,7 @@ include_once 'dbconfig.php';
 
 if(!$user->is_loggedin())
 {
- $user->redirect('login.php');
+ $user->redirect('home.php');
 }
 
 $user_id = $_SESSION['user_session'];
