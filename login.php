@@ -53,7 +53,7 @@ if(isset($_POST['btn-login']))
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       
- <form class="form-signin" method="post" id="login-form">
+ <form method="POST" action="home.php">
 
       <div class="form-group">
           <input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
@@ -75,7 +75,7 @@ if(isset($_POST['btn-login']))
             <br>
             <label><a href="esqueci.php">Esqueci minha senha</a></label>
 
-        </form>
+        
 
         <div class="social-auth-links text-center">
           <p>- OU -</p>
@@ -101,5 +101,6 @@ if(isset($_POST['btn-login']))
         });
       });
     </script>
+    </form>
   </body>
 </html>
