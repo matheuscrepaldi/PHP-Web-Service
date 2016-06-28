@@ -33,16 +33,17 @@ if(isset($_POST['btn-login']))
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="style.css" type="text/css"  />
 </head>
-<body class="hold-transition login-page">
-	<div class="login-box">
-	<div class="login-logo">
-   	 <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
+<body>
 
-	<div class="login-box-body">
+<div class="signin-form">
+
+	<div class="container">
      
         
-       <form class="form-signin" method="post" id="login-form">        
+       <form class="form-signin" method="post" id="login-form">
+      
+        <h2 class="form-signin-heading">Log In to WebApp.</h2><hr />
+        
         <div id="error">
         <?php
 			if(isset($error))
@@ -57,43 +58,28 @@ if(isset($_POST['btn-login']))
         </div>
         
         <div class="form-group">
-       	 	<input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
-        	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
         <span id="check-e"></span>
         </div>
         
         <div class="form-group">
-      	  	<input type="password" class="form-control" name="txt_password" placeholder="Your Password" />
-       	 	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <input type="password" class="form-control" name="txt_password" placeholder="Your Password" />
         </div>
        
      	<hr />
         
         <div class="form-group">
             <button type="submit" name="btn-login" class="btn btn-default">
-                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
+                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; SIGN IN
             </button>
         </div>  
       	<br />
-            <label>Não possui uma conta?<a href="sign-up.php">Registrar-se</a></label>
+            <label>Don't have account yet ! <a href="sign-up.php">Sign Up</a></label>
       </form>
 
     </div>
     
 </div>
-	<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 
-	<script src="../../bootstrap/js/bootstrap.min.js"></script>
-
-	<script src="../../plugins/iCheck/icheck.min.js"></script>
-	<script>
-  		$(function () {
-	    	$('input').iCheck({
-      		checkboxClass: 'icheckbox_square-blue',
-     		 radioClass: 'iradio_square-blue',
-      		increaseArea: '20%' // optional
-   		 });
- 	 });
-	</script>
 </body>
 </html>
