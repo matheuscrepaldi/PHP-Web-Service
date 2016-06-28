@@ -85,7 +85,7 @@ if(isset($_POST['btn-login']))
             </button>
         </div> 
         <div class="social-auth-links text-center">
-      <p>- OR -</p>
+      <p>- OU -</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
 
