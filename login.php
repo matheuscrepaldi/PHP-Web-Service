@@ -84,6 +84,10 @@ if(isset($_POST['btn-login']))
                 	<i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
             </button>
         </div> 
+        <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
+    </div>
 
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
