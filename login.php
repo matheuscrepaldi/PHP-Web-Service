@@ -46,7 +46,7 @@ if(isset($_POST['btn-login']))
 <body class="hold-transition login-page">
 	<div class="login-box">
 	<div class="login-logo">
-   	 <a href="img/logo.png"></a>
+   	 <a href="/img/logo.png"></a>
   </div>
 
 	<div class="login-box-body">
@@ -85,10 +85,6 @@ if(isset($_POST['btn-login']))
             </button>
         </div> 
 
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-        </div>
-         
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
       </form>
