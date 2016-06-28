@@ -5,102 +5,81 @@ $login = new USER();
 
 if($login->is_loggedin()!="")
 {
-  $login->redirect('home.php');
+	$login->redirect('home.php');
 }
 
 if(isset($_POST['btn-login']))
 {
-  $uname = strip_tags($_POST['txt_uname_email']);
-  $umail = strip_tags($_POST['txt_uname_email']);
-  $upass = strip_tags($_POST['txt_password']);
-    
-  if($login->doLogin($uname,$umail,$upass))
-  {
-    $login->redirect('home.php');
-  }
-  else
-  {
-    $error = "Dados Incorretos!";
-  } 
+	$uname = strip_tags($_POST['txt_uname_email']);
+	$umail = strip_tags($_POST['txt_uname_email']);
+	$upass = strip_tags($_POST['txt_password']);
+		
+	if($login->doLogin($uname,$umail,$upass))
+	{
+		$login->redirect('home.php');
+	}
+	else
+	{
+		$error = "Wrong Details !";
+	}	
 }
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coding Cage : Login</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="style.css" type="text/css"  />
+</head>
+<body>
 
-<!DOCTYPE html>
+<div class="signin-form">
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Log in</title>
-    
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    
-    <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
-
-  </head>
-  <body class="hold-transition login-page">
-  <!--<form method="POST" action="index2.html">-->
-    <div class="login-box">
-      <div class="login-logo"><img src="img/logo.png"><br>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
+	<div class="container">
+     
+        
+       <form class="form-signin" method="post" id="login-form">
       
- <form method="POST" action="home.php">
-
-      <div class="form-group">
-          <input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
-          <span id="check-e"></span>
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" name="txt_password" placeholder="Senha" />
+        <h2 class="form-signin-heading">Log In to WebApp.</h2><hr />
+        
+        <div id="error">
+        <?php
+			if(isset($error))
+			{
+				?>
+                <div class="alert alert-danger">
+                   <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                </div>
+                <?php
+			}
+		?>
         </div>
         
         <div class="form-group">
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
-            </div><!-- /.col -->
+        <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
+        <span id="check-e"></span>
+        </div>
+        
+        <div class="form-group">
+        <input type="password" class="form-control" name="txt_password" placeholder="Your Password" />
+        </div>
+       
+     	<hr />
+        
+        <div class="form-group">
+            <button type="submit" name="btn-login" class="btn btn-default">
+                	<i class="glyphicon glyphicon-log-in"></i> &nbsp; SIGN IN
+            </button>
         </div>  
-        <br>
-        <br>
-            <label>Não possui uma conta? <a href="sign-up.php">Registre-se</a></label>
-            <br>
-            <label><a href="esqueci.php">Esqueci minha senha</a></label>
-
-        
-
-        <div class="social-auth-links text-center">
-          <p>- OU -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar com o Facebook</a>
-        </div>
-
-      </div>
+      	<br />
+            <label>Don't have account yet ! <a href="sign-up.php">Sign Up</a></label>
+      </form>
 
     </div>
+    
+</div>
 
-    
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    
-    <script src="plugins/iCheck/icheck.min.js"></script>
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' 
-        });
-      });
-    </script>
-    </form>
-  </body>
+</body>
 </html>
