@@ -66,14 +66,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
   */
 
         $_SESSION['email'] = $user->email;
+        $_SESSION['public_profile'] = $user->public_profile;
       }
     }else{
-      echo "Erro de conexão com Facebook";
+      echo "teste";
       exit(0);
     }
 
   }else{
-    echo "Erro de conexão com Facebook";
+    echo "caguei";
     exit(0);
   }
 }else if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['error'])){
@@ -162,7 +163,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
         </div> 
         <div class="social-auth-links text-center">
       <p>- OU -</p>
-      <a href="https://www.facebook.com/dialog/oauth?client_id=1233962869948144&redirect_uri=http://vcprefeito.com.br/login.php&scope=email" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
+      <a href="https://www.facebook.com/dialog/oauth?client_id=1233962869948144&redirect_uri=http://vcprefeito.com.br/login.php&scope=public_profile,email" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
