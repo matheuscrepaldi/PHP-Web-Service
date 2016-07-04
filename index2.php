@@ -266,8 +266,8 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  &nbsp;<?php echo $userRow['user_name']; ?>&nbsp;<span class="caret"></span></a>
+                  <small>Membro desde 2016</small>
                 </p>
               </li>
               <!-- Menu Body -->
