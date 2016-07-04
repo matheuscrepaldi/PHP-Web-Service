@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
   $appSecret = '0e6d3ce6463ddc3a3b33d496be1fcda3';
 
   // Url informada no campo "Site URL"
-  $redirectUri = urlencode('http://vcprefeito.com.br/login.php/');
+  $redirectUri = urlencode('http://www.vcprefeito.com.br/login.php');
 
   // Obtém o código da query string
   $code = $_GET['code'];
