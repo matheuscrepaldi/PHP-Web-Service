@@ -266,7 +266,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  &nbsp;<?php echo $userRow['user_name']; ?>&nbsp;<span class="caret"></span></a>
+                  &nbsp;<?php echo $userRow['user_name'];?>
                   <small>Membro desde 2016</small>
                 </p>
               </li>
