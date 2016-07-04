@@ -47,9 +47,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>VC</b>PREF</span>
+      <span class="logo-mini"><b>M</b>NU</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Vc</b>PREFEITO</span>
+      <span class="logo-lg"><b>M</b>enu</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -291,7 +291,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout.php?logout=true" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
