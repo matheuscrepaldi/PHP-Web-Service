@@ -115,6 +115,15 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Consultar</a></li>
+          </ul>
+        </li>
       </ul>
       </section>
       </aside>
