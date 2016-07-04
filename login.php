@@ -101,6 +101,25 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 </head>
 <body class="hold-transition login-page">
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1233962869948144',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 	<div class="login-box">
 	<div class="login-logo">
    	 <img src="/img/logo.png">
