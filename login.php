@@ -66,10 +66,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
   */
 
         $_SESSION['email'] = $user->email;
-        $_SESSION['nome'] = $user->name;
-        $_SESSION['uid_facebook'] = $user->id;
-        $_SESSION['user_facebook'] = $user->username;
-        $_SESSION['link_facebook'] = $user->link;
       }
     }else{
       echo "Erro de conexão com Facebook";
