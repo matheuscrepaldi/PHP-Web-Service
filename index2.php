@@ -47,9 +47,9 @@
     <!-- Logo -->
     <a href="index2.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>M</b>NU</span>
+      <span class="logo-mini"><b>V</b>C</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>M</b>enu</span>
+      <span class="logo-lg"><b>Vc</b>Prefeito</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
