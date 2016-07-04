@@ -125,7 +125,7 @@
       <div class="row">
         <div class="col-md-12">
 			<div  class="Flexible-container">
-				<iframe  src="'http://maps.google.com/maps/api/geocode/json?address=" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+				<iframe  src="http://maps.google.com/maps/api/js?sensor=true" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 			</div>
             </div>
             <!-- /.info-box-content -->
