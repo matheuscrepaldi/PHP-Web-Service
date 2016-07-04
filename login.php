@@ -147,7 +147,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
         </div> 
         <div class="social-auth-links text-center">
       <p>- OU -</p>
-      <a href="https://www.facebook.com/dialog/oauth?client_id=1233962869948144&redirect_uri=http://vcprefeito.com.br/login.php&scope=email, public_profile" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
+      <a href="https://www.facebook.com/dialog/oauth?client_id=1233962869948144&redirect_uri=http://vcprefeito.com.br/login.php&scope=email" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
