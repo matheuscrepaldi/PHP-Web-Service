@@ -86,9 +86,8 @@ if(isset($_POST['btn-login']))
         </div> 
         <div class="social-auth-links text-center">
       <p>- OU -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
+      <a href="https://www.facebook.com/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&scope=COMMA_SEPARATED_LIST_OF_PERMISSION_NAMES" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
-
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
       </form>
