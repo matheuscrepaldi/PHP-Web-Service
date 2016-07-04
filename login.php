@@ -47,8 +47,6 @@ if(isset($_POST['btn-login']))
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 </head>
 <body class="hold-transition login-page">
- <?php if ($_SESSION['FBID']): ?>
-
 
 	<div class="login-box">
 	<div class="login-logo">
