@@ -64,13 +64,13 @@
     
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
                &nbsp;<?php echo $userRow['user_name']; ?>&nbsp;<span class="caret"></span></a>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
                   &nbsp;<?php echo $userRow['user_name'];?>
@@ -101,7 +101,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p> &nbsp;<?php echo $userRow['user_name']; ?></p>
@@ -112,7 +112,7 @@
       <form action="#" method="get" class="sidebar-form">
       </form>
       <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <!-- BARRA LATERAL -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <li class="treeview">
