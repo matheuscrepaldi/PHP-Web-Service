@@ -16,7 +16,7 @@ use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '1233962869948144','0e6d3ce6463ddc3a3b33d496be1fcda3' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://vcprefeito.com.br/' );
+    $helper = new FacebookRedirectLoginHelper('http://vcprefeito.com.br/index2.php' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
