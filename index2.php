@@ -1,6 +1,8 @@
 <?php
-session_start();
+
   require_once("session.php");
+
+  require_once("fbconfig.php");
   
   require_once("class.user.php");
   $auth_user = new USER();
