@@ -161,8 +161,18 @@
 
         <script>
           function chamarPhpAjax() {
-            header('Location: Teste.html');
-          }
+          $.ajax({
+          url:'Teste.html',
+          complete: function (response) {
+          header('Location: Teste.html');
+        },
+          error: function () {
+          alert('Erro');
+      }
+  });  
+
+  return false;
+}
 </script>
 			</div>
             </div>
