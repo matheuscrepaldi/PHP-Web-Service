@@ -164,7 +164,8 @@
           $.ajax({
           url:'Teste.html',
           complete: function (response) {
-          include 'Teste.html';
+          <?php include ('Teste.html');?>
+          <?php require_once("Teste.html");?>
         },
           error: function () {
           alert('Erro');
