@@ -162,7 +162,7 @@
         <script>
           function chamarPhpAjax() {
           $.ajax({
-          url:'Teste.html',
+          url:'index2.php',
           complete: function (response) {
           alert(response.responseText);
         },
