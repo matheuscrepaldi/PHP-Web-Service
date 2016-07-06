@@ -156,11 +156,15 @@
       <!-- Info boxes -->
       <div class="row">
         <div class="col-md-12">
-			
-				        
-            <iframe src="Teste.html" width="425" height="350" scrolling="no" frameborder="0" align="left"></iframe> 
+			<div  class="Flexible-container">
+				<iframe  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463764622779" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 
-			
+        <script>
+          function chamarPhpAjax() {
+            header('Location: Teste.html');
+          }
+</script>
+			</div>
             </div>
             <!-- /.info-box-content -->
           </div>
