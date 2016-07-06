@@ -20,7 +20,7 @@ if(isset($_POST['btn-login']))
 	}
 	else
 	{
-		$error = "Wrong Details !";
+		$error = "Dados incorretos!";
 	}	
 }
 
