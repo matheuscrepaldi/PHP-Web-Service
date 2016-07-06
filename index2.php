@@ -161,7 +161,7 @@
 
         <script>
           function Denuncias(){
-            chama alguma coisaaa cão
+            <?php include("Teste.html");?>
           }
         </script>
 			</div>
