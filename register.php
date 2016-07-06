@@ -132,8 +132,10 @@ if(isset($_POST['btn-signup']))
           
         </div>
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="btn-signup">
+               <i class="glyphicon glyphicon-open-file"></i>&nbsp;Registrar-se
+             </button>
         </div>
         <!-- /.col -->
       </div>
