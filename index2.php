@@ -156,11 +156,11 @@
       <!-- Info boxes -->
       <div class="row">
         <div class="col-md-12">
-			<div  class="Flexible-container">
+			
 				        
-            <iframe src="Teste.html" width="800" height="350" scrolling="no" frameborder="0" align="left"></iframe> 
+            <iframe src="Teste.html" width="1033" height="350" scrolling="no" frameborder="0" align="left"></iframe> 
 
-			</div>
+			
             </div>
             <!-- /.info-box-content -->
           </div>
