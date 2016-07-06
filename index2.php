@@ -164,7 +164,7 @@
           $.ajax({
           url:'Teste.html',
           complete: function (response) {
-          alert(return url:'Teste.html');
+          alert(response.responseText);
         },
           error: function () {
           alert('Erro');
