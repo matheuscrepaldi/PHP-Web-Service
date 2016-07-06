@@ -93,7 +93,7 @@ if(isset($_POST['btn-login']))
       <a href="fbconfig.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
       	<br />
-            <label>Não possui uma conta?<a href="register.php"> Registrar-se</a></label>
+            <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
       </form>
 
     </div>
