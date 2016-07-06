@@ -158,7 +158,7 @@
         <div class="col-md-12">
 			
 				        
-            <iframe src="Teste.html" width="1033" height="350" scrolling="no" frameborder="0" align="left"></iframe> 
+            <iframe src="Teste.html" width="425" height="350" scrolling="no" frameborder="0" align="left"></iframe> 
 
 			
             </div>
