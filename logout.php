@@ -18,5 +18,5 @@
     $_SESSION['FBID'] = NULL;
     $_SESSION['FULLNAME'] = NULL;
     $_SESSION['EMAIL'] =  NULL;
-	header("Location: index.php");
+	header("Location: index2.php");
 ?> 
