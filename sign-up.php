@@ -58,14 +58,24 @@ if(isset($_POST['btn-signup']))
 }
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registrar-se</title>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="style.css" type="text/css"  />
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VcPrefeito | Registrar-se</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 </head>
 <body>
 
@@ -96,15 +106,21 @@ if(isset($_POST['btn-signup']))
                  <?php
 			}
 			?>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Nome de usuário" value="<?php if(isset($error)){echo $uname;}?>" />
-            </div>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
-            </div>
-            <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Senha" />
-            </div>
+            <div class="form-group has-feedback">
+        		<input type="text" class="form-control" name="txt_uname" placeholder="Nome de usuário" value="<?php if(isset($error)){echo $uname;}?>" />
+       			 <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      		</div>
+
+     		 <div class="form-group has-feedback">
+       			 <input type="email" class="form-control" name="txt_umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
+       			 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+     		 </div>
+
+      		<div class="form-group has-feedback">
+        		<input type="password" class="form-control" name="txt_upass" placeholder="Senha">
+        		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      		</div>
+      		
             <div class="clearfix"></div><hr />
             <div class="form-group">
             	<button type="submit" class="btn btn-primary" name="btn-signup">
