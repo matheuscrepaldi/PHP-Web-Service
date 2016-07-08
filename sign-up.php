@@ -80,7 +80,9 @@ if(isset($_POST['btn-signup']))
 <body class="hold-transition register-page">
 
 <div class="register-box">
-
+	<div class="login-logo">
+   		 <img src="/img/logo.png">
+  	</div>
 	<div class="register-box-body">
     	
         <form method="post" class="form-signin">
