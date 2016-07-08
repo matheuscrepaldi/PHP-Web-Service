@@ -79,7 +79,9 @@ if(isset($_POST['btn-signup']))
 </head>
 <body class="hold-transition register-page">
 
-<div class="register-box-body">
+<div class="register-box">
+
+	<div class="register-box-body">
     	
         <form method="post" class="form-signin">
             <h2 class="form-signin-heading">Registrar-se.</h2><hr />
