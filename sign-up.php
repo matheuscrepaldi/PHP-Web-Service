@@ -5,7 +5,7 @@ $user = new USER();
 
 if($user->is_loggedin()!="")
 {
-	$user->redirect('home.php');
+	$user->redirect('login.php');
 }
 
 if(isset($_POST['btn-signup']))

@@ -5,7 +5,7 @@ $user = new USER();
 
 if($user->is_loggedin()!="")
 {
-  $user->redirect('home.php');
+  $user->redirect('login.php');
 }
 
 if(isset($_POST['btn-signup']))
@@ -58,6 +58,7 @@ if(isset($_POST['btn-signup']))
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,13 +87,16 @@ if(isset($_POST['btn-signup']))
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Vc</b>Prefeito</a>
+  </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg">Registrar um novo usuário</p>
-
+    <p class="login-box-msg">Registrar-se</p>
 
     <form action="../../index.html" method="post">
-    <?php
+      <div class="form-group has-feedback">
+      <?php
       if(isset($error))
       {
         foreach($error as $error)
@@ -108,13 +112,12 @@ if(isset($_POST['btn-signup']))
       {
          ?>
             <div class="alert alert-info">
-               <i class="glyphicon glyphicon-log-in"></i> &nbsp; Registrado com sucesso! <a href='login.php'>login</a> here
-            </div>
+                <i class="glyphicon glyphicon-log-in"></i> &nbsp; Registrado com sucesso! <a href='login.php'>login</a> here
+             </div>
           <?php
-       }
-      ?>
+      }
+    ?>
 
-      <div class="form-group has-feedback">
         <input type="text" class="form-control" name="txt_uname" placeholder="Nome de usuário" value="<?php if(isset($error)){echo $uname;}?>" />
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
@@ -126,28 +129,30 @@ if(isset($_POST['btn-signup']))
         <input type="password" class="form-control" name="txt_upass" placeholder="Senha">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-
       <div class="row">
         <div class="col-xs-8">
-          
+          <div class="checkbox icheck">
+          </div>
         </div>
         <!-- /.col -->
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="btn-signup">
-               <i class="glyphicon glyphicon-open-file"></i>&nbsp;Registrar-se
-             </button>
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary" name="btn-signup">
+              <i class="glyphicon glyphicon-open-file"></i>&nbsp;Registrar-se
+          </button>
         </div>
+         <br />
+            <label>Já possui uma conta? <a href="login.php">Entrar</a></label>
         <!-- /.col -->
       </div>
     </form>
 
     <div class="social-auth-links text-center">
       <p>- OU -</p>
-      <a href="fbconfig.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
+      <a href="fbconfig.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar usando
         Facebook</a>
     </div>
 
-    <a href="login.php" class="text-center">Já sou cadastrado</a>
+    <a href="login.html" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>
