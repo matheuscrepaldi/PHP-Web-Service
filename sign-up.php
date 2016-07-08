@@ -79,7 +79,7 @@ if(isset($_POST['btn-signup']))
 </head>
 <body>
 
-<div class="signin-form">
+<div class="register-box-body">
 
 <div class="container">
     	
