@@ -77,11 +77,9 @@ if(isset($_POST['btn-signup']))
   <!-- iCheck -->
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 </head>
-<body>
+<body class="hold-transition register-page">
 
 <div class="register-box-body">
-
-<div class="container">
     	
         <form method="post" class="form-signin">
             <h2 class="form-signin-heading">Registrar-se.</h2><hr />
@@ -130,7 +128,6 @@ if(isset($_POST['btn-signup']))
             <br />
             <label>Já possui uma conta? <a href="login.php">Entrar</a></label>
         </form>
-       </div>
 </div>
 
 </div>
