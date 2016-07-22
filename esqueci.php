@@ -8,7 +8,7 @@
 			
 			$email    = utf8_decode (addslashes((strip_tags(trim($_POST['user_email'])))));
 				
-				 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_email='user_email' ");
+				 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_email='email' ");
 
 				 try{
 				 	$result = $conexao->prepare($stmt);
