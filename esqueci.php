@@ -64,7 +64,7 @@
 				 	}
 				 }
 				
-		}//SE CLICAR
+		//SE CLICAR
 ?>
 
 <!--FIM DO CODIGO DE RECUPERAÇÃO DE SENHA -->
