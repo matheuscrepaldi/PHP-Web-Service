@@ -3,15 +3,11 @@
   $para = "vainer_fabri@hotmail.com";
   
 //5 – agora inserimos as codificações corretas e  tudo mais.
-  $headers =  "Content-Type:text/html; charset=UTF-8\n";
-  $headers .= "From:  vcprefeito.com.br<sysadmin@vcprefeito.com.br>\n"; //Vai ser //mostrado que  o email partiu deste email e seguido do nome
-  $headers .= "X-Sender:  <sysadmin@vcprefeito.com.br>\n"; //email do servidor //que enviou
-  $headers .= "X-Mailer: PHP  v".phpversion()."\n";
-  $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
-  $headers .= "Return-Path:  <sysadmin@vcprefeito.com.br>\n"; //caso a msg //seja respondida vai para  este email.
-  $headers .= "MIME-Version: 1.0\n";
+ 
+  $headers .= "LINK DA RECUPERAÇÃO";
+  $corpo   .= "TESTE"
 
-		mail($para, $headers, $headers);  //função que faz o envio do email.
+		mail($para, $headers, $corpo);  //função que faz o envio do email.
   ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
