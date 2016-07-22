@@ -9,11 +9,12 @@
   $headers .= "X-Mailer: PHP  v".phpversion()."\n";
   $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
   $headers .= "Return-Path:  <sysadmin@vcprefeito.com.br>\n"; //caso a msg //seja respondida vai para  este email.
-  $headers .= "MIME-Version: 1.0\n";
+  $headers .= "MIME-Version: 1.0\n"
+  $assunto .= "Contato - VcPrefeito";
 
   $corpo   .="TESTE";
 
-		mail($para, $headers, $corpo);  //função que faz o envio do email.
+		mail($para, $assunto, $corpo);  //função que faz o envio do email.
   ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
