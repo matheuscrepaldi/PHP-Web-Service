@@ -61,6 +61,8 @@
 				 		}else{
 				 			echo '<strong>Erro ao recuperar!</strong> O email digitado não consta cadastrado em nosso sistema';
 				 		}
+				 	}catch(PDOException $e){
+				 		echo $e;
 				 	}
 				 }
 				
