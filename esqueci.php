@@ -10,7 +10,7 @@
   $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
   $headers .= "Return-Path:  <sysadmin@vcprefeito.com.br>\n"; //caso a msg //seja respondida vai para  este email.
   $headers .= "MIME-Version: 1.0\n"
-  $assunto .= "Contato - VcPrefeito";
+  $assunto = "Contato - VcPrefeito";
 
   $corpo   .="TESTE";
 
