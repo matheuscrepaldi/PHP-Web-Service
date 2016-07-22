@@ -94,6 +94,8 @@ if(isset($_POST['btn-login']))
     </div>
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
+        <br />
+            <label>Esqueci minha senha!<a href="esqueci.php"></a></label>
       </form>
 
     </div>
