@@ -1,0 +1,5 @@
+config email recupera
+
+email: recuperar@vcprefeito.com.br
+
+senha: recoverpassword
