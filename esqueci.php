@@ -6,7 +6,7 @@
 		// ISSO É UM EXEMPLO, VOCÊ TERÁ QUE ADAPTAR AO SEU PROJETO, OK?
 		if(isset($_POST['recuperar'])){
 			
-			$email    = utf8_decode (addslashes((strip_tags(trim($_POST['user_email'])))));
+			$email    = utf8_decode (addslashes((strip_tags(trim($_POST['email'])))));
 				
 				 $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_email='email' ");
 
