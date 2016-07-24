@@ -237,7 +237,7 @@
           </div>-->
           <br/>
           <div class="col-xs-12 text-center">
-          <button type="button" class="btn btn-default btn-lrg" title="Salvar">
+          <button type="submit" class="btn btn-default btn-lrg" title="Salvar">
           <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           </button>
 
