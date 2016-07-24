@@ -3,6 +3,8 @@
   require_once("session.php");
   
   require_once("class.user.php");
+  require_once("class.denuncia.php");
+
   $auth_user = new USER();
   $auth_denuncia = new DENUNCIA();
    
