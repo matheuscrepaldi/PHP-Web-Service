@@ -4,14 +4,50 @@
   
   require_once("class.user.php");
   $auth_user = new USER();
-  
-  
+  $auth_denuncia = new DENUNCIA();
+   
   $user_id = $_SESSION['user_session'];
   
   $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
   $stmt->execute(array(":user_id"=>$user_id));
+
+  $atualiza = $auth_denuncia->runQuery("SELECT * FROM denuncias WHERE id_denuncia=:id_denuncia");
+  $atualiza->execute(array(":id_denuncia"=>$id_denuncia));
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+  $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
+
+  if(isset($_POST['Ajax Request']))
+{
+	$udata = strip_tags($_POST['data']);
+	$uassunto = strip_tags($_POST['assunto']);
+	$udescricao = strip_tags($_POST['descricao']);	
+	
+	if($udata=="")	{
+		$error[] = "Preencha a data.";	
+	}
+	else if($uassunto=="")	{
+		$error[] = "Preencha o assunto.";	
+	}
+	
+	else if($udescricao=="")	{
+		$error[] = "Digite a descrição da denúncia.";
+	}
+	else
+	{
+		try
+		{
+			$atualiza = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
+			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
+			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
+			
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}	
+}
 
 ?>
 
@@ -95,10 +131,6 @@
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
