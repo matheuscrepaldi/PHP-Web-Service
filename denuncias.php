@@ -169,8 +169,8 @@
           <br />
           
            <div class="form-group">
-            <div class="col-md-6"> 
-      	  		<p align="center" input type="date" class="form-control" name="data" placeholder="Data" />
+            <div class="col-md-2"> 
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
        	  </div>
