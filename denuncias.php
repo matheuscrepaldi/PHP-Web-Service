@@ -19,7 +19,7 @@
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
   $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
 
-  if(isset($_POST['Ajax Request']))
+  if(isset($_POST['Salvar']))
 {
 	$udata = strip_tags($_POST['data']);
 	$uassunto = strip_tags($_POST['assunto']);
