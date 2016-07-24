@@ -170,6 +170,7 @@
        	 	</div>
        	  </div>
 
+			<br />
        	  <div class="form-group">
        	  	<div class="col-md-6"> 
       	  		<input type="text" class="form-control" name="assunto" placeholder="Assunto" />
@@ -177,6 +178,8 @@
        	 	</div>
        	  </div>
 
+       	  <br />
+       	  
        	  <div class="form-group">
        	 	 <div class="col-md-6"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
