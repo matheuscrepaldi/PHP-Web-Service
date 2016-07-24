@@ -164,18 +164,24 @@
           <br />
 
            <div class="form-group">
+            <div class="col-md-6"> 
       	  		<input type="date" class="form-control" name="data" placeholder="Data" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	 	</div>
        	  </div>
 
        	  <div class="form-group">
+       	  	<div class="col-md-6"> 
       	  		<input type="text" class="form-control" name="assunto" placeholder="Assunto" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	 	</div>
        	  </div>
 
        	  <div class="form-group">
+       	 	 <div class="col-md-6"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	 	</div>
        	  </div>
 
           <br />
