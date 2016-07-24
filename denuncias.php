@@ -179,7 +179,7 @@
 			<br />
        	  <div class="form-group">
        	  	<div class="col-md-6"> 
-      	  		<input type="text" class="form-control" name="assunto" placeholder="Assunto" />
+      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" /></p>
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
        	  </div>
