@@ -235,10 +235,16 @@
             <i class="fa fa-spin fa-refresh"></i>&nbsp; Salvar
           </button>
           </div>-->
+          <br/>
           <div class="col-xs-12 text-center">
           <button type="button" class="btn btn-default btn-lrg" title="Salvar">
           <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           </button>
+
+          <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
+          <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
+          </button>
+
           </div>
 
           </div>
