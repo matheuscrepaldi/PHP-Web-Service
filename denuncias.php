@@ -235,6 +235,12 @@
             <i class="fa fa-spin fa-refresh"></i>&nbsp; Salvar
           </button>
           </div>
+
+          <div class="col-xs-12 text-center">
+          <button type="button" class="btn btn-default btn-lrg" title="Salvar">
+          </button>
+          </div>
+
           </div>
             <div class="ajax-content">
             </div>
