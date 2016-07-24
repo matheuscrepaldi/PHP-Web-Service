@@ -105,6 +105,42 @@
     </nav>
   </header>
 
+<!-- Config da barra lateral-->
+
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p> &nbsp;<?php echo $userRow['user_name']; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+      </form>
+      <!-- /.search form -->
+      <!-- BARRA LATERAL -->
+      <ul class="sidebar-menu">
+        <li class="header">MENU</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="denuncias.php"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Consultar</a></li>
+          </ul>
+        </li>
+      </ul>
+      </section>
+      </aside>
+<!-- Fim barra lateral-->
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
