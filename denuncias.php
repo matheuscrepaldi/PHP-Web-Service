@@ -203,7 +203,7 @@
           <br />
           
            <div class="form-group">
-            <div class="col-md-2"> 
+            <div class="col-xs-2"> 
       	  		<input type="date" class="form-control" name="data" placeholder="Data" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
@@ -212,7 +212,7 @@
        	  	<br />
 			<br />
        	  <div class="form-group">
-       	  	<div class="col-md-6"> 
+       	  	<div class="col-xs-12"> 
       	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" /></p>
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
@@ -222,7 +222,7 @@
        	  <br />
 
        	  <div class="form-group">
-       	 	 <div class="col-md-6"> 
+       	 	 <div class="col-xs-12"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
