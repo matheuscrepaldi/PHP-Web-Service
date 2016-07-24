@@ -128,6 +128,10 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <li class="treeview">
+		<a href="index2.php">
+            <i class="fa fa-dashboard"></i> <span>Início</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -162,14 +166,16 @@
         <div class="box-body">
           
           <br />
-
+          <br />
+          
            <div class="form-group">
             <div class="col-md-6"> 
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" />
+      	  		<p align="center" input type="date" class="form-control" name="data" placeholder="Data" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
        	  </div>
 
+       	  	<br />
 			<br />
        	  <div class="form-group">
        	  	<div class="col-md-6"> 
@@ -179,7 +185,8 @@
        	  </div>
 
        	  <br />
-       	  
+       	  <br />
+
        	  <div class="form-group">
        	 	 <div class="col-md-6"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
