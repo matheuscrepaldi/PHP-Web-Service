@@ -208,7 +208,7 @@
        	  	<br />
 			<br />
        	  <div class="form-group">
-       	  	<div class="col-xs-12"> 
+       	  	<div class="col-xs-6"> 
       	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" /></p>
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
@@ -218,7 +218,7 @@
        	  <br />
 
        	  <div class="form-group">
-       	 	 <div class="col-xs-12"> 
+       	 	 <div class="col-xs-6"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
        	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
        	 	</div>
