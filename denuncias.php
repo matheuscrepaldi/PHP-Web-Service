@@ -88,7 +88,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="../../index2.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>V</b>C</span>
       <!-- logo for regular state and mobile devices -->
@@ -162,12 +162,6 @@
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <li class="treeview">
-		<a href="index2.php">
-            <i class="fa fa-dashboard"></i> <span>Início</span> <i class="fa fa-angle-left pull-right"></i>
-        </a>
-
-        <br/>
-        
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
