@@ -146,14 +146,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Pace page
-        <small>Loading example</small>
+        Denúncias
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Pace page</li>
-      </ol>
+      
     </section>
 
     <!-- Main content -->
@@ -162,23 +157,32 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+          <h3 class="box-title">Realizar denúncia</h3>
         </div>
         <div class="box-body">
           
           <br />
+
+           <div class="form-group">
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" />
+       	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	  </div>
+
+       	  <div class="form-group">
+      	  		<input type="text" class="form-control" name="assunto" placeholder="Assunto" />
+       	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	  </div>
+
+       	  <div class="form-group">
+      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
+       	 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+       	  </div>
+
           <br />
           <div class="row">
           <div class="col-xs-12 text-center">
           <button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-            <i class="fa fa-spin fa-refresh"></i>&nbsp; Recarregar
+            <i class="fa fa-spin fa-refresh"></i>&nbsp; Salvar
           </button>
           </div>
           </div>
