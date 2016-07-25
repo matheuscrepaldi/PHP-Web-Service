@@ -3,6 +3,7 @@
   require_once("session.php");
   
   require_once("class.user.php");
+
   require_once("class.denuncia.php");
 
   $auth_user = new USER();
@@ -17,7 +18,8 @@
   $stmt->execute(array(":id_denuncia"=>$id_denuncia));
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-  $denunciaRow=$stmt->fetch(PDO::FETCH_ASSOC);
+
+  //$denunciaRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
   if(isset($_POST['btn-salvar']))
 {
@@ -219,7 +221,7 @@
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" value="<?php if(isset($error)){echo $udescricao;}?>" />
+      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" size=500 value="<?php if(isset($error)){echo $udescricao;}?>" />
        	 	</div>
        	  </div>
 
