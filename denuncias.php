@@ -129,7 +129,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="logout.php?logout=true" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -230,7 +230,7 @@
           </div>-->
           <br/>
           <div class="col-xs-12 text-center">
-          <button type="submit" class="btn btn-default btn-lrg" title="btn-salvar">
+          <button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
           <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           </button>
 
