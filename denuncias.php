@@ -83,6 +83,8 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
+<form method="post">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -266,6 +268,7 @@
   </footer>
 
 </div>
+</form>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.0 -->
@@ -291,6 +294,7 @@
             $('.ajax-content').html('<hr>Ajax Request Completed !');
         }});
     });
+
 </script>
 </body>
 </html>
