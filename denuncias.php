@@ -44,6 +44,10 @@
 			$stmt = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
 			$stmt->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
+
+			if($denuncia->register($udata, $uassunto)){
+				echo "Denúncia Gravada."
+			}
 			
 		}
 		catch(PDOException $e)
@@ -221,7 +225,7 @@
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" size=500 value="<?php if(isset($error)){echo $udescricao;}?>" />
+      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição"/>
        	 	</div>
        	  </div>
 
@@ -250,7 +254,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          VcPrefeito.com.br
+          
         </div>
         <!-- /.box-footer-->
       </div>
