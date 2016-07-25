@@ -41,7 +41,7 @@
 	{
 		try
 		{
-			$atualiza = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
+			$atualiza = $auth_user->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
 			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
 			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
 
