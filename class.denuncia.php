@@ -16,8 +16,8 @@ class DENUNCIA
 	
 	public function runQuery($sql)
 	{
-		$atualiza = $this->conn->prepare($sql);
-		return $atualiza;
+		$stmt = $this->conn->prepare($sql);
+		return $stmt;
 	}
 	
 	public function register($udata,$uassunto,$udescricao)
@@ -26,15 +26,15 @@ class DENUNCIA
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$atualiza = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia) 
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia) 
 		                                               VALUES(:udata, :uassunto)");
 												  
-			$atualiza->bindparam(":udata", $udata);
-			$atualiza->bindparam(":uassunto", $uassunto);									  
+			$stmt->bindparam(":udata", $udata);
+			$stmt->bindparam(":uassunto", $uassunto);									  
 				
-			$atualiza->execute();	
+			$stmt->execute();	
 			
-			return $atualiza;	
+			return $stmt;	
 		}
 		catch(PDOException $e)
 		{

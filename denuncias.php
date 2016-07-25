@@ -13,11 +13,11 @@
   $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
   $stmt->execute(array(":user_id"=>$user_id));
 
-  $atualiza = $auth_denuncia->runQuery("SELECT * FROM denuncias WHERE id_denuncia=:id_denuncia");
-  $atualiza->execute(array(":id_denuncia"=>$id_denuncia));
+  $stmt = $auth_denuncia->runQuery("SELECT * FROM denuncias WHERE id_denuncia=:id_denuncia");
+  $stmt->execute(array(":id_denuncia"=>$id_denuncia));
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-  $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
+  $denunciaRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
   if(isset($_POST['btn-salvar']))
 {
@@ -39,9 +39,9 @@
 	{
 		try
 		{
-			$atualiza = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
-			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
-			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
+			$stmt = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
+			$stmt->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
+			$row=$stmt->fetch(PDO::FETCH_ASSOC);
 			
 		}
 		catch(PDOException $e)
