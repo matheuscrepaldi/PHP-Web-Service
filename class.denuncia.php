@@ -24,7 +24,7 @@ class DENUNCIA
 	{
 		try
 		{
-			$new_password = password_hash($upass, PASSWORD_DEFAULT);
+			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$atualiza = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia) 
 		                                               VALUES(:udata, :uassunto)");

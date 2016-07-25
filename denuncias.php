@@ -117,7 +117,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
                   &nbsp;<?php echo $userRow['user_name'];?>
@@ -149,7 +149,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
+          <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p> &nbsp;<?php echo $userRow['user_name']; ?></p>
@@ -202,7 +202,7 @@
           
            <div class="form-group">
             <div class="col-xs-2"> 
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" />
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="<?php if(isset($error)){echo $udata;}?>"/>
        	 	</div>
        	  </div>
 
@@ -210,7 +210,7 @@
 			<br />
        	  <div class="form-group">
        	  	<div class="col-xs-6"> 
-      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" /></p>
+      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" value="<?php if(isset($error)){echo $uassunto;}?>" /></p>
        	 	</div>
        	  </div>
 
@@ -219,7 +219,7 @@
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
+      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" value="<?php if(isset($error)){echo $udescricao;}?>" />
        	 	</div>
        	  </div>
 
