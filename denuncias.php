@@ -46,7 +46,7 @@
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
 
 			if($denuncia->register($udata, $uassunto)){
-				echo "Denúncia Gravada."
+				echo "Denúncia Gravada.";
 			}
 			
 		}
