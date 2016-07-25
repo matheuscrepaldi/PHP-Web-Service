@@ -26,11 +26,12 @@ class DENUNCIA
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia) 
-		                                               VALUES(:udata, :uassunto)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia, descricao) 
+		                                               VALUES(:udata, :uassunto, :udescricao)");
 												  
 			$stmt->bindparam(":udata", $udata);
-			$stmt->bindparam(":uassunto", $uassunto);									  
+			$stmt->bindparam(":uassunto", $uassunto);
+            $stmt->bindparam(":udescricao", $udescricao);
 				
 			$stmt->execute();	
 			
