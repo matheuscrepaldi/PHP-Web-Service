@@ -1,11 +1,11 @@
 <?
 //CONFIGURAÇÕES DO BD MYSQL
 
-	$servidor = "mysql.hostinger.com.br";
-    private $bd = "u633448963_login";
-    private $usuario = "u633448963_root";
-    private $senha = "123456";
-    public $conn;
+	 $servidor = "mysql.hostinger.com.br";
+     $bd = "u633448963_login";
+     $usuario = "u633448963_root";
+     $senha = "123456";
+     $conn;
 
 //TÍTULO DO RELATÓRIO
 $titulo = "Relatório de denúncias.";
