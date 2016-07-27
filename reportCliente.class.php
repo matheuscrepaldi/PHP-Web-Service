@@ -17,7 +17,7 @@
     * @param $titulo - Título do relatório   
     */  
     public function __construct($css, $titulo) {  
-      $this->pdo  = Conexao::getInstance();  
+      $this->pdo  = dbconfig::getInstance();  
       $this->titulo = $titulo;  
       $this->setarCSS($css);  
     }
