@@ -6,7 +6,7 @@
   class reportCliente extends mpdf{  
 
     // Atributos da classe  
-    //private $conn  = null;  
+    private $conn  = null;  
     private $pdf  = null;
     private $css  = null;  
     private $titulo = null; 
@@ -17,7 +17,7 @@
     * @param $titulo - Título do relatório   
     */  
     public function __construct($css, $titulo) {  
-      $this->conn  = Database::getInstance();  
+      //$this->conn  = Database::getInstance();  
       $this->titulo = $titulo;  
       $this->setarCSS($css);  
     }
