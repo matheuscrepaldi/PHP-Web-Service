@@ -1,5 +1,6 @@
 <?
 //CONFIGURAÇÕES DO BD MYSQL
+require_once("class.denuncia.php")
 
 	 $servidor = "mysql.hostinger.com.br";
      $bd = "u633448963_login";
@@ -31,9 +32,9 @@ NÃO MEXER DAQUI PRA BAIXO ***************/
 //$conn = mysql_connect($servidor, $usuario, $senha);
 //$db = mysql_select_db($bd, $conn);
 //$sql = mysql_query("SELECT id_denuncia, data_denuncia, assunto_denuncia FROM denuncias", $conn);
-//$row = mysql_num_rows($sql);
 
- public function dbConnection()
+
+  function dbConnection()
 	{
      
 	    $this->conn = null;    
@@ -49,6 +50,9 @@ NÃO MEXER DAQUI PRA BAIXO ***************/
          
         return $this->conn;
     }
+
+     $atualiza = $auth_denuncia->runQuery("SELECT id_denuncia, data_denuncia, assunto_denuncia FROM denuncias");
+     $row = mysql_num_rows($sql);
 //VERIFICA SE RETORNOU ALGUMA LINHA
 
 if(!$row) { echo "Não retornou nenhum registro"; die; }
@@ -94,11 +98,11 @@ $pdf->Cell(85, 8, "ASSUNTO", 1, 1, ‘L’);
 
 //EXIBE OS REGISTROS
 for($i=$inicio; $i<$fim; $i++) {
-$pdf->Cell(15, 8, mysql_result($sql, $i, "ID"),
+$pdf->Cell(15, 8, mysql_result($atualiza, $i, "ID"),
 1, 0, ‘C’);
-$pdf->Cell(85, 8, mysql_result($sql, $i, "DATA"),
+$pdf->Cell(85, 8, mysql_result($atualiza, $i, "DATA"),
 1, 0, ‘L’);
-$pdf->Cell(85, 8, mysql_result($sql, $i, "ASSUNTO"),
+$pdf->Cell(85, 8, mysql_result($atualiza, $i, "ASSUNTO"),
 1, 1, ‘L’);
 $linha_atual++;
 }//FECHA FOR(REGISTROS – i)
