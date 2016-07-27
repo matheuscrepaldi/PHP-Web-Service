@@ -1,7 +1,7 @@
 <?
 //CONFIGURAÇÕES DO BD MYSQL
 
-	private $servidor = "mysql.hostinger.com.br";
+	$servidor = "mysql.hostinger.com.br";
     private $bd = "u633448963_login";
     private $usuario = "u633448963_root";
     private $senha = "123456";
