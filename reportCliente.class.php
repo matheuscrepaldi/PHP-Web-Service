@@ -72,27 +72,20 @@
       $retorno .= "<h2 style=\"text-align:center\">{$this->titulo}</h2>";  
       $retorno .= "<table border='1' width='1000' align='center'>  
            <tr class='header'>  
-             <th>Nome</td>  
-             <th>Telefone</td>  
-             <th>Idade</td>  
-             <th>Profissão</td>  
-             <th>E-mail</td>  
-             <th>Endereço</td>  
-             <th>Cidade</td>  
-             <th>Estado</td>  
+             <th>ID</td>  
+             <th>Data</td>  
+             <th>Assunto</td>  
+             <th>Descrição</td>  
            </tr>";  
 
-      $sql = "SELECT * FROM TAB_CLIENTE";  
+      $sql = "SELECT * FROM denuncias";  
       foreach ($this->pdo->query($sql) as $reg):  
          $retorno .= ($color) ? "<tr>" : "<tr class=\"zebra\">";  
          $retorno .= "<td class='destaque'>{$reg['nome']}</td>";  
-         $retorno .= "<td>{$reg['fone']}</td>";  
-         $retorno .= "<td>{$reg['idade']}</td>";  
-         $retorno .= "<td>{$reg['profissao']}</td>";  
-         $retorno .= "<td>{$reg['email']}</td>";  
-         $retorno .= "<td>{$reg['endereco']}</td>";  
-         $retorno .= "<td>{$reg['cidade']}</td>";  
-         $retorno .= "<td>{$reg['uf']}</td>";  
+         $retorno .= "<td>{$reg['ID']}</td>";  
+         $retorno .= "<td>{$reg['Data']}</td>";  
+         $retorno .= "<td>{$reg['Assunto']}</td>";  
+         $retorno .= "<td>{$reg['Descrição']}</td>";    
        $retorno .= "<tr>";  
        $color = !$color;  
       endforeach;  
