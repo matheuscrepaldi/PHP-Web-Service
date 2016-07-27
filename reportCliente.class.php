@@ -1,7 +1,7 @@
 <?php  
 
   require_once "dbconfig.php";  
-  require_once "/MPDF57/mpdf.php";  
+  require_once "MPDF57/mpdf.php";  
 
   class reportCliente extends mpdf{  
 

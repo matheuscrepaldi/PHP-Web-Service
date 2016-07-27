@@ -8,9 +8,9 @@
   * e manda exibi-lo no navegador.  
   */  
  if(isset($_GET['submit'])):  
-   $report = new reportCliente("/estiloRelatorio.css", "Relatório de Clientes");  
+   $report = new reportCliente("estiloRelatorio.css", "Relatório de Denúncias");  
    $report->BuildPDF();  
-   $report->Exibir("Relatório de Clientes");  
+   $report->Exibir("Relatório de Denúncias");  
  endif;  
  ?>  
  
