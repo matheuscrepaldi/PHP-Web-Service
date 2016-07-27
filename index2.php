@@ -121,7 +121,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="denuncias.php"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
-            <li><a href="relatorio.php"><i class="fa fa-circle-o"></i> Consultar</a></li>
+            <li><a href="geraRelatorio.php"><i class="fa fa-circle-o"></i> Consultar</a></li>
           </ul>
         </li>
       </ul>
