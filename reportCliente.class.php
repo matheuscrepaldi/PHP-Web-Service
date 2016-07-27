@@ -1,5 +1,6 @@
 <?php  
-
+  session_start();
+  
   require_once ("dbconfig.php");  
   require_once "MPDF57/mpdf.php";  
 
