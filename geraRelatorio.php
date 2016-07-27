@@ -18,7 +18,7 @@
  <html>  
    <head>  
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
-     <title>Testando relatório com mPDF</title>  
+     <title>VcPrefeito|Relatório</title>  
    </head>  
    <body>  
      <form action="" method="GET" target="_blank">  

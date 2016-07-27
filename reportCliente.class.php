@@ -6,7 +6,7 @@
   class reportCliente extends mpdf{  
 
     // Atributos da classe  
-    private $conn  = null;  
+    //private $conn  = null;  
     private $pdf  = null;
     private $css  = null;  
     private $titulo = null; 
