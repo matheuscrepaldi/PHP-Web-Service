@@ -1,6 +1,6 @@
 <?php  
 
-  require_once "conexao.php";  
+  require_once "dbconfig.php";  
   require_once "MPDF57/mpdf.php";  
 
   class reportCliente extends mpdf{  
@@ -17,7 +17,7 @@
     * @param $titulo - Título do relatório   
     */  
     public function __construct($css, $titulo) {  
-      $this->pdo  = Conexao::getInstance();  
+      $this->pdo  = Database::getInstance();  
       $this->titulo = $titulo;  
       $this->setarCSS($css);  
     }
