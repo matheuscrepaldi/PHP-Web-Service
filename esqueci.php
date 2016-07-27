@@ -1,6 +1,6 @@
 <?php
   //1 – Definimos Para quem vai ser enviado o email
-  $para = "vainer_fabri@hotmail.com";
+  $para = "#";
   
 //5 – agora inserimos as codificações corretas e  tudo mais.
   $headers =  "Content-Type:text/html; charset=UTF-8\n";
