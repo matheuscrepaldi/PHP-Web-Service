@@ -1,10 +1,12 @@
 <?
 //CONFIGURAÇÕES DO BD MYSQL
 
-$servidor = "mysql.hostinger.com.br";
-$usuario = "u633448963_root";
-$senha = "123456";
-$bd = "u633448963_login";
+	private $servidor = "mysql.hostinger.com.br";
+    private $bd = "u633448963_login";
+    private $usuario = "u633448963_root";
+    private $senha = "123456";
+    public $conn;
+
 //TÍTULO DO RELATÓRIO
 $titulo = "Relatório de denúncias.";
 //LOGO QUE SERÁ COLOCADO NO RELATÓRIO
@@ -26,11 +28,27 @@ $tipo_pdf = "F";
 NÃO MEXER DAQUI PRA BAIXO ***************/
 
 //CONECTA COM O MYSQL
-$conn = mysql_connect($servidor, $usuario, $senha);
-$db = mysql_select_db($bd, $conn);
-$sql = mysql_query("SELECT id_denuncia, data_denuncia, assunto_denuncia FROM denuncias", $conn);
-$row = mysql_num_rows($sql);
+//$conn = mysql_connect($servidor, $usuario, $senha);
+//$db = mysql_select_db($bd, $conn);
+//$sql = mysql_query("SELECT id_denuncia, data_denuncia, assunto_denuncia FROM denuncias", $conn);
+//$row = mysql_num_rows($sql);
 
+ public function dbConnection()
+	{
+     
+	    $this->conn = null;    
+        try
+		{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+        }
+		catch(PDOException $exception)
+		{
+            echo "Connection error: " . $exception->getMessage();
+        }
+         
+        return $this->conn;
+    }
 //VERIFICA SE RETORNOU ALGUMA LINHA
 
 if(!$row) { echo "Não retornou nenhum registro"; die; }
