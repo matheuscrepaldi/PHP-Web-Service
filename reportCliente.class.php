@@ -6,7 +6,7 @@
   class reportCliente extends mpdf{  
 
     // Atributos da classe  
-    private $pdo  = null;  
+    private $conn  = null;  
     private $pdf  = null;
     private $css  = null;  
     private $titulo = null; 
@@ -17,7 +17,7 @@
     * @param $titulo - Título do relatório   
     */  
     public function __construct($css, $titulo) {  
-      $this->pdo  = Database::getInstance();  
+      $this->conn  = Database::getInstance();  
       $this->titulo = $titulo;  
       $this->setarCSS($css);  
     }
@@ -79,7 +79,7 @@
            </tr>";  
 
       $sql = "SELECT * FROM denuncias";  
-      foreach ($this->pdo->query($sql) as $reg):  
+      foreach ($this->conn->query($sql) as $reg):  
          $retorno .= ($color) ? "<tr>" : "<tr class=\"zebra\">";  
          $retorno .= "<td class='destaque'>{$reg['nome']}</td>";  
          $retorno .= "<td>{$reg['ID']}</td>";  
