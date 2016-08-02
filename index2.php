@@ -36,6 +36,22 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    
+    <script type="text/javascript">
+        
+        function changePage(url) {
+       
+            if(url == ''){ return; }
+
+            //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
+
+
+            $.post( url , function( data ) {
+                $( "#localAtualizar" ).html( data );
+              });
+            }
+  
+    </script>
 
 
 </head>
@@ -121,7 +137,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="denuncias.php"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
-            <li><a href="geraRelatorio.php"><i class="fa fa-circle-o"></i> Consultar</a></li>
+            <li><a class="noclick" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
           </ul>
         </li>
       </ul>
