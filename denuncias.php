@@ -111,7 +111,7 @@
 
 	<?	
 				  			  			  
-		if($_POST['guardar']){
+		if($_POST['btn-salvar']){
 		$act = "INSERT INTO fotos (foto1) values ('".$destino1."')";
 		if(@mysql_query($act)){echo "La foto fue publicada con éxito";
 		}}
@@ -206,8 +206,6 @@
        	  <br/>
 
        	  <input name="foto1" type="file" id="foto1"  >
-
-		  <input name="guardar" type="submit" value="Subir foto" />
 
           <br />
           <div class="row">
