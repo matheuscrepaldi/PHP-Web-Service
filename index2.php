@@ -47,7 +47,6 @@
 
             $.post( url , function( data ) {
                 $( "#localAtualizar" ).html( data );
-                return;
               });
             }
   
