@@ -98,7 +98,7 @@
 <!-- Fim barra lateral-->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -145,11 +145,7 @@
 
           <br />
           <div class="row">
-          <!--<div class="col-xs-12 text-center">
-          <button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-            <i class="fa fa-spin fa-refresh"></i>&nbsp; Salvar
-          </button>
-          </div>-->
+        
           <br/>
           <div class="col-xs-12 text-center">
           <button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
@@ -179,9 +175,6 @@
   </div>
   <!-- /.content-wrapper -->
 
-  
-
-</div>
 </form>
 <!-- ./wrapper -->
 
