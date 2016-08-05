@@ -205,9 +205,9 @@
        	  <br/>
        	  <br/>
 
-       	  <button type="file" class="btn btn-default btn-lrg" name="foto1" id="foto1"  >
+       	  <input type="file" class="btn btn-default btn-lrg" name="foto1" id="foto1"  >
        	  <i class="glyphicon glyphicon-ok"></i>&nbsp; Selecionar Imagem
-       	  </button>
+       	  </input>
 
           <br />
           <div class="row">
