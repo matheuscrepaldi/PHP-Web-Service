@@ -107,7 +107,7 @@
       </h1>
       
     </section>
-
+<div class="col-md-12">
     <!-- Main content -->
     <section class="content">
 
@@ -173,9 +173,10 @@
 
     </section>
     <!-- /.content -->
+    </div>
   </div>
   <!-- /.content-wrapper -->
-  
+
   
 
 </div>
