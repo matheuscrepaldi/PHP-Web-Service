@@ -91,7 +91,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-<form method="post">
+<form action="" method="post">
 <!-- Site wrapper -->
 <div>
 
