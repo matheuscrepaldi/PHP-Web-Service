@@ -136,8 +136,8 @@
             <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
-            <li><a onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
+            <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
+            <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
           </ul>
         </li>
       </ul>
