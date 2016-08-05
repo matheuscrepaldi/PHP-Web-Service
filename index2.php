@@ -40,7 +40,6 @@
     <script type="text/javascript">
         
         function changePage(url) {
-       alert('BIRL');
             if(url == ''){ return; }
 
             //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
@@ -48,7 +47,7 @@
 
             $.post( url , function( data ) {
                 $( "#localAtualizar" ).html( data );
-
+                alert('BIRL');
               });
             }
   
