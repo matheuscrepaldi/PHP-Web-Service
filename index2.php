@@ -47,7 +47,7 @@
 
             $.post( url , function( data ) {
                 $( "#localAtualizar" ).html( data );
-                alert('BIRL');
+                return;
               });
             }
   
