@@ -113,7 +113,7 @@
 				  			  			  
 		if($_POST['btn-salvar']){
 		$act = "INSERT INTO fotos (foto1) values ('".$destino1."')";
-		if(@mysql_query($act)){echo "La foto fue publicada con éxito";
+		if(@mysql_query($act)){echo "Foto carregada com sucesso.";
 		}}
 
 	?>
@@ -205,10 +205,10 @@
        	  <br/>
        	  <br/>
 
-       	  <input type="file" class="btn btn-default btn-lrg" name="foto1" id="foto1"  >
-       	  <i class="glyphicon glyphicon-ok"></i>&nbsp; Selecionar Imagem
-       	  </input>
-
+       	  <form action="" method="post" enctype="multipart/form-data">
+       	  	<input name="foto1" type="file" id="foto1"  >
+       	  </form>
+    
           <br />
           <div class="row">
         
