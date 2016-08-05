@@ -98,9 +98,13 @@
 <!-- Fim barra lateral-->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content">
+  <div class="content-wrapper">
+  	<div class="row">
+       <div class="col-md-12">
+			<div  class="Flexible-container">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+    
       <h1>
         Denúncias
       </h1>
@@ -172,6 +176,9 @@
 
     </section>
     <!-- /.content -->
+    </div>
+    </div>
+    </div>
   </div>
   <!-- /.content-wrapper -->
 
