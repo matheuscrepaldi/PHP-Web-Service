@@ -91,7 +91,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-<form action="" method="post">
+<form method="post">
 <!-- Site wrapper -->
 <div>
 
@@ -140,7 +140,7 @@
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição"/>
+      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" value="<?php if(isset($error)){echo $udescricao;}?>"/>
        	 	</div>
        	  </div>
 
