@@ -93,12 +93,12 @@
 
 <form method="post">
 <!-- Site wrapper -->
-<div class="wrapper">
+<div>
 
 <!-- Fim barra lateral-->
 
   <!-- Content Wrapper. Contains page content -->
-  
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -175,6 +175,9 @@
   </div>
   <!-- /.content-wrapper -->
 
+  
+
+</div>
 </form>
 <!-- ./wrapper -->
 
