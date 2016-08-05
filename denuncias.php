@@ -25,6 +25,12 @@
 
   if(isset($_POST['btn-salvar']))
 {
+
+	$act = "INSERT INTO fotos (foto1) values ('".$destino1."')";
+		if(@mysql_query($act)){echo "Foto carregada com sucesso.";
+	}
+
+
 	$udata = strip_tags($_POST['data']);
 	$uassunto = strip_tags($_POST['assunto']);
 	$udescricao = strip_tags($_POST['descricao']);	
@@ -57,10 +63,9 @@
 		{
 			echo $e->getMessage();
 		}
-	}	
-}
+	}
 
-//CARREGAR FOTOS				  
+	//CARREGAR FOTOS				  
 	$nombrefoto1=$_FILES['foto1']['name'];
 	$ruta1=$_FILES['foto1']['tmp_name'];
 	if(is_uploaded_file($ruta1))
@@ -104,19 +109,13 @@
 	imagejpeg($lienzo, $destino1, 80);
 	}
 	}
-//FIM FOTOS
-	
+
+
+//FIM FOTOS	
+}
 
 ?>
 
-	<?	
-				  			  			  
-		if($_POST['btn-salvar']){
-		$act = "INSERT INTO fotos (foto1) values ('".$destino1."')";
-		if(@mysql_query($act)){echo "Foto carregada com sucesso.";
-		}}
-
-	?>
 
 <!DOCTYPE html>
 <html>
