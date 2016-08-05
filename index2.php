@@ -43,7 +43,7 @@
        
             if(url == ''){ return; }
 
-            //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
+            $("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
 
 
             $.post( url , function( data ) {
