@@ -149,7 +149,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-<form method="post" enctype="multipart/form-data">
+<form method="post">
 <!-- Site wrapper -->
 <div>
 
@@ -205,7 +205,9 @@
        	  <br/>
        	  <br/>
 
-       	  <input name="foto1" type="file" id="foto1"  >
+       	  <button type="file" class="btn btn-default btn-lrg" name="foto1" id="foto1"  >
+       	  <i class="glyphicon glyphicon-ok"></i>&nbsp; Selecionar Imagem
+       	  </button>
 
           <br />
           <div class="row">
