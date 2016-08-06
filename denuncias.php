@@ -19,6 +19,8 @@
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
   $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
 
+  echo "string";
+
   if(isset($_POST['btn-salvar']))
 {
 	$udata = strip_tags($_POST['data']);
@@ -143,7 +145,7 @@
           <br/>
           <div class="form-group">
           	<div class="col-xs-12 text-center">
-          		<button type="submit" class="btn btn-default btn-lrg" title="btn-salvar">
+          		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	</div>
@@ -154,7 +156,7 @@
           </button>
 
 	</form>
-	
+
           </div>
 
           </div>
