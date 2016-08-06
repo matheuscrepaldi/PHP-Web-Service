@@ -84,10 +84,10 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
-<div class="wrapper">
+<div>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -111,7 +111,7 @@
           
            <div class="form-group">
             <div class="col-xs-2"> 
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" />
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="<?php if(isset($error)){echo $udata;}?>" />
        	 	</div>
        	  </div>
 
@@ -119,7 +119,7 @@
 			<br />
        	  <div class="form-group">
        	  	<div class="col-xs-6"> 
-      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" /></p>
+      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" value="<?php if(isset($error)){echo $uassunto;}?>"/></p>
        	 	</div>
        	  </div>
 
@@ -156,9 +156,7 @@
             </div>
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
-          VcPrefeito.com.br
-        </div>
+       
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->
