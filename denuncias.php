@@ -86,6 +86,7 @@
 <!-- Site wrapper -->
 <div>
 
+<form method="post">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -140,15 +141,20 @@
           </button>
           </div>-->
           <br/>
-          <div class="col-xs-12 text-center">
-          <button type="submit" class="btn btn-default btn-lrg" title="btn-salvar">
-          <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
-          </button>
+          <div class="form-group">
+          	<div class="col-xs-12 text-center">
+          		<button type="submit" class="btn btn-default btn-lrg" title="btn-salvar">
+          			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
+          		</button>
+         	</div>
+          </div> 
 
           <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
           <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
           </button>
 
+	</form>
+	
           </div>
 
           </div>
@@ -165,14 +171,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      
-    </div>
-    <strong>Copyright &copy;2016 <a href="http://vcprefeito.com.br">VcPrefeito</a>.</strong> Todos os direitos
-    reservados.
-  </footer>
 
 </div>
 <!-- ./wrapper -->
