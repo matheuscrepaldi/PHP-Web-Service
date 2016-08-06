@@ -19,7 +19,6 @@
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
   $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
 
-  echo "string";
 
   if(isset($_POST['btn-salvar']))
 {
@@ -151,9 +150,11 @@
          	</div>
            
 
+		<div class="col-xs-12 text-center">
           <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
           <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
           </button>
+        </div>
 
 	</form>
 
