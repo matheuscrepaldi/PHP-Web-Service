@@ -46,7 +46,7 @@
 			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
 			
 			if($auth_denuncia->register($udata, $uassunto, $udescricao)){
-				echo "Denúncia Gravada.";
+				alert('Denúncia gravada com sucesso.')
 			}
 
 		}
