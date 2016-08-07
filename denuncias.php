@@ -40,10 +40,15 @@
 	{
 		try
 		{
-			$atualiza = $denuncia->runQuery("SELECT data_denuncia, assunto_denuncia FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto");
-			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto));
+			$atualiza = $auth_denuncia->runQuery("SELECT data_denuncia, assunto_denuncia, descricao FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto OR descricao=:udescricao");
+
+			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto, ':udescricao'=>$udescricao));
 			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
 			
+			if($auth_denuncia->register($udata, $uassunto, $udescricao)){
+				echo "Denúncia Gravada.";
+			}
+
 		}
 		catch(PDOException $e)
 		{
@@ -152,7 +157,7 @@
           <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
           <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
           </button>
-          
+
         </div>
 
 	</form>
