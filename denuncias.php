@@ -147,13 +147,12 @@
           		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
-         	</div>
-           
-
-		<div class="col-xs-12 text-center">
+         	
+		
           <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
           <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
           </button>
+          
         </div>
 
 	</form>
