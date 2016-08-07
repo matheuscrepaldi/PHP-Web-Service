@@ -22,6 +22,7 @@
 
   if(isset($_POST['btn-salvar']))
 {
+	echo "string";
 	$udata = strip_tags($_POST['data']);
 	$uassunto = strip_tags($_POST['assunto']);
 	$udescricao = strip_tags($_POST['descricao']);	
@@ -154,9 +155,9 @@
           		</button>
          	
 		
-          <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
-          <i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
-          </button>
+	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
+	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
+	          </button>
 
         </div>
 
