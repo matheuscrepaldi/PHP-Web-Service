@@ -36,21 +36,21 @@ if(isset($_POST['btn-login']))
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 </head>
 <body class="hold-transition login-page">
 
 	<div class="login-box">
 	<div class="login-logo">
-   	 <img src="/img/logo.png">
+   	 <img src="img/logo.png">
   </div>
 
 	<div class="login-box-body">
@@ -100,11 +100,11 @@ if(isset($_POST['btn-login']))
 
     </div>
 </div>
-	<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+	<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
 
-	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 
-	<script src="../../plugins/iCheck/icheck.min.js"></script>
+	<script src="plugins/iCheck/icheck.min.js"></script>
 	<script>
   		$(function () {
 	    	$('input').iCheck({
