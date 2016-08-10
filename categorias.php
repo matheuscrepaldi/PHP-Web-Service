@@ -112,9 +112,6 @@
           <h3 class="box-title">Cadastrar Categoria</h3>
         </div>
         <div class="box-body">
-          
-          <br />
-          <br />
 
        	  	<br />
 			<br />
@@ -125,7 +122,6 @@
        	  </div>
 
        	  <br />
-       	  <br />
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
@@ -134,10 +130,10 @@
        	  </div>
 
            <div class="form-group">
+            <div class="col-xs-6">
                   <label for="exampleInputFile">Adicionar Imagem</label>
                   <input type="file" id="exampleInputFile" name="imagem">
-
-                  <p class="help-block">Example block-level help text here.</p>
+            </div>
            </div>
 
           <br />
