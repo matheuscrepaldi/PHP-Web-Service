@@ -68,18 +68,18 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <!-- Pace style -->
-  <link rel="stylesheet" href="../../plugins/pace/pace.min.css">
+  <link rel="stylesheet" href="plugins/pace/pace.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -98,7 +98,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Denúncias
+        Categorias
       </h1>
       
     </section>
@@ -109,18 +109,12 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Realizar denúncia</h3>
+          <h3 class="box-title">Cadastrar Categoria</h3>
         </div>
         <div class="box-body">
           
           <br />
           <br />
-          
-           <div class="form-group">
-            <div class="col-xs-2"> 
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="<?php if(isset($error)){echo $udata;}?>" />
-       	 	</div>
-       	  </div>
 
        	  	<br />
 			<br />
@@ -138,6 +132,13 @@
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
        	 	</div>
        	  </div>
+
+           <div class="form-group">
+                  <label for="exampleInputFile">Adicionar Imagem</label>
+                  <input type="file" id="exampleInputFile" name="imagem">
+
+                  <p class="help-block">Example block-level help text here.</p>
+           </div>
 
           <br />
           <div class="row">
