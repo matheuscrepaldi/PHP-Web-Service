@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("class.user.php");
+
 $login = new USER();
 
 if($login->is_loggedin()!="")
