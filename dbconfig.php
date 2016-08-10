@@ -1,7 +1,8 @@
 <?php
 class Database
 {   
-    private $host = "mysql.hostinger.com.br";
+    //private $host = "mysql.hostinger.com.br";
+    private $host = "31.220.104.1";
     private $db_name = "u633448963_login";
     private $username = "u633448963_root";
     private $password = "123456";
