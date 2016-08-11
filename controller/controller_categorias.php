@@ -1,7 +1,7 @@
 <?php
  
 // Pasta onde o arquivo vai ser salvo
-$_UP['pasta'] = '../imagens/';
+$_UP['pasta'] = 'imagens/';
  
 // Tamanho máximo do arquivo (em Bytes)
 $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
@@ -32,6 +32,8 @@ $extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
 if (array_search($extensao, $_UP['extensoes']) === false) {
 echo "Por favor, envie arquivos com as seguintes extensões: jpg, png ou gif";
 }
+
+//print_r($_FILES); echo $extensao; exit;
  
 // Faz a verificação do tamanho do arquivo
 else if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
@@ -62,6 +64,3 @@ echo "Não foi possível enviar o arquivo, tente novamente";
 }
  
 ?>
-
-
-Read more: http://www.linhadecodigo.com.br/artigo/3578/php-upload-de-arquivos.aspx#ixzz4H1zuAos9
