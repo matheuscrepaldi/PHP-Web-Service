@@ -28,8 +28,20 @@
 
 <?php
 
+    if($_POST['operacao'] == 'gravar'){
+        
+        
+        gravar();
 
-	header(sprintf("Location: %s", "denuncias.php"));
+	   header(sprintf("Location: %s", "categorias.php"));
 
+    }
 
+    if($_POST['operacao'] == 'cancelar'){
+        
+    
+
+	   header(sprintf("Location: %s", "categorias.php"));
+
+    }
 ?>

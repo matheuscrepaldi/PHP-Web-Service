@@ -1,64 +1,3 @@
-<?php
-
-  require_once("session.php");
-  
-  require_once("class.user.php");
-  require_once("class.denuncia.php");
-
-  $auth_user = new USER();
-  $auth_denuncia = new DENUNCIA();
-   
-  $user_id = $_SESSION['user_session'];
-  
-  $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-  $stmt->execute(array(":user_id"=>$user_id));
-
-  $atualiza = $auth_denuncia->runQuery("SELECT * FROM denuncias WHERE id_denuncia=:id_denuncia");
-  $atualiza->execute(array(":id_denuncia"=>$id_denuncia));
-  
-  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-  $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
-
-
-  if(isset($_POST['btn-salvar']))
-{
-	$udata = strip_tags($_POST['data']);
-	$uassunto = strip_tags($_POST['assunto']);
-	$udescricao = strip_tags($_POST['descricao']);	
-	
-	if($udata=="")	{
-		$error[] = "Preencha a data.";	
-	}
-	else if($uassunto=="")	{
-		$error[] = "Preencha o assunto.";	
-	}
-	
-	else if($udescricao=="")	{
-		$error[] = "Digite a descrição da denúncia.";
-	}
-	else
-	{
-		try
-		{
-			$atualiza = $auth_denuncia->runQuery("SELECT data_denuncia, assunto_denuncia, descricao FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto OR descricao=:udescricao");
-
-			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto, ':udescricao'=>$udescricao));
-			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
-			
-			if($auth_denuncia->register($udata, $uassunto, $udescricao)){
-				echo "Denúncia gravada!";
-			}
-
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}	
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,12 +26,28 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+    
+<script language="JavaScript">
+	
+	function validarBotao(botao){
+		
+		 document.form_cat.operacao.value = botao;
+		 document.form_cat.submit();
+	}
+
+	
+</script>
+    
+    
+    
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div>
 
-<form method="post">
+<form action="controller/controller_categorias.php" method="post" name="form_cat" id="form_cat" enctype="multipart/form-data">
+    
+    <input name="operacao" type="hidden" id="operacao" value="nula">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -112,43 +67,37 @@
           <h3 class="box-title">Cadastrar Categoria</h3>
         </div>
         <div class="box-body">
-
-       	  	<br />
-			<br />
-       	  <div class="form-group">
-       	  	<div class="col-xs-6"> 
-      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" value="<?php if(isset($error)){echo $uassunto;}?>"/></p>
-       	 	</div>
-       	  </div>
+                   
+            <br>
+            <br>
 
        	  <div class="form-group">
        	 	 <div class="col-xs-6"> 
       	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
        	 	</div>
        	  </div>
+            
+            <br>
+            <br>
 
            <div class="form-group">
             <div class="col-xs-6">
                   <label for="exampleInputFile">Adicionar Imagem</label>
-                  <input type="file" id="exampleInputFile" name="imagem">
+                  <input type="file" id="exampleInputFile" name="arquivo">
             </div>
            </div>
 
           <br />
           <div class="row">
-          <!--<div class="col-xs-12 text-center">
-          <button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-            <i class="fa fa-spin fa-refresh"></i>&nbsp; Salvar
-          </button>
-          </div>-->
+
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
+          		<button type="button" class="btn btn-default btn-lrg" name="salvar" onClick="validarBotao('salvar')">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
-	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
+	          <button type="button" class="btn btn-default btn-lrg" name="cancelar" onClick="validarBotao('cancelar')">
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
 
@@ -177,19 +126,19 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.0 -->
-<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- PACE -->
-<script src="../../plugins/pace/pace.min.js"></script>
+<script src="plugins/pace/pace.min.js"></script>
 <!-- SlimScroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/app.min.js"></script>
+<script src="dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="dist/js/demo.js"></script>
 <!-- page script -->
 <script type="text/javascript">
 	// To make Pace works on Ajax calls
