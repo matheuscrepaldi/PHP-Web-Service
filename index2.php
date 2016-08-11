@@ -136,7 +136,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
-            <li><a href="#" onClick="changePage('categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
+            <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
             <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
 
             

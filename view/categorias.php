@@ -34,7 +34,6 @@
 		 document.form_cat.operacao.value = botao;
 		 document.form_cat.submit();
 	}
-
 	
 </script>
     
@@ -45,7 +44,7 @@
 <!-- Site wrapper -->
 <div>
 
-<form action="controller/controller_categorias.php" method="post" name="form_cat" id="form_cat" enctype="multipart/form-data">
+<form action="../controller/controller_categorias.php" method="post" name="form_cat" id="form_cat" enctype="multipart/form-data">
     
     <input name="operacao" type="hidden" id="operacao" value="nula">
   <!-- Content Wrapper. Contains page content -->
