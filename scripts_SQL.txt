@@ -1,0 +1,19 @@
+criacao da tabela de Categorias
+
+
+CREATE  TABLE `u633448963_login`.`categorias` (
+ 
+ 
+`id_categoria` INT NOT NULL AUTO_INCREMENT ,
+ 
+ `desc_categoria` VARCHAR(45) NOT NULL ,
+ 
+ `img_categoria` VARCHAR(60) NOT NULL ,
+ 
+ PRIMARY KEY (`id_categoria`)
+
+ );
+
+
+
+///////////////////////////////////////////////////////////////////////

@@ -109,7 +109,7 @@
                   <label for="exampleInputFile">Adicionar Imagem</label>
                   <input type="file" id="exampleInputFile" name="arquivo" title ="Escolher Arquivo" accept="image/*" onchange="loadFile(event)">
                     
-                      <img id="output" src="#" alt="" class="margin" style="display : none ;"/>
+                      <img id="output" src="#" alt="" class="margin" style="display:none; max-width: 160px; max-height: 160px; border: none;"/>
                    
             </div>
            </div>
