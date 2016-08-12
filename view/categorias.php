@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Denúncias</title>
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -20,6 +21,8 @@
   <!-- Pace style -->
   <link rel="stylesheet" href="../plugins/pace/pace.min.css">
 
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -34,25 +37,34 @@
 		 document.form_cat.operacao.value = botao;
 		 document.form_cat.submit();
 	}
+
+
 	
-  /*function readURL(input) {
+  $(document).ready(function(){
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+    $("#descricao").click(function(){
 
-        reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-        }
+      $("#sucesso").toggleClass('form-group');
+    })
+    
+    $("#descricao").blur(function(){
+     if($(this).val() == "") {
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+             //$(this).css({"background-color" : "yellow", "padding": "2px"});
+            
+                $("#sucesso").toggleClass('form-group has-error');
+             
+      }
 
+      else {
+ 
+                $("#sucesso").toggleClass('form-group has-success');
+            
+      }
 
-  $("#exampleInputFile").change(function(){
-      readURL(this);
-  });
-*/
+    });
+})
+
 
   var loadFile = function(event) {
     var output = document.getElementById('output');
@@ -91,16 +103,13 @@
           <h3 class="box-title">Cadastrar Categoria</h3>
         </div>
         <div class="box-body">
-                   
-            <br>
-            <br>
 
-       	  <div class="form-group">
+       	  <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
+      	  		<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição" />
        	 	</div>
        	  </div>
-            
+          
             <br>
             <br>
 
