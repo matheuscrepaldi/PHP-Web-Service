@@ -50,16 +50,20 @@
     $("#descricao").blur(function(){
      if($(this).val() == "") {
 
-             //$(this).css({"background-color" : "yellow", "padding": "2px"});
             
-                $("#sucesso").toggleClass('form-group has-error');
+        $("#sucesso").removeClass('form-group has-success');
+        $("#sucesso").addClass('form-group has-error');
+        $("#icone").removeClass('fa fa-check');
+        $("#icone").addClass('fa fa-times-circle-o');
              
       }
 
       else {
- 
-                $("#sucesso").toggleClass('form-group has-success');
-            
+    
+        $("#sucesso").removeClass('form-group has-error');
+        $("#sucesso").addClass('form-group has-success');
+        $("#icone").removeClass('fa fa-times-circle-o');  
+        $("#icone").addClass('fa fa-check');  
       }
 
     });
@@ -105,11 +109,14 @@
         <div class="box-body">
 
        	  <div class="form-group" id="sucesso">
-       	 	 <div class="col-xs-6"> 
+       	 	 <div class="col-xs-6">
+              <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i></label>
       	  		<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição" />
        	 	</div>
        	  </div>
           
+            <br>
+            <br>
             <br>
             <br>
 
