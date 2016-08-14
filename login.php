@@ -48,6 +48,13 @@ if(isset($_POST['btn-login']))
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 </head>
 <body class="hold-transition login-page">
+    
+    <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+    </div>
 
 	<div class="login-box">
 	<div class="login-logo">
