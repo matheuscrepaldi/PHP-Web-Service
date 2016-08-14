@@ -2,6 +2,7 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
+
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -14,9 +15,9 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
-FacebookSession::setDefaultApplication( '1233962869948144','0e6d3ce6463ddc3a3b33d496be1fcda3' );
+FacebookSession::setDefaultApplication( '1120295274701582','7c972e119a08b83e112b7ac76cc0f84c' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://localhost/TCC/index2.php' );
+    $helper = new FacebookRedirectLoginHelper('http://localhost/tcc/index2.teste');
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -39,7 +40,7 @@ if ( isset( $session ) ) {
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     /* ---- header location after session ----*/
-  header("Location: http://localhost/TCC/index2.php");
+  header("Location: http://localhost/tcc/index2.teste");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);

@@ -13,34 +13,12 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-  if(isset($_POST['altera-senha']))
+  if(isset($_POST['Salvar']))
   {
    
-    $upass = strip_tags($_POST['txt_upass']); 
-  
-  if(strlen($upass) < 6)  {
-    $error[] = "A senha deve possuir 6 caracteres."; 
-  }else
-  {
-    try
-    {
-      $stmt = $user->runQuery("SELECT user_name, user_email FROM users WHERE user_name=:uname OR user_email=:umail");
-      $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
-      $row=$stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if($user->register($upass)){  
-          $user->redirect('index2.php?joined');
-        }
-      }
-    }
-    catch(PDOException $e)
-    {
-      echo $e->getMessage();
-    }
+    echo "string";
   }
 
-
-  
 ?>
 
 <!DOCTYPE html>
@@ -71,12 +49,15 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<form action="" method="post">
 <div>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+
+    
       <h1>
         Perfil Usuário
       </h1>
@@ -125,7 +106,7 @@
             
             <div class="form-group">
               <div class="col-xs-3"> 
-                <input type="password" class="form-control" name="senha" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
+                <input type="password" class="form-control" name="txt_upass" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
               </div>
             </div>
 
@@ -134,7 +115,7 @@
 
             <div class="form-group">
               <div class="col-xs-3"> 
-                <input type="password" class="form-control" name="senha" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
+                <input type="password" class="form-control" name="txt_upass" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
               </div>
             </div>
 
@@ -142,7 +123,7 @@
             <br/>
 
             <div class="col-xs-12 text-center">
-              <button type="button" class="btn btn-default btn-lrg" name="altera-senha">
+              <button type="submit" class="btn btn-default btn-lrg" name="Salvar">
                 <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
               </button>
           
@@ -162,6 +143,7 @@
       <!-- /.row -->
 
     </section>
+    </form>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
