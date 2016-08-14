@@ -48,24 +48,6 @@ if(isset($_POST['btn-login']))
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 </head>
 <body class="hold-transition login-page">
-    
- <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1120295274701582',
-      xfbml      : true,
-      version    : 'v2.7'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 	<div class="login-box">
 	<div class="login-logo">
@@ -109,7 +91,7 @@ if(isset($_POST['btn-login']))
         </div> 
         <div class="social-auth-links text-center">
       <p>- OU -</p>
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+      <a href="fbconfig.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Logar pelo Facebook</a>
     </div>
       	<br />
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
