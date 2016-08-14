@@ -16,7 +16,7 @@ use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '1120295274701582','7c972e119a08b83e112b7ac76cc0f84c' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://www.vcprefeito.com.br/login.php' );
+    $helper = new FacebookRedirectLoginHelper('http://www.vcprefeito.com.br/index2.php' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -39,7 +39,7 @@ if ( isset( $session ) ) {
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     /* ---- header location after session ----*/
-  header("Location: http://www.vcprefeito.com.br/login.php");
+  header("Location: http://www.vcprefeito.com.br/index2.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
