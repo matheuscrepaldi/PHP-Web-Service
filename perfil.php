@@ -12,6 +12,34 @@
   $stmt->execute(array(":user_id"=>$user_id));
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+
+  if(isset($_POST['altera-senha']))
+  {
+   
+    $upass = strip_tags($_POST['txt_upass']); 
+  
+  if(strlen($upass) < 6)  {
+    $error[] = "A senha deve possuir 6 caracteres."; 
+  }else
+  {
+    try
+    {
+      $stmt = $user->runQuery("SELECT user_name, user_email FROM users WHERE user_name=:uname OR user_email=:umail");
+      $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+      $row=$stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if($user->register($upass)){  
+          $user->redirect('index2.php?joined');
+        }
+      }
+    }
+    catch(PDOException $e)
+    {
+      echo $e->getMessage();
+    }
+  }
+
+
   
 ?>
 
@@ -91,18 +119,6 @@
           <div class="content">
 
           <h3>
-            Nome de usuário
-          </h3>
-
-          <div class="form-group">
-              <div class="col-xs-3"> 
-                <input type="text" class="form-control" name="senha" placeholder="Usuário" value="<?php if(isset($error)){echo $uname;}?>" />
-              </div>
-          </div>
-
-            <br/>
-
-          <h3>
             Nova senha
           </h3>
 
@@ -126,7 +142,7 @@
             <br/>
 
             <div class="col-xs-12 text-center">
-              <button type="button" class="btn btn-default btn-lrg" name="btn-salvar">
+              <button type="button" class="btn btn-default btn-lrg" name="altera-senha">
                 <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
               </button>
           
