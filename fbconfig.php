@@ -14,7 +14,7 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
-FacebookSession::setDefaultApplication( '1233962869948144','0e6d3ce6463ddc3a3b33d496be1fcda3' );
+FacebookSession::setDefaultApplication( '1120295274701582','7c972e119a08b83e112b7ac76cc0f84c' );
 // login helper with redirect_uri
     $helper = new FacebookRedirectLoginHelper('http://www.vcprefeito.com.br/index2.php' );
 try {
