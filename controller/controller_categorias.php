@@ -1,4 +1,12 @@
 <?php
+
+//print_r($_POST);
+ //echo "teste"; exit;
+
+if($_POST['operacao'] == 'cancelar'){
+    
+    header(sprintf("Location: %s", "../index2.php"));
+}
  
 // Pasta onde o arquivo vai ser salvo
 $_UP['pasta'] = '../imagens/';
@@ -56,6 +64,7 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_fin
 // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
 echo "Upload efetuado com sucesso!";
 echo '<br /><a href="' . $_UP['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
+    header(sprintf("Location: %s", "../index2.php"));
 } else {
 // Não foi possível fazer o upload, provavelmente a pasta está incorreta
 echo "Não foi possível enviar o arquivo, tente novamente";

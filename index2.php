@@ -69,7 +69,7 @@
     <!-- Logo -->
     <a href="index2.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>V</b>P</span>
+      <span class="logo-mini"><b>VP</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Vc</b>Prefeito</span>
     </a>
