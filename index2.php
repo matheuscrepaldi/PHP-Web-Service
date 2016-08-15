@@ -41,6 +41,8 @@
     
     <script type="text/javascript">
         
+        
+        
         function changePage(url) {
             if(url == ''){ return; }
 
@@ -52,6 +54,8 @@
               });
             }
   
+      
+        
     </script>
 
 
@@ -180,7 +184,7 @@
           <div id="localAtualizar">
       				<!--<iframe  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463764622779" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
 
-              <!--<iframe src="geoloc.html"></iframe>-->
+              <iframe src="geoloc.html"></iframe>
           </div>
 			</div>
             </div>
@@ -224,9 +228,10 @@
 <!-- ChartJS 1.0.1 -->
 <script src="plugins/chartjs/Chart.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
+<!--<script src="dist/js/pages/dashboard2.js"></script>-->
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="bootbox.min.js"></script>
 
 
 </body>

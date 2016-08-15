@@ -21,60 +21,65 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook\HttpClients;
+namespace Facebook\GraphNodes;
+
+use DateTime;
 
 /**
- * Class FacebookStream
- *
- * Abstraction for the procedural stream elements so that the functions can be
- * mocked and the implementation can be tested.
+ * Birthday object to handle various Graph return formats
  *
  * @package Facebook
  */
-class FacebookStream
+class Birthday extends DateTime
 {
     /**
-     * @var resource Context stream resource instance
+     * @var bool
      */
-    protected $stream;
+    private $hasDate = false;
 
     /**
-     * @var array Response headers from the stream wrapper
+     * @var bool
      */
-    protected $responseHeaders = [];
+    private $hasYear = false;
 
     /**
-     * Make a new context stream reference instance
+     * Parses Graph birthday format to set indication flags, possible values:
      *
-     * @param array $options
+     *  MM/DD/YYYY
+     *  MM/DD
+     *  YYYY
+     *
+     * @link https://developers.facebook.com/docs/graph-api/reference/user
+     *
+     * @param string $date
      */
-    public function streamContextCreate(array $options)
+    public function __construct($date)
     {
-        $this->stream = stream_context_create($options);
+        $parts = explode('/', $date);
+
+        $this->hasYear = count($parts) === 3 || count($parts) === 1;
+        $this->hasDate = count($parts) === 3 || count($parts) === 2;
+
+        parent::__construct($date);
     }
 
     /**
-     * The response headers from the stream wrapper
+     * Returns whether date object contains birth day and month
      *
-     * @return array
+     * @return bool
      */
-    public function getResponseHeaders()
+    public function hasDate()
     {
-        return $this->responseHeaders;
+        return $this->hasDate;
     }
 
     /**
-     * Send a stream wrapped request
+     * Returns whether date object contains birth year
      *
-     * @param string $url
-     *
-     * @return mixed
+     * @return bool
      */
-    public function fileGetContents($url)
+    public function hasYear()
     {
-        $rawResponse = file_get_contents($url, false, $this->stream);
-        $this->responseHeaders = $http_response_header ?: [];
-
-        return $rawResponse;
+        return $this->hasYear;
     }
 }
