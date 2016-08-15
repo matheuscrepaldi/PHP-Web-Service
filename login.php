@@ -241,13 +241,7 @@ if(isset($_POST['btn-login']))
                 	<i class="glyphicon glyphicon-log-in"></i> &nbsp; Entrar
             </button>
         </div> 
-        <div class="social-auth-links text-center">
-      <p>- OU -</p>
-            <p><a href="#" onClick="logInWithFacebook()">Log In with the JavaScript SDK</a></p>
-            <a href="js-login.php">por favor, conecta</a>
-    </div>
-           <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+        
 
 <div id="status">
     
