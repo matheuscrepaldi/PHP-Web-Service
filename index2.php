@@ -40,22 +40,27 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     
     <script type="text/javascript">
-        
-        
-        
-        function changePage(url) {
-            if(url == ''){ return; }
+      function changePage(url) {
+        if(url == ''){ return; }
+          //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
+          $.ajax({
+              url: url, 
+              data: {},
+              type: 'POST',
+              error: function(XMLHttpRequest, textStatus, errorThrown){
+                changePage('404.php');
+              },
+              success: function(data){
+                $("#localAtualizar").html(data);
+              }
+          });
+      }
 
-            //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
-
-
-            $.post( url , function( data ) {
-                $( "#localAtualizar" ).html( data );
-              });
-            }
-  
-      
-        
+      // redirect to page
+      var page = <?php echo empty($_GET['page']) ? "''" : $_GET['page']; ?>
+      if(page != ''){
+        changePage(page + '.php');
+      }
     </script>
 
 
