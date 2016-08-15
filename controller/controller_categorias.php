@@ -36,7 +36,8 @@ exit; // Para a execução do script
 // Caso script chegue a esse ponto, não houve erro com o upload e o PHP pode continuar
  
 // Faz a verificação da extensão do arquivo
-$extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
+$teste = explode('.', $_FILES['arquivo']['name']);
+$extensao = strtolower(end($teste));
 if (array_search($extensao, $_UP['extensoes']) === false) {
 echo "Por favor, envie arquivos com as seguintes extensões: jpg, png ou gif";
 }
@@ -64,7 +65,7 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_fin
 // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
 echo "Upload efetuado com sucesso!";
 echo '<br /><a href="' . $_UP['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
-    header(sprintf("Location: %s", "../index2.php?page=categorias"));
+    header(sprintf("Location: %s", "../index2.php?page=view/categorias"));
 } else {
 // Não foi possível fazer o upload, provavelmente a pasta está incorreta
 echo "Não foi possível enviar o arquivo, tente novamente";

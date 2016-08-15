@@ -43,23 +43,17 @@
       function changePage(url) {
         if(url == ''){ return; }
           //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
-          $.ajax({
-              url: url, 
-              data: {},
-              type: 'POST',
-              error: function(XMLHttpRequest, textStatus, errorThrown){
-                changePage('404.php');
-              },
-              success: function(data){
-                $("#localAtualizar").html(data);
-              }
-          });
+            $.post( url , function( data ) {
+                $( "#localAtualizar" ).html( data );
+              });
+            
       }
 
       // redirect to page
-      var page = <?php echo empty($_GET['page']) ? "''" : $_GET['page']; ?>
+      var page = "<?php if(isset($_GET['page'])) echo $_GET['page'];  ?>";
       if(page != ''){
         changePage(page + '.php');
+        //bootbox.alert("Cadastro realizado com sucesso!");  
       }
     </script>
 
