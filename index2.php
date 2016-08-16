@@ -53,7 +53,8 @@
       var page = "<?php if(isset($_GET['page'])) echo $_GET['page'];  ?>";
       if(page != ''){
         changePage(page + '.php');
-        //bootbox.alert("Cadastro realizado com sucesso!");  
+        alert("Cadastro realizado com sucesso!");  
+        
       }
     </script>
 
