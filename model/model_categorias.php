@@ -39,7 +39,41 @@ require_once('../dbconfig.php');
                 echo $e->getMessage();
             }				
         }
-    }
+        
+        public function listar(){
+            
+            try {
+                
 
+                $stmt = $this->conn->query("select * from categorias");
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+        }
+        
+        public function deletar($id) {
+            
+            try {
+
+                  $stmt = $this->conn->prepare('DELETE FROM categorias WHERE id_categoria = :id');
+                  $stmt->bindParam(':id', $id); 
+                  $stmt->execute();
+
+                  echo $stmt->rowCount(); 
+                }
+            
+                catch(PDOException $e) {
+                  echo 'Error: ' . $e->getMessage();
+                }
+        }
+    }
 
 ?>

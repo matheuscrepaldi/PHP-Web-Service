@@ -87,5 +87,11 @@
 
         }
     }
+
+    else if ($_POST['operacao'] == 'excluir'){
+        
+       $categoria->excluir();
+       header(sprintf("Location: %s", "../index2.php?page=view/categorias")); 
+    }
  
 ?>
