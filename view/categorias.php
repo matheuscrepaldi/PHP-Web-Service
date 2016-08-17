@@ -1,4 +1,5 @@
 
+
     
 <script language="JavaScript">
     
@@ -12,6 +13,8 @@
 
 	
   $(document).ready(function(){
+      
+     // $('#exemplo').DataTable();
 
     $("#descricao").click(function(){
 
@@ -134,12 +137,12 @@
             <!-- /.box-header -->
             <div class="box-body pad">
               
-             <table id="example2" class="table table-bordered table-hover">
+             <table id="exemplo" class="table table-condensed">
                 <thead>
                 <tr>
                   <th>Código</th>
                   <th>Descrição</th>
-                  <th>&nbsp;</th>
+                  <th><em class="fa fa-cog"></em></th>
                 </tr>
                 </thead>
                  <?php 
@@ -157,7 +160,8 @@
                 <tr>
                     <td><?php echo $cad['id_categoria']; ?></td>
                   <td><?php echo $cad['desc_categoria']; ?></td>
-                  <td><?php echo $cad['img_categoria']; ?></td>
+                  <td><a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a></td>
                 </tr>
 
                 </tbody>

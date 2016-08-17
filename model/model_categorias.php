@@ -45,7 +45,7 @@ require_once('../dbconfig.php');
             try {
                 
 
-                $stmt = $this->conn->query("select * from categorias");
+                $stmt = $this->conn->query("select * from categorias limit 10");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
