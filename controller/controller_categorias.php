@@ -1,6 +1,6 @@
 <?php
 
-print_r($_POST); exit;
+//print_r($_POST); exit;
 
     require_once('../model/model_categorias.php');
 

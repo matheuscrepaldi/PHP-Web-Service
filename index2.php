@@ -29,7 +29,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <!-- Theme style -->
@@ -37,27 +36,24 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     
     <script type="text/javascript">
+    
       function changePage(url) {
         if(url == ''){ return; }
           //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
-            $.post( url , function( data ) {
-                $( "#localAtualizar" ).html( data );
-              });
-            
+         $.post( url , function( data ) {
+            $( "#localAtualizar" ).html( data );
+          });
+
       }
 
       // redirect to page
-      var page = "<?php if(isset($_GET['page'])) echo $_GET['page'];  ?>";
+      var page =  "<?php  echo $_GET['page']; ?>";
       if(page != ''){
         changePage(page + '.php');
-        alert("Cadastro realizado com sucesso!");  
-        
       }
     </script>
 
@@ -229,13 +225,10 @@
 <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll 1.3.0 -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="plugins/chartjs/Chart.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="dist/js/pages/dashboard2.js"></script>-->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="bootbox.min.js"></script>

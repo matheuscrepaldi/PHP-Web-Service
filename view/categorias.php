@@ -14,7 +14,7 @@
         
 		
 		 document.form_cat.operacao.value = botao;
-         document.form_cat.btnexcluir.value = btn;
+     document.form_cat.btnexcluir.value = btn;
 		 document.form_cat.submit();
 	}
 
@@ -67,6 +67,7 @@
 <form action="controller/controller_categorias.php" method="post" name="form_cat" id="form_cat" enctype="multipart/form-data">
     
     <input name="operacao" type="hidden" id="operacao" value="nula">
+    <input type="hidden" name="btnexcluir" id="btnexcluir" value="">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -146,7 +147,7 @@
             <!-- /.box-header -->
             <div class="box-body pad">
               
-             <table id="exemplo" class="table table-condensed">
+             <table id="exemplo" class="table table-hover">
                 <thead>
                 <tr>
                   <th>Código</th>
@@ -154,6 +155,7 @@
                   <th><em class="fa fa-cog"></em></th>
                 </tr>
                 </thead>
+              <tbody>  
                  <?php 
                  
                     require_once('../model/model_categorias.php');
@@ -165,16 +167,17 @@
                  foreach($row as $key => $cad) { 
                  
                  ?>
-                <tbody>            
+          
                 <tr>
-                    <td><?php echo $cad['id_categoria']; ?></td> <input type="text" name="btnexcluir" id="btnexcluir" value="">
+                    <td><?php echo $cad['id_categoria']; ?></td> 
                   <td><?php echo $cad['desc_categoria']; ?></td>
                   <td><a class="btn btn-success"><em class="fa fa-pencil"></em></a>
                               <a class="btn btn-danger" onClick="validarExclusao('excluir', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-trash"></em></a></td>
                 </tr>
 
-                </tbody>
                  <?php } ?>
+
+                </tbody>
               </table>
               
             </div>
