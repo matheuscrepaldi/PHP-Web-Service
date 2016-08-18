@@ -2,9 +2,13 @@
 
   	require_once("dbconfig.php");
 
-  	$consulta = new PDO('mysql.hostinger.com.br; u633448963_login', 'u633448963_root', '123456');
+  	  $auth_user = new USER();
+    
+	  $stmt = $auth_user->runQuery("SELECT user_email FROM users WHERE user_email=:$para");
+	  $stmt->execute(array(":user_email"=>$user_email));
+  
+ 	  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-  	$stmt = $consulta->runQuery("SELECT user_email FROM users WHERE user_email=:$para");
 
   	if(mysql_num_rows($stmt) == 1){
   		$codigo = base64_encode($para);
