@@ -4,9 +4,9 @@
 
 	if(isset($_POST['btnSalvar'])){
 
-		$uname = $_POST['txtUsuario']
-		$campoSenha = $_POST['txtSenha'];
-		$campoNovaSenha = $_POST['txtNovaSenha'];
+		$uname = strip_tags($_POST['txtUsuario']);
+		$campoSenha = strip_tags($_POST['txtSenha']);
+		$campoNovaSenha = strip_tags($_POST['txtNovaSenha']);
 
 		if($campoSenha == $campoNovaSenha){
 			try {
