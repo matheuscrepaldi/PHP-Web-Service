@@ -15,7 +15,9 @@
 				   
 				  $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
 				  $stmt->execute(array(
-				    ':campoSenha' => $campoSenha
+				    ':campoSenha' => $campoSenha,
+				    ':campoNovaSenha' => $campoNovaSenha,
+				    ':uname' => $uname
 				  ));
 				     
 				  echo $stmt->rowCount(); 
