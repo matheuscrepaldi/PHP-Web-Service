@@ -1,14 +1,13 @@
 <?php
 	session_start();
-	require_once('class.user.php');
 
 	if(isset($_POST['btnSalvar'])){
 
 		$uname 			= strip_tags($_POST['txtUsuario']);
 		$campoSenha 	= strip_tags($_POST['txtSenha']);
 		$campoNovaSenha = strip_tags($_POST['txtNovaSenha']);
-		
-		$stm->bindParam(1, $_POST['user_pass']);
+
+		$stmt->bindParam(1, $_POST['user_pass']);
 
 		if($campoSenha == $campoNovaSenha){
 			try {
