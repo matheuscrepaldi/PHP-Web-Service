@@ -1,6 +1,6 @@
   <?php
 
-  $para = "vainer_fabri@hotmail.com";
+  $para = $_POST['txtEmail'];
 
   $assunto= "Redefinir ou alterar senha.";
 
