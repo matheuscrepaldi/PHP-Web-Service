@@ -45,7 +45,7 @@ require_once('../dbconfig.php');
             try {
                 
 
-                $stmt = $this->conn->query("select * from categorias limit 10");
+                $stmt = $this->conn->query("select * from categorias");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -67,7 +67,7 @@ require_once('../dbconfig.php');
                   $stmt->bindParam(':id', $id); 
                   $stmt->execute();
 
-                  echo $stmt->rowCount(); 
+                  //echo $stmt->rowCount(); 
                 }
             
                 catch(PDOException $e) {

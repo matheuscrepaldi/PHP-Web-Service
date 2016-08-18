@@ -9,6 +9,15 @@
 		 document.form_cat.operacao.value = botao;
 		 document.form_cat.submit();
 	}
+    
+    function validarExclusao(botao, btn){
+        
+		
+		 document.form_cat.operacao.value = botao;
+         document.form_cat.btnexcluir.value = btn;
+		 document.form_cat.submit();
+	}
+
 
 
 	
@@ -158,10 +167,10 @@
                  ?>
                 <tbody>            
                 <tr>
-                    <td><?php echo $cad['id_categoria']; ?></td>
+                    <td><?php echo $cad['id_categoria']; ?></td> <input type="text" name="btnexcluir" id="btnexcluir" value="">
                   <td><?php echo $cad['desc_categoria']; ?></td>
-                  <td><a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a></td>
+                  <td><a class="btn btn-success"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger" onClick="validarExclusao('excluir', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-trash"></em></a></td>
                 </tr>
 
                 </tbody>

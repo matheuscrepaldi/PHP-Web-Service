@@ -1,5 +1,7 @@
 <?php
 
+print_r($_POST); exit;
+
     require_once('../model/model_categorias.php');
 
     $categoria = new Categoria();
@@ -90,7 +92,7 @@
 
     else if ($_POST['operacao'] == 'excluir'){
         
-       $categoria->excluir();
+       $categoria->deletar($_POST['btnexcluir']);
        header(sprintf("Location: %s", "../index2.php?page=view/categorias")); 
     }
  
