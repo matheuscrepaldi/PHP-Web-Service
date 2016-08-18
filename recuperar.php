@@ -1,3 +1,33 @@
+<?php
+
+	require_once("dbconfig.php");
+
+	if(isset($_POST['btnSalvar'])){
+
+		$uname = $_POST['txtUsuario']
+		$campoSenha = $_POST['txtSenha'];
+		$campoNovaSenha = $_POST['txtNovaSenha'];
+
+		if($campoSenha == $campoNovaSenha){
+			try {
+				  $pdo = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u633448963_login', $username, $password);
+				  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				   
+				  $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
+				  $stmt->execute(array(
+				    ':campoSenha' => $campoSenha
+				  ));
+				     
+				  echo $stmt->rowCount(); 
+				} catch(PDOException $e) {
+				  echo 'Error: ' . $e->getMessage();
+				}
+		}else{
+			echo "Senhas não batem!";
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +47,6 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -36,17 +60,22 @@
     <form method="post">
       
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Senha">
+       	 <input type="text" class="form-control" name="txtUsuario" placeholder="Senha">
+         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" name="txtSenha" placeholder="Senha">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Confirmar senha">
+        <input type="password" class="form-control" name="txtNovaSenha" placeholder="Confirmar senha">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Salvar</button>
+          <button type="submit" name="btnSalvar" class="btn btn-primary btn-block btn-flat">Salvar</button>
         </div>
         <!-- /.col -->
       </div>

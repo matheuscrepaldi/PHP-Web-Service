@@ -11,6 +11,7 @@ class Database
     private $db_name = "u633448963_login";
     private $username = "u633448963_root";
     private $password = "123456";
+
     public $conn;
     public function dbConnection()
 	{
