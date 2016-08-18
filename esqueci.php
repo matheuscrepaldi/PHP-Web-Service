@@ -1,33 +1,17 @@
   <?php
 
-  	require_once("dbconfig.php");
-  	require_once("class.user.php");
+    $para = $_POST['txtEmail'];
 
-  	  $auth_user = new USER();
-    
-	  $stmt = $auth_user->runQuery("SELECT user_email FROM users WHERE user_email=:$user_email");
-	  $stmt->execute(array(":user_email"=>$user_email));
-  
- 	  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+    $assunto= "Redefinir ou alterar senha.";
 
+    $email_body = "teste";
 
-  	if(mysql_num_rows($stmt) == 1){
-  		$codigo = base64_encode($para);
-  		$data_expirar = date('Y-m-d H:i:s', strtotime('+1day'));
+    $headers = "From: recuperar@vcprefeito.com.br\n";
 
-  		$para = $_POST['txtEmail'];
+    if(!mail($para, $assunto, $email_body, $headers, "-r".$para)){
+      $headers.= "Return-Path: " . $para . "\n";
 
-   	 	$assunto= "Redefinir ou alterar senha.";
-
-    	$email_body = 'Clique no link abaixo para recuperar sua senha:<br /> <a href="http://www.vcprefeito.com.br/recuperar.php?codigo='.$codigo.'">';
-
-    	$headers = "From: recuperar@vcprefeito.com.br\n";
-
-	    if(!mail($para, $assunto, $email_body, $headers, "-r".$para)){
-	      $headers.= "Return-Path: " . $para . "\n";
-
-	      mail($para, $assunto, $email_body, $headers);
-	  	}
+      mail($para, $assunto, $email_body, $headers);
     }
 
   
@@ -54,7 +38,6 @@
 
 </head>
 <body class="hold-transition register-page">
-
 <div class="register-box">
   <div class="register-logo">
     <a href="index2.html"><b>Vc</b>Prefeito</a>
