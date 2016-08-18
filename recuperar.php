@@ -1,11 +1,11 @@
 <?php
-
-	require_once("dbconfig.php");
+	session_start();
+	require_once('class.user.php');
 
 	if(isset($_POST['btnSalvar'])){
 
-		$uname = strip_tags($_POST['txtUsuario']);
-		$campoSenha = strip_tags($_POST['txtSenha']);
+		$uname 			= strip_tags($_POST['txtUsuario']);
+		$campoSenha 	= strip_tags($_POST['txtSenha']);
 		$campoNovaSenha = strip_tags($_POST['txtNovaSenha']);
 
 		if($campoSenha == $campoNovaSenha){
@@ -60,7 +60,7 @@
     <form method="post">
       
       <div class="form-group has-feedback">
-       	 <input type="text" class="form-control" name="txtUsuario" placeholder="Senha">
+       	 <input type="text" class="form-control" name="txtUsuario" placeholder="Nome de usuário">
          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
