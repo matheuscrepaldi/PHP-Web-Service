@@ -7,7 +7,7 @@
 		$campoSenha 	= strip_tags($_POST['txtSenha']);
 		$campoNovaSenha = strip_tags($_POST['txtNovaSenha']);
 
-		$stmt->bindParam(1, $_POST['user_pass']);
+		$stmt->bindParam(1, $_POST[':campoSenha']);
 
 		if($campoSenha == $campoNovaSenha){
 			try {
