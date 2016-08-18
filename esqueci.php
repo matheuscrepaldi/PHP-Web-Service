@@ -5,7 +5,7 @@
 
   	  $auth_user = new USER();
     
-	  $stmt = $auth_user->runQuery("SELECT user_email FROM users WHERE user_email=:$para");
+	  $stmt = $auth_user->runQuery("SELECT user_email FROM users WHERE user_email=:$user_email");
 	  $stmt->execute(array(":user_email"=>$user_email));
   
  	  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
