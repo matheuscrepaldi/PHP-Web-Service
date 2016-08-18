@@ -1,17 +1,20 @@
-<?php
-if (isset($_POST['btnSubmit'])) {
+  <?php
 
-    $mail = $_POST['txtEmail'];
+  $to = "vainer_fabri@hotmail.com";
 
-    $mailCript = base64_encode($_POST['txtEmail']);
+  $subject= "Redefinir ou alterar senha.";
 
-    $mensagem = "Você esta recebendo este e-mail, por que foi solicitado a alteração de senha para o site NOME_SITE, clique no link abaixo para redefinir sua senha. <br /><a href='http://localhost/logSystem/redefinirSenha.php?conta={$mailCript}'>Recuperar Senha</a>";
-    
-    require_once('enviarEmail.php');
+  $message = "teste";
 
-    enviarEmail($_POST['txtEmail'], "Prezado", "Recuperação de senha", $mensagem);
-}
-?>
+
+//5 – agora inserimos as codificações corretas e  tudo mais.
+$headers = 'From: recuperar@vcprefeito.com.br' . "\r\n" .
+    'Reply-To: recuperar@vcprefeito.com.br' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+	mail($to, $subject, $message, $headers);  //função que faz o envio do email.
+  ?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
