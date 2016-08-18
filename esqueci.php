@@ -4,7 +4,7 @@
 
     $assunto= "Redefinir ou alterar senha.";
 
-    $email_body = 'Clique no link abaixo para redefinir sua senha.<br/> <a href="http://www.vcprefeito.com.br/recuperar.php"';
+    $email_body = 'Clique no link para redefinir sua senha. -> http://www.vcprefeito.com.br/recuperar.php';
 
     $headers = "From: recuperar@vcprefeito.com.br\n";
 
