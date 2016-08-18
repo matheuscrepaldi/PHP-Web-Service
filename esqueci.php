@@ -1,18 +1,20 @@
   <?php
 
-  $to = "vainer_fabri@hotmail.com";
+  $para = "vainer_fabri@hotmail.com";
 
-  $subject= "Redefinir ou alterar senha.";
+  $assunto= "Redefinir ou alterar senha.";
 
-  $message = "teste";
+  $email_body = "teste";
 
+  $headers = "From: recuperar@vcprefeito.com.br\n";
 
-//5 – agora inserimos as codificações corretas e  tudo mais.
-$headers = 'From: recuperar@vcprefeito.com.br' . "\r\n" .
-    'Reply-To: recuperar@vcprefeito.com.br' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+  if(!mail($para, $assunto, $email_body, $headers, "-r".$para)){
+  	$headers.= "Return-Path: " . $para . "\n";
 
-	mail($to, $subject, $message, $headers);  //função que faz o envio do email.
+  	mail($para, $assunto, $email_body, $headers);
+  }
+
+	
   ?>
 
 
