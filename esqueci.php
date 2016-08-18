@@ -1,17 +1,26 @@
   <?php
 
-    $para = $_POST['txtEmail'];
+  	require_once("dbconfig.php");
 
-    $assunto= "Redefinir ou alterar senha.";
+  	$verificar = mysql_query("SELECT 'user_email' from 'users' WHERE user_email = '$para' ");
 
-    $email_body = "teste";
+  	if(mysql_num_rows($verificar) == 1){
+  		$codigo = base64_encode($para);
+  		$data_expirar = date('Y-m-d H:i:s', strtotime('+1day'));
 
-    $headers = "From: recuperar@vcprefeito.com.br\n";
+  		$para = $_POST['txtEmail'];
 
-    if(!mail($para, $assunto, $email_body, $headers, "-r".$para)){
-      $headers.= "Return-Path: " . $para . "\n";
+   	 	$assunto= "Redefinir ou alterar senha.";
 
-      mail($para, $assunto, $email_body, $headers);
+    	$email_body = 'Clique no link abaixo para recuperar sua senha:<br /> <a href="http://www.vcprefeito.com.br/recuperar.php?codigo='.$codigo.'">';
+
+    	$headers = "From: recuperar@vcprefeito.com.br\n";
+
+	    if(!mail($para, $assunto, $email_body, $headers, "-r".$para)){
+	      $headers.= "Return-Path: " . $para . "\n";
+
+	      mail($para, $assunto, $email_body, $headers);
+	  	}
     }
 
   
