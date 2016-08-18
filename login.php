@@ -256,6 +256,13 @@ if(isset($_POST['btn-login']))
             <label>Não possui uma conta?<a href="sign-up.php"> Registrar-se</a></label>
         <br />
             <label><a href="esqueci.php">Esqueci minha senha!</a></label>
+
+            <script>
+
+				document.write(unescape("http%3A//www.vcprefeito.com.br/esqueci.php"));
+
+			</script>
+
       </form>
 
     </div>
