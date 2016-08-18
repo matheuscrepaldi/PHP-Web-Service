@@ -3,9 +3,9 @@
 
 	if(isset($_POST['btnSalvar'])){
 
-		$uname 			= strip_tags($_POST['txtUsuario']);
-		$campoSenha 	= strip_tags($_POST['txtSenha']);
-		$campoNovaSenha = strip_tags($_POST['txtNovaSenha']);
+		$uname 			= $_POST['txtUsuario'];
+		$campoSenha 	= $_POST['txtSenha'];
+		$campoNovaSenha = $_POST['txtNovaSenha'];
 
 
 		if($campoSenha == $campoNovaSenha){
@@ -13,7 +13,7 @@
 				  $pdo = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u633448963_login', "u633448963_root", "123456");
 				  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				   
-				  $stmt = $pdo->prepare('UPDATE users SET user_pass = campoSenha WHERE user_name = :uname');
+				  $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
 				  $stmt->execute(array(
 				    ':campoSenha' => $campoSenha
 				  ));
