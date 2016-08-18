@@ -8,7 +8,7 @@
 
     if($_POST['operacao'] == 'cancelar'){
 
-        header(sprintf("Location: %s", "../index2.php"));
+        header("Location: ../index2.php");
     }
 
     else if($_POST['operacao'] == 'salvar'){
@@ -79,7 +79,7 @@
                 $imagem = $_UP['pasta'] . $nome_final;
 
                 $categoria->register($_POST['descricao'], $imagem);
-                header(sprintf("Location: %s", "../index2.php?page=view/categorias"));
+                header("Location: ../index2.php?page=view/categorias");
             }
 
             else {
@@ -92,8 +92,15 @@
 
     else if ($_POST['operacao'] == 'excluir'){
         
-       $categoria->deletar($_POST['btnexcluir']);
-       header(sprintf("Location: %s", "../index2.php?page=view/categorias")); 
+       $categoria->deletar($_POST['btn_cons']);
+       header("Location: ../index2.php?page=view/categorias"); 
+    }
+
+    else if ($_POST['operacao'] == 'editar') {
+
+        $id = $_POST['btn_cons'];
+
+        header("Location: ../index2.php?page=view/categorias&id=". $id);
     }
  
 ?>

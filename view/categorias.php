@@ -1,9 +1,11 @@
+<?php
 
+    if(isset($_GET['id'])) {
 
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-  
-   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+        $id_cat = $_GET['id'];
+    }
 
+?>
     
 <script language="JavaScript">
     
@@ -14,21 +16,25 @@
 		 document.form_cat.submit();
 	}
     
-    function validarExclusao(botao, btn){
+  function validarExclusao(botao, btn){
         
 		
 		 document.form_cat.operacao.value = botao;
-     document.form_cat.btnexcluir.value = btn;
+     document.form_cat.btn_cons.value = btn;    
 		 document.form_cat.submit();
+     //bootbox.alert("Cadastro excluído com sucesso!");
 	}
-
-
 
 	
   $(document).ready(function(){
       
-      $('#exemplo').DataTable();
+      //$('#exemplo').DataTable();
+                $("#excluirlink").click(function() {
+          bootbox.alert("Cadastro excluído com sucesso!");
+});
 
+
+ 
     $("#descricao").click(function(){
 
       $("#sucesso").toggleClass('form-group');
@@ -71,7 +77,7 @@
 <form action="controller/controller_categorias.php" method="post" name="form_cat" id="form_cat" enctype="multipart/form-data">
     
     <input name="operacao" type="hidden" id="operacao" value="nula">
-    <input type="hidden" name="btnexcluir" id="btnexcluir" value="">
+    <input type="hidden" name="btn_cons" id="btn_cons" value="">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -88,6 +94,17 @@
               </div>
         </div>
         <div class="box-body">
+
+           <div class="form-group" id="">
+           <div class="col-xs-6">
+              <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
+              <input type="text" class="form-control" name="codigo" id="codigo" placeholder="" />
+          </div>
+          </div>
+
+            <br>
+            <br>
+            <br>
 
        	  <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-6">
@@ -117,7 +134,7 @@
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="button" class="btn btn-default btn-lrg" name="salvar" title="salvar" onClick="validarBotao('salvar')">
+          		<button type="button" class="btn btn-default btn-lrg" name="salvar" id="salvar" title="salvar" onClick="validarBotao('salvar')">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
@@ -175,8 +192,8 @@
                 <tr>
                     <td><?php echo $cad['id_categoria']; ?></td> 
                   <td><?php echo $cad['desc_categoria']; ?></td>
-                  <td><a class="btn btn-success"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" onClick="validarExclusao('excluir', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-trash"></em></a></td>
+                  <td><a class="btn btn-success" id="editarlink" onClick="validarExclusao('editar', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger" id="excluirlink" onClick="validarExclusao('excluir', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-trash"></em></a></td>
                 </tr>
 
                  <?php } ?>
