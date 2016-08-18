@@ -2,9 +2,9 @@
 
   	require_once("dbconfig.php");
 
-  	$verificar = mysql_query("SELECT 'user_email' from 'users' WHERE user_email = '$para' ");
+  	$stmt = $user->runQuery("SELECT user_email FROM users WHERE user_email=:$para");
 
-  	if(mysql_num_rows($verificar) == 1){
+  	if(mysql_num_rows($stmt) == 1){
   		$codigo = base64_encode($para);
   		$data_expirar = date('Y-m-d H:i:s', strtotime('+1day'));
 
