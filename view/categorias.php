@@ -1,5 +1,9 @@
 
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+
     
 <script language="JavaScript">
     
@@ -23,7 +27,7 @@
 	
   $(document).ready(function(){
       
-     // $('#exemplo').DataTable();
+      $('#exemplo').DataTable();
 
     $("#descricao").click(function(){
 
