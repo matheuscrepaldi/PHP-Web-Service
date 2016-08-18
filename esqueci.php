@@ -2,7 +2,7 @@
 
   	require_once("dbconfig.php");
 
-  	$consulta = new PDO('mysql:host=mysql.hostinger.com.br; dbname=u633448963_login', 'u633448963_root', '123456');
+  	$consulta = new PDO('mysql.hostinger.com.br; u633448963_login', 'u633448963_root', '123456');
 
   	$stmt = $consulta->runQuery("SELECT user_email FROM users WHERE user_email=:$para");
 
