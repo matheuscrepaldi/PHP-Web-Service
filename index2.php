@@ -1,5 +1,4 @@
 <?php
-
   require_once("session.php");
   
   require_once("class.user.php");
@@ -14,6 +13,9 @@
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
    // echo $userRow['user_tipo'];
+  $str = $userRow['user_name'];
+
+  $str = ucfirst($str);
 ?>
 
 <!DOCTYPE html>
@@ -86,17 +88,43 @@
     
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
-               &nbsp;<?php echo $userRow['user_name']; ?>&nbsp;<span class="caret"></span></a>
+            <!--DEFINE A IMAGEM DE ACORDO COM O TIPO DE USUÁRIO-->
+            <?php if(($userRow['user_tipo'] == 'A')){ ?>
+               <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
+               &nbsp;<?php echo $str; ?>&nbsp;<span class="caret"></span></a>
+            <?php } ?> 
+
+            <?php if(($userRow['user_tipo'] == 'U')){ ?>
+               <img src="dist/img/avatar04.png" class="user-image" alt="User Image">
+               &nbsp;<?php echo $str; ?>&nbsp;<span class="caret"></span></a>
+            <?php } ?>
+             
             </a>
+
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+                <?php if(($userRow['user_tipo'] == 'A')){ ?>
+                   <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+                <?php } ?>
+
+                <?php if(($userRow['user_tipo'] == 'U')){ ?>
+                  <img src="dist/img/avatar04.png" class="img-circle" alt="User Image">
+                <?php } ?>
 
                 <p>
-                  &nbsp;<?php echo $userRow['user_name'];?>
-                  <small>Membro desde 2016</small>
+                  &nbsp;<?php echo $str;?>
+                  <small>
+
+                    <?php if(($userRow['user_tipo'] == 'A')){ ?>
+                       Administrador
+                    <?php } ?> 
+
+                   <?php if(($userRow['user_tipo'] == 'U')){ ?>
+                      Usuário
+                   <?php } ?>
+
+                  </small>
                 </p>
               </li>      
               <!-- Menu Footer-->
@@ -123,11 +151,19 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
+
+        <?php if(($userRow['user_tipo'] == 'A')){ ?>
           <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+        <?php } ?>
+
+        <?php if(($userRow['user_tipo'] == 'U')){ ?>
+          <img src="dist/img/avatar04.png" class="img-circle" alt="User Image">
+        <?php } ?>
+
         </div>
         <div class="pull-left info">
-          <p> &nbsp;<?php echo $userRow['user_name']; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p> &nbsp;<?php echo $str; ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a><br/>
         </div>
       </div>
       <!-- search form -->

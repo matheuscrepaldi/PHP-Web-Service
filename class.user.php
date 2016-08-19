@@ -43,7 +43,7 @@ class USER
 		}				
 	}
 
-	public function alterar($id, $nome){
+	public function alterar($campoSenha, $uname){
 
     try {
 
