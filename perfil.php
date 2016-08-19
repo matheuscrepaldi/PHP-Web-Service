@@ -13,11 +13,35 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-  if(isset($_POST['Salvar']))
-  {
-   
-    echo "string";
-  }
+  /*if(isset($_POST['btnSalvar'])){
+
+    $uname      = $_POST['txtUsuario'];
+    $campoSenha   = $_POST['txtSenha'];
+    $campoNovaSenha = $_POST['txtNovaSenha'];
+
+
+    if($campoSenha == $campoNovaSenha){
+      try {
+          $pdo = new PDO('mysql:host=localhost;dbname=u633448963_login', "root", "");
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+          $campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+           
+          $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
+          $stmt->execute(array(
+            ':campoSenha' => $campoSenha,
+            //':campoNovaSenha' => $campoNovaSenha,
+            ':uname' => $uname
+          ));
+             
+          echo $stmt->rowCount(); 
+        } catch(PDOException $e) {
+          echo 'Error: ' . $e->getMessage();
+        }
+    }else{
+      echo "Senhas não batem!";
+    }
+  }*/
 
 ?>
 
@@ -76,7 +100,19 @@
 
               <h3 class="profile-username text-center"><?php print($userRow['user_name']); ?></h3>
 
-              <p class="text-muted text-center">Usuário</p>
+              <p class="text-muted text-center">
+                
+                <?php if(($userRow['user_tipo'] == 'A')){ ?>
+                  Administrador
+
+                <?php } ?> 
+
+                <?php if(($userRow['user_tipo'] == 'U')){ ?>
+                  Usuário
+
+                <?php } ?> 
+
+              </p>
 
             </div>
             <!-- /.box-body -->
@@ -100,13 +136,12 @@
           <div class="content">
 
           <h3>
-            Nova senha
+            Editar perfil
           </h3>
 
-            
             <div class="form-group">
               <div class="col-xs-3"> 
-                <input type="password" class="form-control" name="txt_upass" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
+                <input type="text" class="form-control" name="txtUsuario" placeholder="Nome de usuário"/>
               </div>
             </div>
 
@@ -115,7 +150,16 @@
 
             <div class="form-group">
               <div class="col-xs-3"> 
-                <input type="password" class="form-control" name="txt_upass" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
+                <input type="password" class="form-control" name="txtSenha" placeholder="Nova senha" value="<?php if(isset($error)){echo $upass;}?>" />
+              </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="form-group">
+              <div class="col-xs-3"> 
+                <input type="password" class="form-control" name="txtNovaSenha" placeholder="Confirmar senha" value="<?php if(isset($error)){echo $upass;}?>" />
               </div>
             </div>
 
@@ -123,7 +167,7 @@
             <br/>
 
             <div class="col-xs-12 text-center">
-              <button type="submit" class="btn btn-default btn-lrg" name="Salvar">
+              <button type="button" class="btn btn-default btn-lrg" onclick="" name="Salvar">
                 <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
               </button>
           

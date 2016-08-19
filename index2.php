@@ -13,6 +13,7 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
+   // echo $userRow['user_tipo'];
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +52,7 @@
       }
 
       // redirect to page
-      var page =  "<?php  echo $_GET['page']; ?>";
+      var page =  "<?php  if(isset($_GET['page'])) echo $_GET['page']; ?>";
       if(page != ''){
         changePage(page + '.php');
       }
@@ -136,6 +137,8 @@
       <!-- BARRA LATERAL -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
+          
+ <?php       if($userRow['user_tipo'] == 'A')  { ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
@@ -143,11 +146,33 @@
           <ul class="treeview-menu">
             <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
             <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
-            <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
-
             
           </ul>
         </li>
+<?php } 
+          
+      if(($userRow['user_tipo'] == 'A') or ($userRow['user_tipo'] == 'U'))  { ?>       
+           <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>           
+          </ul>
+        </li>
+   <?php }  
+          
+           if($userRow['user_tipo'] == 'A')  { ?>       
+           <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" onClick="changePage('');"><i class="fa fa-circle-o"></i> nao sei ainda</a></li>           
+          </ul>
+        </li>
+   <?php } ?> 
+          
       </ul>
       </section>
       </aside>
@@ -204,8 +229,8 @@
   
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+       immediately after the control sidebar 
+  <div class="control-sidebar-bg"></div>-->
 
 </div>
 <!-- ./wrapper -->

@@ -42,13 +42,40 @@ class USER
 			echo $e->getMessage();
 		}				
 	}
+
+	public function alterar($id, $nome){
+
+    try {
+
+    	$uname 			= $_POST['txtUsuario'];
+		$campoSenha 	= $_POST['txtSenha'];
+		$campoNovaSenha = $_POST['txtNovaSenha'];
+
+    	$campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+
+       $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
+      
+      $stmt->execute(array(
+        ':campoSenha' => $campoSenha,
+				   
+		 ':uname' => $uname
+      ));
+
+      echo $stmt->rowCount(); 
+      
+    } catch(PDOException $e) {
+    
+        echo 'Error: ' . $e->getMessage();
+    }
+
+}
 	
 	
 	public function doLogin($uname,$umail,$upass)
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT user_id, user_name, user_email, user_pass FROM users WHERE user_name=:uname OR user_email=:umail ");
+			$stmt = $this->conn->prepare("SELECT user_id, user_name, user_email, user_pass, user_tipo FROM users WHERE user_name=:uname OR user_email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -56,6 +83,7 @@ class USER
 				if(password_verify($upass, $userRow['user_pass']))
 				{
 					$_SESSION['user_session'] = $userRow['user_id'];
+                    $_SESSION['user_tipo'] = $userRow['user_tipo'];
 					return true;
 				}
 				else
