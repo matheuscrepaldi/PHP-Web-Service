@@ -42,6 +42,33 @@ class USER
 			echo $e->getMessage();
 		}				
 	}
+
+	public function alterar($id, $nome){
+
+    try {
+
+    	$uname 			= $_POST['txtUsuario'];
+		$campoSenha 	= $_POST['txtSenha'];
+		$campoNovaSenha = $_POST['txtNovaSenha'];
+
+    	$campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+
+       $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
+      
+      $stmt->execute(array(
+        ':campoSenha' => $campoSenha,
+				   
+		 ':uname' => $uname
+      ));
+
+      echo $stmt->rowCount(); 
+      
+    } catch(PDOException $e) {
+    
+        echo 'Error: ' . $e->getMessage();
+    }
+
+}
 	
 	
 	public function doLogin($uname,$umail,$upass)

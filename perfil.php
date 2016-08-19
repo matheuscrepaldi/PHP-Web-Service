@@ -13,7 +13,7 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-  if(isset($_POST['btnSalvar'])){
+  /*if(isset($_POST['btnSalvar'])){
 
     $uname      = $_POST['txtUsuario'];
     $campoSenha   = $_POST['txtSenha'];
@@ -41,7 +41,7 @@
     }else{
       echo "Senhas não batem!";
     }
-  }
+  }*/
 
 ?>
 
@@ -167,7 +167,7 @@
             <br/>
 
             <div class="col-xs-12 text-center">
-              <button type="submit" class="btn btn-default btn-lrg" name="Salvar">
+              <button type="button" class="btn btn-default btn-lrg" onclick="" name="Salvar">
                 <i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
               </button>
           
