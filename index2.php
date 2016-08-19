@@ -55,7 +55,13 @@
 
       // redirect to page
       var page =  "<?php  if(isset($_GET['page'])) echo $_GET['page']; ?>";
-      if(page != ''){
+      var id =  "<?php  if(isset($_GET['id'])) echo $_GET['id']; ?>";
+
+      if(page != '' && id != ''){
+        changePage(page + '.php?id=' + id);
+      }
+      else if(page != ''){
+
         changePage(page + '.php');
       }
     </script>

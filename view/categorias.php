@@ -1,17 +1,18 @@
 <?php
-
+//echo "Lucas";
+//print_r($_REQUEST); exit;
 
      require_once('../model/model_categorias.php');
                  
-     $sql = new Categoria(); 
+       $sql = new Categoria();
 
     if(isset($_GET['id'])) {
-
-        $id_cat = $_GET['id'];
+      
         
-        $obj_cat = $sql->listarUnico($id_cat);
+        $obj_cat = $sql->listarUnico($_GET['id']);
         
-        //echo $obj_cat;  exit;
+         //print_r($obj_cat); exit;
+       
     }
 
 
@@ -35,6 +36,17 @@
 		 document.form_cat.submit();
      //bootbox.alert("Cadastro excluído com sucesso!");
 	}
+
+  function show_image(src, width, height, alt) {
+    var img = document.getElementById("output");
+    img.src = src;
+    img.width = width;
+    img.height = height;
+    img.alt = alt;
+
+    // This next line will just add it to the <body> tag
+    document.body.appendChild(img);
+}
 
 	
   $(document).ready(function(){
@@ -109,7 +121,8 @@
            <div class="form-group" id="">
            <div class="col-xs-1">
               <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
-               <input class="form-control" id="codigo"  name="codigo" type="text" placeholder="" value="<?= "teste"; ?>" disabled>
+               <input class="form-control input-sm" id="codigo"  name="codigo" type="text" placeholder="" value="<? if(isset($obj_cat))  echo $obj_cat['id_categoria']; ?>" disabled>
+
           </div>
           </div>
 
@@ -120,7 +133,7 @@
        	  <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-5">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Descrição</label>
-      	  		<input type="text" class="form-control" name="descricao" id="descricao" placeholder="" />
+      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<? if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
        	 	</div>
        	  </div>
           
@@ -134,7 +147,7 @@
                   <label for="exampleInputFile">Adicionar Imagem</label>
                   <input type="file" id="exampleInputFile" name="arquivo" title ="Escolher Arquivo" accept="image/*" onchange="loadFile(event)">
                     
-                      <img id="output" src="#" alt="" class="margin" style="display:none; max-width: 160px; max-height: 160px; border: none;"/>
+                      <img id="output" src="<? if(isset($obj_cat))  echo $obj_cat['img_categoria']; ?>" alt="" class="margin" style=" max-width: 160px; max-height: 160px; border: none;"/>
                    
             </div>
            </div>
@@ -153,7 +166,7 @@
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
                 
-                <button type="button" class="btn btn-default btn-lrg" name="excluir" title="excluir" onClick="validarBotao('excluir')">
+                <button type="button" class="btn btn-default btn-lrg" name="excluir" title="excluir" onClick="validarExclusao('excluir', '<?php echo $_GET['id']; ?>')">
 	          		<i class="glyphicon glyphicon-trash"></i>&nbsp; Excluir
 	          </button>
 

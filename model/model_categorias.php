@@ -67,12 +67,12 @@ require_once('../dbconfig.php');
                 
                 if($id != 0) {
                     
-                    $sql .= "where id_categoria = " . $id;
+                    $sql .= " where id_categoria = " . $id;
                 }
 
                 $stmt = $this->conn->query($sql);
                 
-                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 /*echo "'<pre>";
                 print_r($rows) . "</pre>";*/
