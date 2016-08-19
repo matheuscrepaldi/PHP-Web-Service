@@ -3,8 +3,11 @@
 
     require_once('autoload.php');
     require_once('src/Facebook/Facebook.php');
-//use Facebook\Facebook;
-# /js-login.php
+
+    use Facebook\FacebookSession;
+    use Facebook\FacebookRedirectLoginHelper;
+    use Facebook\FacebookRequest;
+
 $fb = new Facebook\Facebook([
   'app_id' => '1120295274701582',
   'app_secret' => '7c972e119a08b83e112b7ac76cc0f84c',
