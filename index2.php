@@ -149,9 +149,9 @@
             
           </ul>
         </li>
-<?php } ?>
+<?php } 
           
-   <?php       if(($userRow['user_tipo'] == 'A') or ($userRow['user_tipo'] == 'U'))  { ?>       
+      if(($userRow['user_tipo'] == 'A') or ($userRow['user_tipo'] == 'U'))  { ?>       
            <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
@@ -160,7 +160,19 @@
             <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>           
           </ul>
         </li>
-   <?php } ?>       
+   <?php }  
+          
+           if($userRow['user_tipo'] == 'A')  { ?>       
+           <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" onClick="changePage('');"><i class="fa fa-circle-o"></i> nao sei ainda</a></li>           
+          </ul>
+        </li>
+   <?php } ?> 
+          
       </ul>
       </section>
       </aside>

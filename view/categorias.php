@@ -11,8 +11,10 @@
         
         $obj_cat = $sql->listarUnico($id_cat);
         
-        //print_r($obj_cat);  exit;
+        //echo $obj_cat;  exit;
     }
+
+
 
 ?>
     
@@ -107,7 +109,7 @@
            <div class="form-group" id="">
            <div class="col-xs-1">
               <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
-              <input type="text" class="form-control" name="codigo" id="codigo" placeholder="" value="<? if(isset($_GET['id'])) echo $_GET['id']; ?>" />
+               <input class="form-control" id="codigo"  name="codigo" type="text" placeholder="" value="<?= "teste"; ?>" disabled>
           </div>
           </div>
 
@@ -116,7 +118,7 @@
             <br>
 
        	  <div class="form-group" id="sucesso">
-       	 	 <div class="col-xs-6">
+       	 	 <div class="col-xs-5">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Descrição</label>
       	  		<input type="text" class="form-control" name="descricao" id="descricao" placeholder="" />
        	 	</div>
