@@ -13,6 +13,7 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
+   // echo $userRow['user_tipo'];
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +52,7 @@
       }
 
       // redirect to page
-      var page =  "<?php  echo $_GET['page']; ?>";
+      var page =  "<?php  if(isset($_GET['page'])) echo $_GET['page']; ?>";
       if(page != ''){
         changePage(page + '.php');
       }
@@ -136,6 +137,8 @@
       <!-- BARRA LATERAL -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
+          
+ <?php       if($userRow['user_tipo'] == 'A')  { ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
@@ -143,11 +146,21 @@
           <ul class="treeview-menu">
             <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
             <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
-            <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>
-
             
           </ul>
         </li>
+<?php } ?>
+          
+   <?php       if(($userRow['user_tipo'] == 'A') or ($userRow['user_tipo'] == 'U'))  { ?>       
+           <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>           
+          </ul>
+        </li>
+   <?php } ?>       
       </ul>
       </section>
       </aside>
@@ -184,7 +197,7 @@
           <div id="localAtualizar">
       				<!--<iframe  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463764622779" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
 
-              <iframe src="geoloc.html"></iframe>
+              <!--<iframe src="geoloc.html"></iframe>-->
           </div>
 			</div>
             </div>
@@ -204,8 +217,8 @@
   
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+       immediately after the control sidebar 
+  <div class="control-sidebar-bg"></div>-->
 
 </div>
 <!-- ./wrapper -->

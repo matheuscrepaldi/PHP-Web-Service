@@ -59,6 +59,31 @@ require_once('../dbconfig.php');
               }
         }
         
+         public function listarUnico($id){
+            
+            try {
+                
+                $sql = "select * from categorias";
+                
+                if($id != 0) {
+                    
+                    $sql .= "where id_categoria = " . $id;
+                }
+
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+        }
+        
         public function deletar($id) {
             
             try {
@@ -74,6 +99,8 @@ require_once('../dbconfig.php');
                   echo 'Error: ' . $e->getMessage();
                 }
         }
+        
+        
     }
 
 ?>

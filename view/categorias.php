@@ -1,8 +1,17 @@
 <?php
 
+
+     require_once('../model/model_categorias.php');
+                 
+     $sql = new Categoria(); 
+
     if(isset($_GET['id'])) {
 
         $id_cat = $_GET['id'];
+        
+        $obj_cat = $sql->listarUnico($id_cat);
+        
+        //print_r($obj_cat);  exit;
     }
 
 ?>
@@ -96,9 +105,9 @@
         <div class="box-body">
 
            <div class="form-group" id="">
-           <div class="col-xs-6">
+           <div class="col-xs-1">
               <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
-              <input type="text" class="form-control" name="codigo" id="codigo" placeholder="" />
+              <input type="text" class="form-control" name="codigo" id="codigo" placeholder="" value="<? if(isset($_GET['id'])) echo $_GET['id']; ?>" />
           </div>
           </div>
 
@@ -179,9 +188,7 @@
               <tbody>  
                  <?php 
                  
-                    require_once('../model/model_categorias.php');
-                 
-                    $sql = new Categoria(); 
+                   
                     $row = $sql->listar();
                 //print_r($row);
                

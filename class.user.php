@@ -48,7 +48,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT user_id, user_name, user_email, user_pass FROM users WHERE user_name=:uname OR user_email=:umail ");
+			$stmt = $this->conn->prepare("SELECT user_id, user_name, user_email, user_pass, user_tipo FROM users WHERE user_name=:uname OR user_email=:umail ");
 			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
@@ -56,6 +56,7 @@ class USER
 				if(password_verify($upass, $userRow['user_pass']))
 				{
 					$_SESSION['user_session'] = $userRow['user_id'];
+                    $_SESSION['user_tipo'] = $userRow['user_tipo'];
 					return true;
 				}
 				else
