@@ -13,7 +13,7 @@
 				  $pdo = new PDO('mysql:host=localhost;dbname=u633448963_login', "root", "");
 				  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          $campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+          		  $campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
 				   
 				  $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
 				  $stmt->execute(array(
