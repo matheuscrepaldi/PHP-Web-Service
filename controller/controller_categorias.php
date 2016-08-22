@@ -33,7 +33,7 @@
         $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 
         // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
-        if ($_FILES['arquivo']['error'] != 0) {
+        if ($_FILES['arquivo']['error'] != 0 && $_POST['btn_cons'] == 0) {
             
             die("Não foi possível fazer o upload, erro:<br />" . $_UP['erros'][$_FILES['arquivo']['error']]);
             exit; // Para a execução do script
@@ -45,7 +45,7 @@
         $teste = explode('.', $_FILES['arquivo']['name']);
         $extensao = strtolower(end($teste));
         
-        if (array_search($extensao, $_UP['extensoes']) === false) {
+        if (array_search($extensao, $_UP['extensoes']) === false && $_POST['btn_cons'] == 0) {
             
             echo "Por favor, envie arquivos com as seguintes extensões: jpg, png ou gif";
         }
@@ -78,7 +78,7 @@
            // echo '<br /><a href="' . $_UP['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
                 $imagem = $_UP['pasta'] . $nome_final;
 
-                if(isset($_POST['btn_cons'])) {
+                if(isset($_POST['btn_cons']) && $_POST['btn_cons'] != 0) {
 
                    $categoria->update($_POST['btn_cons'], $_POST['descricao'], $imagem);
                     header("Location: ../index2.php?page=view/categorias"); 

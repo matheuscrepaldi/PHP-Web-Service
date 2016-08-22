@@ -111,7 +111,7 @@ if(isset($_POST['btn-login']))
         </div>
         
         <div class="form-group">
-      	  	<input type="password" class="form-control" name="txt_password" placeholder="Senha" />
+      	  	<input type="password" class="form-control" name="txt_password" placeholder="Senha"  required />
        	 	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
        
