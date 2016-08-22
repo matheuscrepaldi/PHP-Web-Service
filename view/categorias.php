@@ -121,7 +121,7 @@
            <div class="form-group" id="">
            <div class="col-xs-1">
               <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
-               <input class="form-control input-sm" id="codigo"  name="codigo" type="text" placeholder="" value="<? if(isset($obj_cat))  echo $obj_cat['id_categoria']; ?>" disabled>
+               <input class="form-control input-sm" id="codigo"  name="codigo" type="text" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['id_categoria']; ?>" disabled>
 
           </div>
           </div>
@@ -133,7 +133,7 @@
        	  <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-5">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Descrição</label>
-      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<? if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
+      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
        	 	</div>
        	  </div>
           
@@ -147,7 +147,7 @@
                   <label for="exampleInputFile">Adicionar Imagem</label>
                   <input type="file" id="exampleInputFile" name="arquivo" title ="Escolher Arquivo" accept="image/*" onchange="loadFile(event)">
                     
-                      <img id="output" src="<? if(isset($obj_cat))  echo $obj_cat['img_categoria']; ?>" alt="" class="margin" style=" max-width: 160px; max-height: 160px; border: none;"/>
+                      <img id="output" src="<?php if(isset($obj_cat))  echo $obj_cat['img_categoria']; ?>" alt="" class="margin" style=" max-width: 160px; max-height: 160px; border: none;"/>
                    
             </div>
            </div>

@@ -14,7 +14,7 @@
     else if($_POST['operacao'] == 'salvar'){
  
         // Pasta onde o arquivo vai ser salvo
-        $_UP['pasta'] = '../imagens/';
+        $_UP['pasta'] = 'imagens/';
 
         // Tamanho máximo do arquivo (em Bytes)
         $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
