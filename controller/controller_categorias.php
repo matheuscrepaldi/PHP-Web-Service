@@ -78,8 +78,17 @@
            // echo '<br /><a href="' . $_UP['pasta'] . $nome_final . '">Clique aqui para acessar o arquivo</a>';
                 $imagem = $_UP['pasta'] . $nome_final;
 
-                $categoria->register($_POST['descricao'], $imagem);
-                header("Location: ../index2.php?page=view/categorias");
+                if(isset($_POST['btn_cons'])) {
+
+                   $categoria->update($_POST['btn_cons'], $_POST['descricao'], $imagem);
+                    header("Location: ../index2.php?page=view/categorias"); 
+                }
+
+                else {
+
+                    $categoria->register($_POST['descricao'], $imagem);
+                    header("Location: ../index2.php?page=view/categorias");
+                }
             }
 
             else {

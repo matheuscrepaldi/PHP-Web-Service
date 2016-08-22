@@ -29,10 +29,9 @@
 	}
     
   function validarExclusao(botao, btn){
-        
-		
+
 		 document.form_cat.operacao.value = botao;
-     document.form_cat.btn_cons.value = btn;    
+     document.form_cat.btn_cons.value = btn; 
 		 document.form_cat.submit();
      //bootbox.alert("Cadastro excluído com sucesso!");
 	}
@@ -158,7 +157,7 @@
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="button" class="btn btn-default btn-lrg" name="salvar" id="salvar" title="salvar" onClick="validarBotao('salvar')">
+          		<button type="button" class="btn btn-default btn-lrg" name="salvar" id="salvar" title="salvar" onClick="validarExclusao('salvar', <?php if(isset($obj_cat)) echo $obj_cat['id_categoria']; else echo '0'; ?>)">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
