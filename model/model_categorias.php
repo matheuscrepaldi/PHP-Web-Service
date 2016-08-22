@@ -39,6 +39,28 @@ require_once('../dbconfig.php');
                 echo $e->getMessage();
             }				
         }
+
+        public function update($cod, $desc, $img) {
+        
+            try {
+            
+
+
+                $stmt = $this->conn->prepare("UPDATE categorias SET desc_categoria = :desc, img_categoria = :img WHERE id_categoria = :cod");
+
+                $stmt->bindparam(":cod", $cod);
+                $stmt->bindparam(":desc", $desc);
+                $stmt->bindparam(":img", $img);
+
+                $stmt->execute(); 
+
+                return $stmt; 
+            }
+            catch(PDOException $e) {
+            
+                echo $e->getMessage();
+            }       
+        }
         
         public function listar(){
             
