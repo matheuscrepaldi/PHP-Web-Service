@@ -31,7 +31,7 @@ class USER
 												  
 			$stmt->bindparam(":uname", $uname);
 			$stmt->bindparam(":umail", $umail);
-			$stmt->bindparam(":upass", $upass);										  
+			$stmt->bindparam(":upass", $new_password);										  
 				
 			$stmt->execute();	
 			

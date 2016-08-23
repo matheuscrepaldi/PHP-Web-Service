@@ -25,13 +25,13 @@ if (isset($accessToken)) {
    $fb->setDefaultAccessToken($accessToken);
 
   try {
-  
+      
     $requestProfile = $fb->get("/me?fields=name,email");
     $profile = $requestProfile->getGraphNode()->asArray();
       
     $usuario = new USER();
     $usuario->register($profile['name'], $profile['email'], $profile['id']);
-    $usuario->doLogin($profile['name'],$profile['email'],$profile['id']);  
+    $usuario->doLogin($profile['name'],$profile['email'],$profile['id']);
     
       
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
