@@ -20,8 +20,46 @@
 ?>
     
 <script language="JavaScript">
+
+      $(function(){
+        tabela = $('#tabelaCategorias').DataTable({
+          "ajax": {
+            "url": 'controller/controller_categorias.php',
+            "data": {operacao: "ListarCategorias"},
+            "type": "POST"
+          },
+          "language": {
+            "url": "plugins/datatables/pt-br.json"
+          },
+          "columns": [
+            {"data": "id_categoria", 
+             "width": "40%"},
+            {"data": "desc_categoria", 
+             "width": "40%"},
+            {
+              "data": null,
+              "width": "20%",
+              "targets": -1,
+              "defaultContent": `
+                <a class="btn btn-success" id="editarlink" onClick=""><em class="fa fa-pencil"></em></a>
+                <a class="btn btn-danger" id="excluirlink" onClick=""><em class="fa fa-trash"></em></a>
+              `
+            }
+          ]
+        })
+
+      });
+
+      $("#tabelaCategorias tbody").on('click', 'a#editarlink', function(){
+        data = tabela.row( $(this).parents('TR') ).data();
+        validarExclusao('editar', data.id);
+      });
+
+      $("#tabelaCategorias tbody").on('click', 'a#excluirlink', function(){
+        data = tabela.row( $(this).parents('TR') ).data();
+        validarExclusao('excluir', data.id)
+      });
     
-	
 	function validarBotao(botao){
 		
 		 document.form_cat.operacao.value = botao;
@@ -193,38 +231,17 @@
             <!-- /.box-header -->
             <div class="box-body pad">
               
-             <table id="exemplo" class="table table-hover">
-                <thead>
+            <table id="tabelaCategorias" class="table table-bordered table-hover">
+              <thead>
                 <tr>
                   <th>Código</th>
                   <th>Descrição</th>
                   <th><em class="fa fa-cog"></em></th>
                 </tr>
-                </thead>
-              <tbody>  
-                 <?php 
-                 
-                   
-                    $row = $sql->listar();
-                //print_r($row);
-               
-                 foreach($row as $key => $cad) { 
-                 
-                 ?>
-          
-                <tr>
-                    <td><?php echo $cad['id_categoria']; ?></td> 
-                  <td><?php echo $cad['desc_categoria']; ?></td>
-                  <td><a class="btn btn-success" id="editarlink" onClick="validarExclusao('editar', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" id="excluirlink" onClick="validarExclusao('excluir', '<?php echo $cad['id_categoria']; ?>')"><em class="fa fa-trash"></em></a></td>
-                </tr>
-
-                 <?php } ?>
-
-                </tbody>
-              </table>
-              
+              </thead>
+            </table>
             </div>
           </div>
         </div>
 	</form>
+

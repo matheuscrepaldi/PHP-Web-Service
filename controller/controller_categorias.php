@@ -6,9 +6,19 @@
 
     $categoria = new Categoria();
 
+    if($_REQUEST['operacao'] == 'ListarCategorias'){
+      header('Content-type: application/json');
+      $categorias = $categoria->listar();
+
+      $data['data'] = $categorias;
+      echo json_encode($data);
+      exit;
+    }
+
     if($_POST['operacao'] == 'cancelar'){
 
         header("Location: ../index2.php");
+        exit;
     }
 
     else if($_POST['operacao'] == 'salvar'){
