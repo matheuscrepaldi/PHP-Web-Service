@@ -36,7 +36,7 @@ if (isset($accessToken)) {
   }
 
   $_SESSION['name'] = $profile['name'];
-  header('location: ../index2.php');
+  header('location: ../index2.html');
   exit;
 } else {
     echo "Unauthorized access!!!";

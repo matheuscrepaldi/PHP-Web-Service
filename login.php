@@ -26,7 +26,7 @@ if(isset($_POST['btn-login']))
 	}	
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
+/*if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
     
     $appId = '';
     
@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
     
 }else if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['error'])){
     echo 'Permissão não concedida';
-} 
+}*/ 
 
 ?>
 <!DOCTYPE html>
