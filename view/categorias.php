@@ -41,8 +41,8 @@
               "width": "20%",
               "targets": -1,
               "defaultContent": `
-                <a class="btn btn-success" id="editarlink" onClick=""><em class="fa fa-pencil"></em></a>
-                <a class="btn btn-danger" id="excluirlink" onClick=""><em class="fa fa-trash"></em></a>
+                <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
+                <a class="btn btn-danger" id="excluirlink"><em class="fa fa-trash"></em></a>
               `
             }
           ]
@@ -52,12 +52,12 @@
 
       $("#tabelaCategorias tbody").on('click', 'a#editarlink', function(){
         data = tabela.row( $(this).parents('TR') ).data();
-        validarExclusao('editar', data.id);
+        validarExclusao('editar', data.id_categoria);
       });
 
       $("#tabelaCategorias tbody").on('click', 'a#excluirlink', function(){
         data = tabela.row( $(this).parents('TR') ).data();
-        validarExclusao('excluir', data.id)
+        validarExclusao('excluir', data.id_categoria)
       });
     
 	function validarBotao(botao){
