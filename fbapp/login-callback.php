@@ -5,7 +5,7 @@ require_once __DIR__ . '/src/Facebook/autoload.php';
 $fb = new Facebook\Facebook([
   'app_id' => '1120295274701582',
   'app_secret' => '7c972e119a08b83e112b7ac76cc0f84c',
-  'default_graph_version' => 'v2.7'
+  'default_graph_version' => 'v2.5'
 ]);
 
 $helper = $fb->getJavaScriptHelper();
