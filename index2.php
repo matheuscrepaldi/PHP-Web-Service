@@ -136,7 +136,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" onClick="changePage('perfil.php');" class="btn btn-default btn-flat">Perfil</a>
+                  <a href="#" onClick="changePage('view/user.php');" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
                   <a href="logout.php?logout=true" class="btn btn-default btn-flat">Sair</a>

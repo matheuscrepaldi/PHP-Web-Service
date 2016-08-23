@@ -24,7 +24,7 @@ class USER
 	{
 		try
 		{
-			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
+			$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("INSERT INTO users(user_name,user_email,user_pass) 
 		                                               VALUES(:uname, :umail, :upass)");
@@ -51,7 +51,7 @@ class USER
 		$campoSenha 	= $_POST['txtSenha'];
 		$campoNovaSenha = $_POST['txtNovaSenha'];
 
-    	//$campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+    	$campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
 
        $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
       
@@ -80,16 +80,16 @@ class USER
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 			if($stmt->rowCount() == 1)
 			{
-				//if(password_verify($upass, $userRow['user_pass']))
-				//{
+				if(password_verify($upass, $userRow['user_pass']))
+				{
 					$_SESSION['user_session'] = $userRow['user_id'];
                     $_SESSION['user_tipo'] = $userRow['user_tipo'];
 					return true;
-				//}
-				/*else
+				}
+				else
 				{
 					return false;
-				}*/
+				}
 			}
 		}
 		catch(PDOException $e)
