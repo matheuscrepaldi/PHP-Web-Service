@@ -143,9 +143,11 @@
 
            <div class="form-group">
             <div class="col-xs-6">
-                  <label for="exampleInputFile">Adicionar Imagem</label>
+                <div class="btn btn-default btn-file">
+                  <i class="fa fa-paperclip"></i> Adicionar Imagem
                   <input type="file" id="exampleInputFile" name="arquivo" title ="Escolher Arquivo" accept="image/*" onchange="loadFile(event)">
-                    
+                </div> 
+                <br>
                       <img id="output" src="<?php if(isset($obj_cat))  echo "controller/" . $obj_cat['img_categoria']; ?>" alt="" class="margin" style=" max-width: 160px; max-height: 160px; border: none;"/>
                    
             </div>

@@ -183,7 +183,7 @@
  <?php       if($userRow['user_tipo'] == 'A')  { ?>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-fw fa-edit"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
@@ -196,7 +196,7 @@
       if(($userRow['user_tipo'] == 'A') or ($userRow['user_tipo'] == 'U'))  { ?>       
            <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-fw fa-table"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li><a href="#" onClick="changePage('geraRelatorio.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>           
@@ -207,10 +207,10 @@
            if($userRow['user_tipo'] == 'A')  { ?>       
            <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-fw fa-gears"></i> <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('');"><i class="fa fa-circle-o"></i> nao sei ainda</a></li>           
+            <li><a href="#" onClick="changePage('');"><i class="fa fa-circle-o"></i>Configurações</a></li>           
           </ul>
         </li>
    <?php } ?> 
