@@ -7,6 +7,8 @@
 
   $auth_user = new USER();
   $auth_denuncia = new DENUNCIA();
+
+  $id_denuncia = null;
    
   $user_id = $_SESSION['user_session'];
   
