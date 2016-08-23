@@ -51,37 +51,8 @@ if(isset($_POST['btn-login']))
 </head>
 <body class="hold-transition login-page">
     
-   <script>
-  logInWithFacebook = function() {
-    FB.login(function(response) {
-      if (response.authResponse) {
-        alert('You are logged in &amp; cookie set!');
-        // Now you can redirect the user or do an AJAX request to
-        // a PHP script that grabs the signed request from the cookie.
-      } else {
-        alert('User cancelled login or did not fully authorize.');
-      }
-    });
-    return false;
-  };
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId: '1120295274701582',
-      cookie: true, // This is important, it's not enabled by default
-      version: 'v2.7'
-    });
-  };
-
-  (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_BR/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-       
-</script>
-
+    <script type="text/javascript" src="./fbapp/fb.js"></script>
+   
 	<div class="login-box">
 	<div class="login-logo">
    	 <img src="img/logo.png">
@@ -124,11 +95,8 @@ if(isset($_POST['btn-login']))
         </div> 
         <div class="social-auth-links text-center">
       <p>- OU -</p>
-            <p><a href="#" onClick="logInWithFacebook()">Log In with the JavaScript SDK</a></p>
-            <a href="js-login.php">por favor, conecta</a>
+           <div class="fb-login-button" data-scope="public_profile,email" onlogin="checkLoginState();"}></div>
     </div>
-           <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
 
 <div id="status">
     
