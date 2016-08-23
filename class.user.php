@@ -43,32 +43,73 @@ class USER
 		}				
 	}
 
-	public function alterar($campoSenha, $uname){
+	public function alterar($id, $antiga, $nova){
+ 
+        
+        try {
+            
+            
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE user_id=:id ");
+			$stmt->execute(array(':id'=>$id));
+			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+            
+			if($stmt->rowCount() == 1) {
+                
+				if(password_verify($antiga, $userRow['user_pass'])) {
+                    
+                    $campoSenha = password_hash($nova, PASSWORD_DEFAULT);
 
-    try {
+                    $stmt = $this->conn->prepare("UPDATE users SET user_pass = :senha WHERE user_id = :id");
 
-    	$uname 			= $_POST['txtUsuario'];
-		$campoSenha 	= $_POST['txtSenha'];
-		$campoNovaSenha = $_POST['txtNovaSenha'];
+                    $stmt->bindparam(":senha", $campoSenha);
+                    $stmt->bindparam(":id", $id);
 
-    	$campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
+                    $stmt->execute(); 
 
-       $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
-      
-      $stmt->execute(array(
-        ':campoSenha' => $campoSenha,
-				   
-		 ':uname' => $uname
-      ));
+                    return $stmt; 
+				}
+                
+				else {
+                    
+					return false;
+				}
+			}
+            
 
-      echo $stmt->rowCount(); 
-      
-    } catch(PDOException $e) {
+            }
+        
+            catch(PDOException $e) {
+            
+                echo $e->getMessage();
+            }     
+
+        }
     
-        echo 'Error: ' . $e->getMessage();
-    }
+    
+     public function listarUnico($id){
+            
+            try {
+                
+                $sql = "select * from users";
+                
+                if($id != 0) {
+                    
+                    $sql .= " where user_id = " . $id;
+                }
 
-}
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+        }
 	
 	
 	public function doLogin($uname,$umail,$upass)

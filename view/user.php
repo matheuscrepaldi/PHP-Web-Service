@@ -3,55 +3,33 @@
   require_once("../session.php");
   
   require_once("../class.user.php");
+
   $auth_user = new USER();
   
-  
   $user_id = $_SESSION['user_session'];
+
+  $obj_user = $auth_user->listarUnico($user_id);
+
+  //print_r($obj_user);
   
-  $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-  $stmt->execute(array(":user_id"=>$user_id));
-  
-  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-
-  $str = $userRow['user_name'];
-
-  $str = ucfirst($str);
-
-  /*if(isset($_POST['btnSalvar'])){
-
-    $uname      = $_POST['txtUsuario'];
-    $campoSenha   = $_POST['txtSenha'];
-    $campoNovaSenha = $_POST['txtNovaSenha'];
-
-
-    if($campoSenha == $campoNovaSenha){
-      try {
-          $pdo = new PDO('mysql:host=localhost;dbname=u633448963_login', "root", "");
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-          $campoSenha = password_hash($campoSenha, PASSWORD_DEFAULT);
-           
-          $stmt = $pdo->prepare('UPDATE users SET user_pass = :campoSenha WHERE user_name = :uname');
-          $stmt->execute(array(
-            ':campoSenha' => $campoSenha,
-            //':campoNovaSenha' => $campoNovaSenha,
-            ':uname' => $uname
-          ));
-             
-          echo $stmt->rowCount(); 
-        } catch(PDOException $e) {
-          echo 'Error: ' . $e->getMessage();
-        }
-    }else{
-      echo "Senhas não batem!";
-    }
-  }*/
-
 ?>
 
+<script language="JavaScript">
+    
+	
+	function validarBotao(botao){
+		
+		 document.form_user.operacao.value = botao;
+		 document.form_user.submit();
+	}
+    
+</script>    
 
-<form action="" method="post">
 
+<form action="controller/controller_user.php" method="post" name="form_user" id="form_user">
+
+  <input name="operacao" type="hidden" id="operacao" value="nula">
+    <input name="id" type="hidden" id="id" value="<?php echo $user_id;  ?>">
   <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -72,24 +50,24 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
                 <br>
-            	<?php if(($userRow['user_tipo'] == 'A')){ ?>
+            	<?php if(($obj_user['user_tipo'] == 'A')){ ?>
              		 <img class="profile-user-img img-responsive img-circle" src="dist/img/avatar5.png" alt="User profile picture">
              	<?php } ?>
 
-             	<?php if(($userRow['user_tipo'] == 'U')){ ?>
+             	<?php if(($obj_user['user_tipo'] == 'U')){ ?>
              		 <img class="profile-user-img img-responsive img-circle" src="dist/img/avatar04.png" alt="User profile picture">
              	<?php } ?>
 
-              <h3 class="profile-username text-center"><?php print($str); ?></h3>
+              <h3 class="profile-username text-center"><?php echo $obj_user['user_name']; ?></h3>
 
               <p class="text-muted text-center">
                 
-                <?php if(($userRow['user_tipo'] == 'A')){ ?>
+                <?php if(($obj_user['user_tipo'] == 'A')){ ?>
                   Administrador
 
                 <?php } ?> 
 
-                <?php if(($userRow['user_tipo'] == 'U')){ ?>
+                <?php if(($obj_user['user_tipo'] == 'U')){ ?>
                   Usuário
 
                 <?php } ?> 
@@ -100,7 +78,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Email:</h3>
               <br/>
-              <?php print($userRow['user_email']); ?>
+              <?php print($obj_user['user_email']); ?>
             </div>
 
             </div>
@@ -125,7 +103,7 @@
            <div class="form-group" id="">
            <div class="col-xs-3">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Senha Atual</label>
-      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
+      	  		<input type="password" class="form-control input-sm" name="senhaAtual" id="senhaAtual" placeholder="" value="" required />
        	 	</div>
           </div>
 
@@ -136,7 +114,7 @@
        	  <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-3">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Nova Senha</label>
-      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
+      	  		<input type="password" class="form-control input-sm" name="senhaNova" id="senhaNova" placeholder="" value="" required />
        	 	</div>
        	  </div>
           
@@ -147,7 +125,7 @@
              <div class="form-group" id="sucesso">
        	 	 <div class="col-xs-3">
               <label class="" for="inputSuccess" id="label"><i class="" id="icone"></i> Repetir Nova Senha</label>
-      	  		<input type="text" class="form-control input-sm" name="descricao" id="descricao" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['desc_categoria']; ?>" />
+      	  		<input type="password" class="form-control input-sm" name="senhaRepetir" id="senhaRepetir" placeholder="" value="" required />
        	 	</div>
        	  </div>
             
@@ -158,7 +136,7 @@
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="button" class="btn btn-default btn-lrg" name="salvar" id="salvar" title="salvar" onClick="validarExclusao('salvar', <?php if(isset($obj_cat)) echo $obj_cat['id_categoria']; else echo '0'; ?>)">
+          		<button type="button" class="btn btn-default btn-lrg" name="salvar" id="salvar" title="salvar" onClick="validarBotao('salvar')">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
