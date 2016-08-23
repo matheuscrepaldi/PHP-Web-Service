@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once("class.user.php");
 
@@ -25,6 +26,12 @@ if(isset($_POST['btn-login']))
 	{
 		$error = "Dados incorretos!";
 	}	
+}
+
+if(isset($_SESSION['name'])){
+    
+    $login->redirect('index2.php');
+    
 }
 
   //login FACEBOOK
