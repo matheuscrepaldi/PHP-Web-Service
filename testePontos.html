@@ -1,0 +1,87 @@
+<!DOCTYPE html >
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>PHP/MySQL - Google Maps Example</title>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
+        async defer>
+    </script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var customIcons = {
+      buracos: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+      },
+      bar: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+      }
+    };
+
+    function load() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(-21.404730, -50.474251),
+        zoom: 17,
+        mapTypeId: 'roadmap'
+      });
+      var infoWindow = new google.maps.InfoWindow;
+
+      // Change this depending on the name of your PHP file
+      downloadUrl("geoloc.php", function(data) {
+        var xml = data.responseXML;
+        var pontos = xml.documentElement.getElementsByTagName("pontos");
+        for (var i = 0; i < pontos.length; i++) {
+          var nome_ponto = pontos[i].getAttribute("nome_ponto");
+          var end_ponto = pontos[i].getAttribute("end_ponto");
+          var tipo_ponto = pontos[i].getAttribute("tipo_ponto");
+          var point = new google.maps.LatLng(
+              parseFloat(pontos[i].getAttribute("lat_ponto")),
+              parseFloat(pontos[i].getAttribute("lng_ponto")));
+          var html = "<b>" + nome_ponto + "</b> <br/>" + end_ponto;
+          var icon = customIcons[type] || {};
+          var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon
+          });
+          bindInfoWindow(marker, map, infoWindow, html);
+        }
+      });
+    }
+
+    function bindInfoWindow(marker, map, infoWindow, html) {
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+      });
+    }
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+
+    //]]>
+
+  </script>
+
+  </head>
+
+  <body onload="load()">
+    <div id="map" style="width: 1021px; height: 1010px"></div>
+  </body>
+
+</html>
