@@ -22,7 +22,7 @@
 				    ':uname' => $uname
 				  ));
 				     
-				  echo $stmt->rowCount(); 
+				  //echo $stmt->rowCount(); 
 				} catch(PDOException $e) {
 				  echo 'Error: ' . $e->getMessage();
 				}
