@@ -103,9 +103,7 @@ if(isset($_POST['btn-signup']))
 			{
 				 ?>
                  <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Registrado com sucesso!
-                     <?php echo " a senha cadastrada eh : $upass"; ?>
-                     
+                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Registrado com sucesso!                     
                  </div>
                  <?php
 			}
