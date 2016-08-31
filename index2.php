@@ -190,7 +190,7 @@
             <i class="fa fa-fw fa-edit"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Consultar Denúncia</a></li>
+            <li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i> Consultar Denúncia</a></li>
             <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
             
           </ul>
@@ -255,7 +255,7 @@
           <div id="localAtualizar">
       				<!--<iframe  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14859.019772468268!2d-50.477355349999996!3d-21.39955165!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1463764622779" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
 
-              <iframe src="geoloc.html"></iframe>
+              <iframe src="geoloc.html"></iframe> 
           </div>
 			</div>
             </div>
