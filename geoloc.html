@@ -25,26 +25,26 @@ var labelIndex = 0;
     
 function initMap() {
 
-  var myLatLng = {lat: -34.397, lng: 150.644};
+  var myLatLng; //= {lat: -21.23765, lng: -50.40702};
 
     
   var map = new google.maps.Map(document.getElementById('map'), {
     center: myLatLng,
-    zoom: 17
+    zoom: 15
   });
   //var infoWindow = new google.maps.InfoWindow({map: map});
         
     var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'TESTE'
+        title: 'Você está aqui'
     });
     
     google.maps.event.addListener(map, 'click', function(event) {
         addMarker(event.latLng, map);
     });
     
-        addMarker(myLatLng, map);
+        //addMarker(myLatLng, map);
 
 
   if (navigator.geolocation) {

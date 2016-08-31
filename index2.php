@@ -190,7 +190,7 @@
             <i class="fa fa-fw fa-edit"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Realizar Denúncia</a></li>
+            <li><a href="#" onClick="changePage('denuncias.php');"><i class="fa fa-circle-o"></i> Consultar Denúncia</a></li>
             <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
             
           </ul>
