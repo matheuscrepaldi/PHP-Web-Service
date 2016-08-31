@@ -1,63 +1,6 @@
 <?php
 
-  /*require_once("../session.php");
-  
-  require_once("../class.user.php");
-  require_once("../class.denuncia.php");
-
-  $auth_user = new USER();
-  $auth_denuncia = new DENUNCIA();
-
-  $id_denuncia = null;
-   
-  $user_id = $_SESSION['user_session'];
-  
-  $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-  $stmt->execute(array(":user_id"=>$user_id));
-
-  $atualiza = $auth_denuncia->runQuery("SELECT * FROM denuncias WHERE id_denuncia=:id_denuncia");
-  $atualiza->execute(array(":id_denuncia"=>$id_denuncia));
-  
-  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-  $denunciaRow=$atualiza->fetch(PDO::FETCH_ASSOC);
-
-
-  if(isset($_POST['btn-salvar']))
-{
-	$udata = strip_tags($_POST['data']);
-	$uassunto = strip_tags($_POST['assunto']);
-	$udescricao = strip_tags($_POST['descricao']);	
-	
-	if($udata=="")	{
-		$error[] = "Preencha a data.";	
-	}
-	else if($uassunto=="")	{
-		$error[] = "Preencha o assunto.";	
-	}
-	
-	else if($udescricao=="")	{
-		$error[] = "Digite a descrição da denúncia.";
-	}
-	else
-	{
-		try
-		{
-			$atualiza = $auth_denuncia->runQuery("SELECT data_denuncia, assunto_denuncia, descricao FROM denuncias WHERE data_denuncia=:udata OR assunto_denuncia=:uassunto OR descricao=:udescricao");
-
-			$atualiza->execute(array(':udata'=>$udata, ':uassunto'=>$uassunto, ':udescricao'=>$udescricao));
-			$row=$atualiza->fetch(PDO::FETCH_ASSOC);
-			
-			if($auth_denuncia->register($udata, $uassunto, $udescricao)){
-				echo "Denúncia gravada!";
-			}
-
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-	}	
-}*/
+//require_once('../model/model_categorias.php');
 
 ?>
 
@@ -71,41 +14,62 @@
 
 
     <!-- Main content -->
-    <section class="content">
+    
 
       <!-- Default box -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Realizar denúncia</h3>
+          <h3 class="box-title">Consultar denúncia</h3>
         </div>
         <div class="box-body">
           
           <br />
-          <br />
+       
           
            <div class="form-group">
             <div class="col-xs-2"> 
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="<?php if(isset($error)){echo $udata;}?>" />
+                <label>Data</label>
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" />
        	 	</div>
        	  </div>
 
        	  	<br />
 			<br />
+               <br />
+            
        	  <div class="form-group">
        	  	<div class="col-xs-6"> 
-      	  		<p align="center"><input type="text" class="form-control" name="assunto" placeholder="Assunto" value="<?php if(isset($error)){echo $uassunto;}?>"/></p>
+      	  		  <label>Categoria</label>
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected"></option>
+                
+                <?php /*
+                  
+                    $categoria = new Categoria();
+                    
+                    while($cat = $categoria->listar()) {
+                    
+                   
+                        echo "<option>". $cat['desc_categoria'] ."</option>";
+                 //<option disabled="disabled">California (disabled)</option>
+          
+                 }*/ ?>    
+                </select>
        	 	</div>
        	  </div>
 
        	  <br />
        	  <br />
+            <br />
 
        	  <div class="form-group">
-       	 	 <div class="col-xs-6"> 
-      	  		<input type="text" class="form-control" name="descricao" placeholder="Descrição" />
+       	 	 <div class="col-xs-6">
+                 <label>Descrição</label>
+      	  		<input type="text" class="form-control" name="descricao" placeholder="" />
        	 	</div>
        	  </div>
 
+        <br />        
           <br />
           <div class="row">
           <!--<div class="col-xs-12 text-center">
@@ -126,6 +90,10 @@
 
         </div>
 
+            </div>
+            </div>
+          </div>
+        </div>
 	</form>
 
           </div>
