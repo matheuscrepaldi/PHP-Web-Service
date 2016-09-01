@@ -2,23 +2,13 @@
 
 require_once('../model/model_categorias.php');
 
-    $categoria = new Categoria();
-
-  $linha = $categoria->listar();
-
-echo "<pre>";
-  foreach($linha as $qualquercoisa) {
-
-    echo $qualquercoisa['id_categoria'] . " - ";
-  }
-echo "</pre>";
 
 ?>
 
 
 <div>
 
-<form method="post">
+<form method="post" action="../controller/controller_denuncias.php">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -40,7 +30,7 @@ echo "</pre>";
            <div class="form-group">
             <div class="col-xs-2"> 
                 <label>Data</label>
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" disabled/>
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" />
        	 	</div>
        	  </div>
 
@@ -55,8 +45,18 @@ echo "</pre>";
                   <option selected="selected"></option>
                 
                 <?php 
+                    
+                    $categoria = new Categoria();
+
+                    $resultado = $categoria->listar();
+                    
+                    foreach($resultado as $registro) {
+
+                        echo "<option>" .$registro['desc_categoria']. "</option>";
+                    }
+
                   
-                  echo "<option>" .$linha[0]['desc_categoria']. "</option>";
+                  
                     
           
                   ?>    
