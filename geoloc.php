@@ -95,11 +95,13 @@ function handleLocationError(browserHasGeolocation, marker, pos) {
             var latlng = {lat:  -21.23765, lng:-50.40702};
             
             latlng[0] = {lat:  -21.23765, lng:-50.40702};
-            latlng[1] = {lat:  -25.23765, lng:-55.40702}
-            latlng[2] = {lat:  -27.23765, lng:-57.40702}
+            latlng[1] = {lat:  -21.22385, lng:-50.42796}
+            latlng[2] = {lat:  -21.21328, lng:-50.43265}
             
             for(i=0; i<=2; i++){
-                addMarker(latlng[i]);    
+                addMarker(latlng[0]);
+                addMarker(latlng[1]);
+                addMarker(latlng[2]);
             }
             
                     
