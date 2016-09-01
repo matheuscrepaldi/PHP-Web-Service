@@ -305,6 +305,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script src="bootbox.min.js"></script>
+<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js"></script>
 
 
 </body>
