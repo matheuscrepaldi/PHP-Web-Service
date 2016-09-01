@@ -4,9 +4,14 @@ require_once('../model/model_categorias.php');
 
     $categoria = new Categoria();
 
-$linha = $categoria->listar();
+  $linha = $categoria->listar();
 
+echo "<pre>";
+  foreach($linha as $qualquercoisa) {
 
+    echo $qualquercoisa['id_categoria'] . " - ";
+  }
+echo "</pre>";
 
 ?>
 
