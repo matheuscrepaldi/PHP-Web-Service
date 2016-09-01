@@ -1,79 +1,104 @@
-<?php 
-require_once('dbconfig.php');
+<?php
+    
+    require_once("model/model_categorias.php");
+    
+    $locDenuncia = new DENUNCIA();
 
-$sql = mysql_query("SELECT * FROM denuncias WHERE id_denuncia = $_GET[id]");
-$dados = mysql_fetch_array($sql);
-
-$endereco_imovel = $dados[latitude];
-
-$sql2 = mysql_query("SELECT * FROM denuncias WHERE descricao = '$dados[descricao]'");
-$dados2 = mysql_fetch_array($sql2);
+    $locDenuncia->retornaLoc();
 
 ?>
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
-        async defer>
-    </script>
-<script type="text/javascript">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Localização</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+        
+var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
 
-	var map;
-	var gdir;
-	var geocoder = null;
-	var addressMarker;
-	
-	var minhaLocalizacao = "<?php echo $endereco_imovel; ?> - <?php echo $dados2[descricao]; ?>, SP" //Localização inicial passada como ponto de partida
+    
+function initMap() {
 
-	function inicializar_gmaps() {
-	  if (GBrowserIsCompatible()) {	  
-		map = new GMap2(document.getElementById("div_mapa")); //Local onde o mapa gerado deve ficar
-		gdir = new GDirections(map, document.getElementById("direcoes")); //Local para ficar o "passo-a-passo" pra chegar ao destino
-		GEvent.addListener(gdir, "error", gmaps_erros); //Define qual função vai manipular os erros retornados
-	  }
-	}
+  var myLatLng; //= {lat: -21.23765, lng: -50.40702};
 
-	function gmaps_erros() {
-	if (gdir.getStatus().code == G_GEO_UNKNOWN_ADDRESS)
-		gdir.getStatus().code
+    
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    zoom: 15
+  });
+  //var infoWindow = new google.maps.InfoWindow({map: map});
+        
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Você está aqui'
+    });
+    
+    google.maps.event.addListener(map, 'click', function(event) {
+        addMarker(event.latLng, map);
+    });
+    
+        //addMarker(myLatLng, map);
 
-	else if (gdir.getStatus().code == G_GEO_SERVER_ERROR)
-		alert("A geocoding or directions request could not be successfully processed, yet the exact reason for the failure is not known.\n Error code: " + gdir.getStatus().code);
 
-	else if (gdir.getStatus().code == G_GEO_MISSING_QUERY)
-		alert("The HTTP q parameter was either missing or had no value. For geocoder requests, this means that an empty address was specified as input. For directions requests, this means that no query was specified in the input.\n Error code: " + gdir.getStatus().code);
-	
-	else if (gdir.getStatus().code == G_GEO_BAD_KEY)
-	alert("The given key is either invalid or does not match the domain for which it was given. \n Error code: " + gdir.getStatus().code);
-	
-	else if (gdir.getStatus().code == G_GEO_BAD_REQUEST)
-	alert("A directions request could not be successfully parsed.\n Error code: " + gdir.getStatus().code);
-	
-	else alert("Um erro desconhecido aconteceu.");
-	   
-	}
-	
-	function mapsPesquisa(irPara) {
-	//Responsavel por iniciar o carregamento dos mapas nos locais especificos
-	gdir.load("from: " + minhaLocalizacao + " to: " + irPara);
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+        marker.setPosition(pos);
+      //infoWindow.setContent('Você está aqui.');
+        map.setCenter(pos);
+        marker.setMap(map);
+    }, function() {
+      handleLocationError(true, marker, map.getCenter());
+    });
+  } else {
+    handleLocationError(false, marker, map.getCenter());
+  }
+}
+        
+        
+        
+    function addMarker(location, map) {
+      var marker = new google.maps.Marker({
+          
+        position: location,
+        label: labels[labelIndex++ % labels.length],
+        map: map
+      });
 }
 
-</script>
-<body onload="inicializar_gmaps(); mapsPesquisa(document.getElementById('irPara').value);" >
+google.maps.event.addDomListener(window, 'load', initMap);
 
-<div id="tabela_maps">
-<table class="directions">
 
-<tr>
-<td valign="top"><div id="div_mapa" style="width: 600px; height: 400px"></div></td>
-</tr>
-</table>
-<table>
-<tr>
-<td><strong>Perdido? Digite seu endereço:</strong></td>
-<td><input type="text" size="25" id="irPara" value="<?php echo $endereco_imovel; ?> - <?php echo $dados2[nome_cidade]; ?>, RS" /></td>
-<td><input type="button" value="Procurar" onClick="mapsPesquisa(document.getElementById('irPara').value)" /></td>
-</tr>
-</table>
-</div>
-
-</body>
+function handleLocationError(browserHasGeolocation, marker, pos) {
+  marker.setPosition(pos);
+  marker.setContent(browserHasGeolocation ?
+                        'Error: O serviço de geolocalização falhou.' :
+                        'Error: O seu navegador não suporta o serviço de geolocalização.');
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
+        async defer>
+    </script>
+  </body>
 </html>

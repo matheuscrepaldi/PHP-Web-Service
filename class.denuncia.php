@@ -43,6 +43,27 @@ class DENUNCIA
 		}				
 	}
     
+<<<<<<< HEAD
 
+=======
+    
+    public function retornaLoc(){
+        try {
+                
+
+                $stmt = $this->conn->query("select latitude,longitude from denuncias");
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
+>>>>>>> origin/master
 }
 ?>
