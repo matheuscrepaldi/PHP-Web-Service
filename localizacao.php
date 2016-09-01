@@ -1,10 +1,6 @@
 <?php
     
-    require_once("model/model_categorias.php");
-    
-    $locDenuncia = new DENUNCIA();
 
-    $locDenuncia->retornaLoc();
 
 ?>
 
@@ -100,5 +96,15 @@ function handleLocationError(browserHasGeolocation, marker, pos) {
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
         async defer>
     </script>
+    <?php
+      
+        require_once("model/model_categorias.php");
+
+        $locDenuncia = new DENUNCIA();
+
+        $locDenuncia->retornaLoc();
+      
+      ?>
+      
   </body>
 </html>
