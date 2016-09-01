@@ -1,9 +1,3 @@
-<?php
-    
-
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,28 +22,22 @@
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
 
-    
 function initMap() {
+  var myLatLng; //= {lat: -25.363, lng: 131.044};
+  var id =  "<?php echo $locDenuncia; ?>";
 
-  var myLatLng; //= {lat: -21.23765, lng: -50.40702};
-
-    
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: myLatLng,
-    zoom: 15
+    zoom: 15,
+    center: id
   });
-  //var infoWindow = new google.maps.InfoWindow({map: map});
-        
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Você está aqui'
-    });
-    
-    google.maps.event.addListener(map, 'click', function(event) {
-        addMarker(event.latLng, map);
-    });
-    
+
+  var marker = new google.maps.Marker({
+    position: id,
+    map: map,
+    title: 'Hello World!'
+  });
+
+marker.setMap(map);
         //addMarker(myLatLng, map);
 
 
@@ -92,13 +80,33 @@ function handleLocationError(browserHasGeolocation, marker, pos) {
                         'Error: O serviço de geolocalização falhou.' :
                         'Error: O seu navegador não suporta o serviço de geolocalização.');
 }
+        
+        //ultima tentativa antes de dormir
+    function inserirPonto(lat, long) {
+
+        var myLatlng = new google.maps.LatLng(lat,long);
+        var mapOptions = {
+        zoom: 15,
+        center: myLatlng
+    }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title:"Hello World!"
+    });
+
+    // To add the marker to the map, call setMap();
+        marker.setMap(map);
+
+}
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
         async defer>
     </script>
     <?php
       
-        require_once("model/model_categorias.php");
+        require_once("class.denuncia.php");
 
         $locDenuncia = new DENUNCIA();
 
