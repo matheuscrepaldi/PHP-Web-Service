@@ -42,5 +42,7 @@ class DENUNCIA
 			echo $e->getMessage();
 		}				
 	}
+    
+
 }
 ?>

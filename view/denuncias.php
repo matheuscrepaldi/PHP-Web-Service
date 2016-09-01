@@ -1,6 +1,12 @@
 <?php
 
-//require_once('../model/model_categorias.php');
+require_once('../model/model_categorias.php');
+
+    $categoria = new Categoria();
+
+$linha = $categoria->listar();
+
+
 
 ?>
 
@@ -29,7 +35,7 @@
            <div class="form-group">
             <div class="col-xs-2"> 
                 <label>Data</label>
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" />
+      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" disabled/>
        	 	</div>
        	  </div>
 
@@ -38,22 +44,17 @@
                <br />
             
        	  <div class="form-group">
-       	  	<div class="col-xs-6"> 
+       	  	<div class="col-xs-4"> 
       	  		  <label>Categoria</label>
                 <select class="form-control select2" style="width: 100%;">
                   <option selected="selected"></option>
                 
-                <?php /*
+                <?php 
                   
-                    $categoria = new Categoria();
+                  echo "<option>" .$linha[0]['desc_categoria']. "</option>";
                     
-                    while($cat = $categoria->listar()) {
-                    
-                   
-                        echo "<option>". $cat['desc_categoria'] ."</option>";
-                 //<option disabled="disabled">California (disabled)</option>
           
-                 }*/ ?>    
+                  ?>    
                 </select>
        	 	</div>
        	  </div>
@@ -65,12 +66,15 @@
        	  <div class="form-group">
        	 	 <div class="col-xs-6">
                  <label>Descrição</label>
-      	  		<input type="text" class="form-control" name="descricao" placeholder="" />
+      	  		<textarea class="form-control" rows="3" placeholder=""></textarea>
        	 	</div>
        	  </div>
 
-        <br />        
+          <br />        
           <br />
+          <br /> 
+            <br />
+            
           <div class="row">
           <!--<div class="col-xs-12 text-center">
           <button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
@@ -93,6 +97,8 @@
             </div>
             </div>
           </div>
+      
+      
         </div>
 	</form>
 

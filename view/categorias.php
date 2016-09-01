@@ -32,11 +32,7 @@
             "url": "plugins/datatables/pt-br.json"
           },
           "columns": [
-            {"data": "id_categoria", 
-             "width": "40%"},
-            {"data": "desc_categoria", 
-             "width": "40%"},
-            {
+             {
               "data": null,
               "width": "20%",
               "targets": -1,
@@ -44,7 +40,12 @@
                 <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
                 <a class="btn btn-danger" id="excluirlink"><em class="fa fa-trash"></em></a>
               `
-            }
+            },  
+            {"data": "id_categoria", 
+             "width": "40%"},
+            {"data": "desc_categoria", 
+             "width": "40%"}
+           
           ]
         })
 
@@ -234,9 +235,10 @@
             <table id="tabelaCategorias" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>Código</th>
-                  <th>Descrição</th>
-                  <th><em class="fa fa-cog"></em></th>
+                    <th><p><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
+                    <th ><p style=" width : 100px">Código</p></th>
+                    <th><p  style=" width : 400px">Descrição</p></th>
+                  
                 </tr>
               </thead>
             </table>
