@@ -235,7 +235,7 @@
             <table id="tabelaCategorias" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                    <th><p><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
+                    <th><p align="center"><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
                     <th ><p style=" width : 100px">Código</p></th>
                     <th><p  style=" width : 400px">Descrição</p></th>
                   
