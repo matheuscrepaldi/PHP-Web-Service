@@ -3,7 +3,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>PHP/MySQL & Google Maps Example</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=load"
             type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
@@ -19,8 +19,8 @@
 
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(47.6145, -122.3418),
-        zoom: 13,
+        center: new google.maps.LatLng(-21.237650, -50.407021),
+        zoom: 15,
         mapTypeId: 'roadmap'
       });
       var infoWindow = new google.maps.InfoWindow;
@@ -31,8 +31,8 @@
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
           var point = new google.maps.LatLng(
-              parseFloat(markers[i].getAttribute("lat_ponto")),
-              parseFloat(markers[i].getAttribute("lng_ponto")));
+              parseFloat(markers[i].getAttribute("latitude")),
+              parseFloat(markers[i].getAttribute("longitude")));
           var icon = customIcons[type] || {};
           var marker = new google.maps.Marker({
             map: map,

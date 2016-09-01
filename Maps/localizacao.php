@@ -24,7 +24,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM pontos";
+$query = "SELECT * FROM denuncias";
 $result = mysql_query($query);
 if (!$result) {
   die('Invalid query: ' . mysql_error());
@@ -39,8 +39,8 @@ echo '<markers>';
 while ($row = @mysql_fetch_assoc($result)){
   // ADD TO XML DOCUMENT NODE
   echo '<marker ';
-  echo 'latitude="' . $row['lat_ponto'] . '" ';
-  echo 'longitude="' . $row['lng_ponto'] . '" ';
+  echo 'latitude="' . $row['latitude'] . '" ';
+  echo 'longitude="' . $row['longitude'] . '" ';
   echo '/>';
 }
 
