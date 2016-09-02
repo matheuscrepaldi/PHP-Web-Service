@@ -5,6 +5,23 @@ require_once('../model/model_categorias.php');
 
 ?>
 
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+</script>
+
 
 <div>
 
@@ -20,7 +37,7 @@ require_once('../model/model_categorias.php');
       <!-- Default box -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Consultar denúncia</h3>
+            <h3 class="box-title">Consultar denúncia<p id="demo"></p></h3>
         </div>
         <div class="box-body">
           
@@ -89,7 +106,7 @@ require_once('../model/model_categorias.php');
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar">
+          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onclick="getLocation()">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	

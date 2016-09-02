@@ -1,3 +1,7 @@
+<?php
+    require_once("class.denuncia.php");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,11 +20,11 @@
     </style>
   </head>
   <body>
-      <input type="button" onclick="MostraPonto();">teste</input>
     <div id="map"></div>
     <script>
         
-var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        
+var labels = '!';
 var labelIndex = 0;
 var map;
 
@@ -37,8 +41,9 @@ function initMap() {
   //var infoWindow = new google.maps.InfoWindow({map: map});
         
     var marker = new google.maps.Marker({
-        position: myLatLng,
+        position: MostraPonto(),
         map: map,
+        //icon: 'img/logo.png',
         title: 'Você está aqui'
     });
     
@@ -92,20 +97,31 @@ function handleLocationError(browserHasGeolocation, marker, pos) {
 }
         
         function MostraPonto(){
-            var latlng = {lat:  -21.23765, lng:-50.40702};
+            /*var latlng = {lat:  -21.23765, lng:-50.40702};
             
             latlng[0] = {lat:  -21.23765, lng:-50.40702};
             latlng[1] = {lat:  -21.22385, lng:-50.42796}
             latlng[2] = {lat:  -21.21328, lng:-50.43265}
             
             for(i=0; i<=2; i++){
-                addMarker(latlng[0]);
-                addMarker(latlng[1]);
-                addMarker(latlng[2]);
-            }
+                addMarker(latlng[i]); 
+            }*/
+           <?php 
+                 $denLoc = new DENUNCIA();
+
+                $resultado = $denLoc->retornaLoc();
+
+                foreach($resultado as $result){ ?>
+                   var latlng = {lat:  <?php echo $result['latitude']; ?>, lng: <?php echo $result['longitude']; ?>};
+                    addMarker(latlng);
+            
+            <?php    }
+            ?>
+    }
+
             
                     
-        }
+        
         
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUd6nzucTwkmTv7SAk4qF7udfDUa641GY&signed_in=true&callback=initMap"
