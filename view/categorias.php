@@ -155,13 +155,16 @@
               </div>
         </div>
         <div class="box-body">
-
+            
            <div class="form-group" id="">
            <div class="col-xs-1">
               <label class="" for="inputSuccess" id="label"><i class="" id=""></i> Código</label>
                <input class="form-control input-sm" id="codigo"  name="codigo" type="text" placeholder="" value="<?php if(isset($obj_cat))  echo $obj_cat['id_categoria']; ?>" disabled>
-
+            
           </div>
+               
+               
+             
           </div>
 
             <br>

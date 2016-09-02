@@ -5,6 +5,7 @@ require_once('../model/model_categorias.php');
 
 ?>
 
+<<<<<<< HEAD
 <script>
 var x=document.getElementById("demo");
 function getLocation()
@@ -22,10 +23,17 @@ function showPosition(position)
   }
 </script>
 
+=======
+ <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker();
+            });
+        </script>
+>>>>>>> origin/master
 
 <div>
 
-<form method="post" action="../controller/controller_denuncias.php">
+<form method="post" action="controller/controller_denuncias.php">
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
     <!-- Content Header (Page header) -->
@@ -43,13 +51,18 @@ function showPosition(position)
           
           <br />
        
-          
-           <div class="form-group">
-            <div class="col-xs-2"> 
-                <label>Data</label>
-      	  		<input type="date" class="form-control" name="data" placeholder="Data" value="" />
-       	 	</div>
-       	  </div>
+      <div class="form-group">
+            <div class="col-xs-2">
+                <label>Date:</label>
+               <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" id='datetimepicker4'/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+          </div>
+                <!-- /.input group -->
+              </div>
 
        	  	<br />
 			<br />
@@ -58,7 +71,7 @@ function showPosition(position)
        	  <div class="form-group">
        	  	<div class="col-xs-4"> 
       	  		  <label>Categoria</label>
-                <select class="form-control select2" style="width: 100%;">
+                <select class="form-control select2" name="combobox" style="width: 100%;">
                   <option selected="selected"></option>
                 
                 <?php 
@@ -67,16 +80,12 @@ function showPosition(position)
 
                     $resultado = $categoria->listar();
                     
-                    foreach($resultado as $registro) {
+                    foreach($resultado as $registro) {  ?>
 
-                        echo "<option>" .$registro['desc_categoria']. "</option>";
-                    }
-
-                  
-                  
+                    <option value="<?php echo $registro['id_categoria']?>"><?php echo $registro['desc_categoria']?></option>
+                                                      
+         <?php     }  ?>   
                     
-          
-                  ?>    
                 </select>
        	 	</div>
        	  </div>
