@@ -43,13 +43,13 @@ function initMap() {
     var marker = new google.maps.Marker({
         position: MostraPonto(),
         map: map,
-        //icon: 'img/logo.png',
+        icon: 'img/marcador.png',
         title: 'Você está aqui'
     });
     
-    google.maps.event.addListener(map, 'click', function(event) {
+   /* google.maps.event.addListener(map, 'click', function(event) {
         addMarker(event.latLng);
-    });
+    });*/
     
         //addMarker(myLatLng, map);
 
@@ -80,6 +80,7 @@ function initMap() {
           
         position: location,
         label: labels[labelIndex++ % labels.length],
+        icon: 'img/denuncia.png',
         map: map
       });
 }

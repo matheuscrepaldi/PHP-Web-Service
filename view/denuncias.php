@@ -5,7 +5,7 @@ require_once('../model/model_categorias.php');
 
 ?>
 
-<<<<<<< HEAD
+
 <script>
 var x=document.getElementById("demo");
 function getLocation()
@@ -23,13 +23,13 @@ function showPosition(position)
   }
 </script>
 
-=======
+
  <script type="text/javascript">
             $(function () {
                 $('#datetimepicker4').datetimepicker();
             });
         </script>
->>>>>>> origin/master
+
 
 <div>
 
