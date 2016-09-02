@@ -18,18 +18,10 @@ function getLocation()
   }
 function showPosition(position)
   {
-  x.innerHTML="Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude; 
+  x.innerHTML= position.coords.latitude + "/" + position.coords.longitude; 
   }
+    
 </script>
-
-
- <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker4').datetimepicker();
-            });
-        </script>
-
 
 <div>
 
@@ -45,7 +37,7 @@ function showPosition(position)
       <!-- Default box -->
       <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Consultar denúncia<p id="demo"></p></h3>
+            <h3 class="box-title">Consultar denúncia</h3>
         </div>
         <div class="box-body">
           
@@ -55,7 +47,7 @@ function showPosition(position)
             <div class="col-xs-2">
                 <label>Date:</label>
                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" id='datetimepicker4'/>
+                    <input type='date' class="form-control" id='datetimepicker4' name="data"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -71,7 +63,7 @@ function showPosition(position)
        	  <div class="form-group">
        	  	<div class="col-xs-4"> 
       	  		  <label>Categoria</label>
-                <select class="form-control select2" name="combobox" style="width: 100%;">
+                <select class="form-control select2" name="categoria" style="width: 100%;">
                   <option selected="selected"></option>
                 
                 <?php 
@@ -89,7 +81,28 @@ function showPosition(position)
                 </select>
        	 	</div>
        	  </div>
-
+            
+             <br />
+       	  <br />
+            <br />
+            
+              <div class="form-group">
+       	 	 <div class="col-xs-3">
+              <label class="" for="inputSuccess" id="label">Endereço</label>
+                 <input type="text" class="form-control input-md" name="endereco" id="endereco" placeholder="" value="" />               
+       	 	</div>
+                   <div class="col-xs-1">
+              <label class="" for="inputSuccess" id="label">Número</label>
+                 <input type="text" class="form-control input-md" name="numero" id="numero" placeholder="" value="" />               
+       	 	</div>
+                       <div class="col-xs-2">
+              <label class="" for="inputSuccess" id="label">Cidade</label>
+                 <input type="text" class="form-control input-md" name="cidade" id="cidade" placeholder="" value="" />               
+       	 	</div>
+                  
+       	  </div>
+            
+  
        	  <br />
        	  <br />
             <br />
@@ -97,7 +110,7 @@ function showPosition(position)
        	  <div class="form-group">
        	 	 <div class="col-xs-6">
                  <label>Descrição</label>
-      	  		<textarea class="form-control" rows="3" placeholder=""></textarea>
+      	  		<textarea class="form-control" rows="3" placeholder="" id="demo" value="teste"></textarea>
        	 	</div>
        	  </div>
 
@@ -115,11 +128,11 @@ function showPosition(position)
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onclick="getLocation()">
+          		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar" >
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
-	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar">
+	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onclick="getLocation()">
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
 

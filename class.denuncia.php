@@ -20,21 +20,23 @@ class DENUNCIA
 		return $stmt;
 	}
 	
-	public function register($udata,$uassunto,$udescricao)
+	public function register($udata, $lat, $long, $categoria)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_denuncia,assunto_denuncia, descricao) 
-		                                               VALUES(:udata, :uassunto, :udescricao)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_den, latitude, longitude, cat_den) 
+		                                               VALUES(:udata, :ulat, :ulon, :ucat)");
 												  
 			$stmt->bindparam(":udata", $udata);
-			$stmt->bindparam(":uassunto", $uassunto);
-            $stmt->bindparam(":udescricao", $udescricao);
-				
+			$stmt->bindparam(":ulat", $lat);
+            $stmt->bindparam(":ulon", $long);
+            $stmt->bindparam(":ucat", $categoria);
+            
 			$stmt->execute();	
 			
+            
 			return $stmt;	
 		}
 		catch(PDOException $e)

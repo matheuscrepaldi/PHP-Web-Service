@@ -87,7 +87,7 @@ function initMap() {
         
         
 
-google.maps.event.addDomListener(window, 'load', initMap);
+google.maps.event.addDomListener(window, 'click', initMap);
 
 
 function handleLocationError(browserHasGeolocation, marker, pos) {

@@ -1,6 +1,6 @@
 <?php
 //echo "Lucas";
-//print_r($_REQUEST); exit;
+//print_r($_SESSION); exit;
 
      require_once('../model/model_categorias.php');
                  
