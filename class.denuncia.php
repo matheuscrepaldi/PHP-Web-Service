@@ -20,19 +20,23 @@ class DENUNCIA
 		return $stmt;
 	}
 	
-	public function register($udata, $lat, $long, $categoria)
+	public function register($udata, $lat, $long, $categoria, $rua, $numero, $cidade)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_den, latitude, longitude, cat_den) 
-		                                               VALUES(:udata, :ulat, :ulon, :ucat)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_den, latitude, longitude, cat_den, rua_den, num_den, cidade_den) 
+		                                               VALUES(:udata, :ulat, :ulon, :ucat, :urua, :unum, :ucid)");
 												  
 			$stmt->bindparam(":udata", $udata);
 			$stmt->bindparam(":ulat", $lat);
             $stmt->bindparam(":ulon", $long);
             $stmt->bindparam(":ucat", $categoria);
+            $stmt->bindparam(":urua", $rua);
+            $stmt->bindparam(":unum", $numero);
+            $stmt->bindparam(":ucid", $cidade);
+            
             
 			$stmt->execute();	
 			
@@ -50,7 +54,7 @@ class DENUNCIA
         try {
                 
 
-                $stmt = $this->conn->query("select * from denuncias");
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, latitude, longitude, rua_den, num_den, cidade_den  from denuncias order by id_den");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

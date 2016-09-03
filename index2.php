@@ -187,10 +187,10 @@
  <?php       if($userRow['user_tipo'] == 'A')  { ?>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-fw fa-edit"></i> <span>Denúncias</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-fw fa-edit"></i> <span>Cadastros</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i> Consultar Denúncia</a></li>
+            <li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i>Denúncias</a></li>
             <li><a href="#" onClick="changePage('view/categorias.php');"><i class="fa fa-circle-o"></i>Categorias</a></li>
             
           </ul>

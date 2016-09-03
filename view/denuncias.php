@@ -7,6 +7,50 @@ require_once('../model/model_categorias.php');
 
 
 <script>
+    
+      $(function(){
+        tabela = $('#tabelaDenuncias').DataTable({
+          "ajax": {
+            "url": 'controller/controller_denuncias.php',
+            "data": {operacao: "ListarDenuncias"},
+            "type": "POST"
+          },
+          "language": {
+            "url": "plugins/datatables/pt-br.json"
+          },
+          "columns": [
+             {
+              "data": null,
+              "width": "20%",
+              "targets": -1,
+              "defaultContent": `
+                <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
+                <a class="btn btn-danger" id="excluirlink"><em class="fa fa-trash"></em></a>
+              `
+            },  
+            {"data": "id_den", 
+             "width": "40%"},
+              {"data": "data_den", 
+             "width": "40%"},
+            {"data": "rua_den", 
+             "width": "40%"},
+              
+            {"data": "num_den", 
+             "width": "40%"},  
+           
+               {"data": "cidade_den", 
+             "width": "40%"}
+          ]
+        })
+
+      });
+    
+function validarBotao(botao){
+		
+		 document.form_den.operacao.value = botao;
+		 document.form_den.submit();
+	}    
+    
 var x=document.getElementById("demo");
 function getLocation()
   {
@@ -25,20 +69,22 @@ function showPosition(position)
 
 <div>
 
-<form method="post" action="controller/controller_denuncias.php">
+<form method="post" name="form_den" id="form_den" action="controller/controller_denuncias.php">
   <!-- Content Wrapper. Contains page content -->
+     <input name="operacao" type="hidden" id="operacao" value="nula">
   <div class="content">
     <!-- Content Header (Page header) -->
-
-
-    <!-- Main content -->
-    
 
       <!-- Default box -->
       <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Consultar denúncia</h3>
+            <h3 class="box-title">Cadastrar Denúncia</h3>
+            <div class="pull-right box-tools">
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="">
+                  <i class="fa fa-minus"></i></button>
         </div>
+          </div>
+          
         <div class="box-body">
           
           <br />
@@ -128,17 +174,47 @@ function showPosition(position)
           <br/>
           
           	<div class="col-xs-12 text-center">
-          		<button type="submit" class="btn btn-default btn-lrg" name="btn-salvar" >
+          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onclick="validarBotao('salvar')">
           			<i class="glyphicon glyphicon-ok"></i>&nbsp; Salvar
           		</button>
          	
-	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onclick="getLocation()">
+	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onclick="validarBotao('cancelar')">
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
 
         </div>
 
             </div>
+            </div>
+          </div>
+      
+          <div class="box box-primary collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Consultar Denúncias
+                <small>&nbsp;</small>
+              </h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="">
+                  <i class="fa fa-plus"></i></button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body pad">
+              
+            <table id="tabelaDenuncias" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                    <th><p align="center"><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
+                    <th ><p style=" width : 100px">Código</p></th>
+                    <th><p  style=" width : 75px">Data</p></th>
+                    <th><p  style=" width : 250px">Endereço</p></th>
+                    <th><p  style=" width : 25px">Nº</p></th>
+                    <th><p  style=" width : 200px">Cidade</p></th>
+                </tr>
+              </thead>
+            </table>
             </div>
           </div>
       

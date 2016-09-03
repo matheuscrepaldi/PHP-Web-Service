@@ -24,7 +24,7 @@
     <script>
         
         
-var labels = '!';
+var labels = '';
 var labelIndex = 0;
 var map;
 
@@ -80,7 +80,7 @@ function initMap() {
           
         position: location,
         label: labels[labelIndex++ % labels.length],
-        icon: 'img/denuncia.png',
+        icon: 'img/mega.png',
         map: map
       });
 }
