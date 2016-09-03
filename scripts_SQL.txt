@@ -17,3 +17,22 @@ CREATE  TABLE `u633448963_login`.`categorias` (
 
 
 ///////////////////////////////////////////////////////////////////////
+
+
+//
+//		03/09/2016 matheus - script da tabela de denuncias para poder cadastrar e fazer consulta
+//
+
+
+CREATE TABLE `denuncias` (
+  `id_den` int(11) NOT NULL,
+  `data_den` datetime DEFAULT NULL,
+  `desc_den` longtext,
+  `latitude` float(10,6) DEFAULT NULL,
+  `longitude` float(10,6) DEFAULT NULL,
+  `user_den` int(11) DEFAULT NULL,
+  `cat_den` int(11) DEFAULT NULL,
+  `rua_den` varchar(45) DEFAULT NULL,
+  `cidade_den` varchar(60) DEFAULT NULL,
+  `num_den` varchar(45) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
