@@ -207,11 +207,11 @@ function showPosition(position)
               <thead>
                 <tr>
                     <th><p align="center"><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
-                    <th ><p style=" width : 100px">Código</p></th>
+                    <th ><p style=" width : 50px">Código</p></th>
                     <th><p  style=" width : 75px">Data</p></th>
-                    <th><p  style=" width : 250px">Endereço</p></th>
+                    <th><p  style=" width : 100px">Endereço</p></th>
                     <th><p  style=" width : 25px">Nº</p></th>
-                    <th><p  style=" width : 200px">Cidade</p></th>
+                    <th><p  style=" width : 100px">Cidade</p></th>
                 </tr>
               </thead>
             </table>
