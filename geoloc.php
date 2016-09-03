@@ -44,7 +44,7 @@ function initMap() {
         position: MostraPonto(),
         map: map,
         icon: 'img/marcador.png',
-        title: 'Você está aqui'
+        title: 'Você está aqui.'
     });
     
    /* google.maps.event.addListener(map, 'click', function(event) {
