@@ -36,7 +36,7 @@ $longitude = $json->results[0]->geometry->location->lng;
 //insere denuncia
 
 $registro = $denuncia->register($_POST['data'], $latitude, $longitude, $_POST['categoria']);
-//header("Location: ../index2.php?page=view/denuncias"); 
+header("Location: ../index2.php?page=view/denuncias"); 
 
 /*echo 'latitude: ' . $latitude;
 echo 'longitude: ' . $longitude;*/
