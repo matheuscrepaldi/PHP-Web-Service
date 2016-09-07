@@ -39,7 +39,7 @@ class USER
 		}
 		catch(PDOException $e)
 		{
-			echo $e->getMessage();
+			echo "ja tem fera" . $e->getMessage();
 		}				
 	}
 
