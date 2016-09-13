@@ -11,9 +11,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
  
  
  if($usuario->register($username,$email,$password)){
- echo "Successfully Registered";
+ echo "Cadastro realizado com sucesso!";
  }else{
- echo "Could not register";
+ echo "Erro ao registrar!";
  
  }
  }else{
