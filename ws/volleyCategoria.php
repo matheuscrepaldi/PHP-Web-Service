@@ -2,6 +2,7 @@
 
     ini_set('magic_quotes_runtime', 0);
  
+ if($_SERVER['REQUEST_METHOD']=='POST'){
      
 
      require_once('../model/model_categorias.php');
@@ -25,9 +26,11 @@
 
 
      
+ }
 
 else{
     echo 'error';
+}
 
  
  ?>
