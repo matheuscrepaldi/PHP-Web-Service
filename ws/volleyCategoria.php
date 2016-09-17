@@ -1,0 +1,35 @@
+<?php
+
+    ini_set('magic_quotes_runtime', 0);
+ 
+     
+
+     require_once('../model/model_categorias.php');
+    
+     $categoria = new Categoria();
+
+      $res = array(); 
+
+      $resultado = $categoria->listar();
+
+      foreach($resultado as $registro) { 
+
+       
+          $teste = array_push($res, array("desc_categoria" => $registro['desc_categoria'], "img_categoria" => "http://192.168.0.5/tcc/controller/" . $registro['img_categoria']));     
+
+      }    
+
+
+      echo json_encode($res);
+
+
+
+     
+
+else{
+    echo 'error';
+
+ 
+ ?>
+
+
