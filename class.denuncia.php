@@ -68,6 +68,27 @@ class DENUNCIA
                   echo '<p>', $error->getMessage(), '</p>';
               }
     }
+    
+    public function retornaLocBetween($latN, $latS, $lgtN, $lgtS){
+        try {
+                
+
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, latitude, longitude, rua_den, num_den, cidade_den  from denuncias 
+                 where latitude between " . $latS . " and " . $latN . " AND longitude between ". $lgtS ." and ".$lgtN." 
+                 order by id_den");
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
 
 }
 ?>
