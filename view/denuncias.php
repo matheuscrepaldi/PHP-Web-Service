@@ -2,6 +2,18 @@
 
 require_once('../model/model_categorias.php');
 
+require_once("../session.php");
+  
+require_once("../class.user.php");
+$auth_user = new USER();
+  
+  
+  $user_id = $_SESSION['user_session'];
+  
+  $stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
+  $stmt->execute(array(":user_id"=>$user_id));
+  
+  $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -76,6 +88,7 @@ function showPosition(position)
     <!-- Content Header (Page header) -->
 
       <!-- Default box -->
+      <?php if(($userRow['user_tipo'] == 'A')){ ?>
       <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Cadastrar Denúncia</h3>
@@ -187,7 +200,7 @@ function showPosition(position)
             </div>
             </div>
           </div>
-      
+      <?php } ?>
           <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
               <h3 class="box-title">Consultar Denúncias

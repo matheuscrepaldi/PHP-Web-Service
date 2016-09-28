@@ -1,64 +1,109 @@
 <?php
+//echo "Lucas";
+//print_r($_SESSION); exit;
 
-    $pdo = new PDO('mysql:host=localhost;dbname=u633448963_login', 'root', '');
-    // define para que o PDO lance exceções caso ocorra erros
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     require_once('class.denuncia.php');
+                 
+       $sql = new DENUNCIA();
 
-    $consulta = $pdo->query("SELECT data_den, desc_den, cat_den, rua_den, cidade_den FROM denuncias;");
+    if(isset($_GET['id'])) {
+      
+        
+        $obj_cat = $sql->retornaLoc($_GET['id']);
+        
+         //print_r($obj_cat); exit;
+       
+    }
 
-    $linha = $consulta->fetchAll(PDO::FETCH_ASSOC);
-   
+
 
 ?>
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
 
 
 
 <script>
     
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
+ $(function(){
+        tabela = $('#tabelaConsulta').DataTable({
+          "ajax": {
+            "url": 'controller/controller_consulta.php',
+            "data": {operacao: "ListarDenuncias"},
+            "type": "POST"
+          },
+          "language": {
+            "url": "plugins/datatables/pt-br.json"
+          },
+          "columns": [
+             {
+              "data": null,
+              "width": "20%",
+              "targets": -1,
+              "defaultContent": `
+                <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
+                <a class="btn btn-danger" id="excluirlink"><em class="fa fa-trash"></em></a>
+              `
+            },  
+            {"data": "id_den", 
+             "width": "40%"},
+            {"data": "data_den", 
+             "width": "40%"}
+           
+          ]
+        })
+
+      });
     
+     $("#tabelaConsulta tbody").on('click', '#editarlink', function(){
+        data = tabela.row( $(this).parents('TR') ).data();
+        validarExclusao('editar', data.id_den);
+      });
+
+      $("#tabelaConsulta tbody").on('click', '#excluirlink', function(){
+        data = tabela.row( $(this).parents('TR') ).data();
+        validarExclusao('excluir', data.id_den)
+      });
     
+    function validarExclusao(botao, btn){
+
+		 document.form_cat.operacao.value = botao;
+     document.form_cat.btn_cons.value = btn; 
+		 document.form_cat.submit();
+     //bootbox.alert("Cadastro excluído com sucesso!");
+	}
 </script>  
     
 
 
 
-
-<table id="example" class="display" width="100%" data-page-length="25" data-order="[[ 1, &quot;asc&quot; ]]">
-        <thead>
-            <tr>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Data</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Data</th>
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <?php while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                    <td><?php echo $linha['desc_den']?></td>
-                    <td><?php echo $linha['cat_den']?></td>
-                    <td><?php echo $linha['rua_den']?></td>
-                    <td><?php echo $linha['cidade_den']?></td>
-                    <td><?php echo $linha['data_den']?></td>
-                    }
-                ?>           
-            </tr>
-        </tbody>
-    </table>
+<form action="controller/controller_consulta.php" method="post" name="form_cons" id="form_cons" enctype="multipart/form-data">
+    <input name="operacao" type="hidden" id="operacao" value="nula">
+    <div class="box box-primary collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Consultar Denúncias
+                <small>&nbsp;</small>
+              </h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="">
+                  <i class="fa fa-plus"></i></button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body pad">
+              
+            <table id="tabelaConsulta" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                    <th><p align="center"><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
+                    <th ><p style=" width : 100px">Código</p></th>
+                    <th><p  style=" width : 400px">Descrição</p></th>
+                  
+                </tr>
+              </thead>
+            </table>
+            </div>
+          </div>
+        </div>
+</form>
