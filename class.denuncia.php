@@ -54,7 +54,7 @@ class DENUNCIA
         try {
                 
 
-                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, latitude, longitude, rua_den, num_den, cidade_den  from denuncias order by id_den");
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, cat_den,latitude, longitude, rua_den, num_den, cidade_den  from denuncias order by id_den");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

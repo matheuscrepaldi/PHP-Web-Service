@@ -205,7 +205,11 @@ function showPosition(position)
             </div>
           </div>
       <?php } ?>
+      
+      <?php if(($userRow['user_tipo'] == 'A')){ ?>
           <div class="box box-primary collapsed-box">
+        <?php } ?>
+        <div class="box box-primary box">
             <div class="box-header with-border">
               <h3 class="box-title">Consultar Denúncias
                 <small>&nbsp;</small>
@@ -233,6 +237,7 @@ function showPosition(position)
                 </tr>
               </thead>
             </table>
+            </div>
             </div>
           </div>
       
