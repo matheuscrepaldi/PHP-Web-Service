@@ -51,7 +51,11 @@ $auth_user = new USER();
              "width": "40%"},  
            
                {"data": "cidade_den", 
+             "width": "40%"},
+              
+              {"data": "cat_den", 
              "width": "40%"}
+              
           ]
         })
 
@@ -220,11 +224,12 @@ function showPosition(position)
               <thead>
                 <tr>
                     <th><p align="center"><em class="fa fa-cog" style=" width : 10px"></em></p></th>    
-                    <th ><p style=" width : 50px">Código</p></th>
-                    <th><p  style=" width : 75px">Data</p></th>
-                    <th><p  style=" width : 100px">Endereço</p></th>
-                    <th><p  style=" width : 25px">Nº</p></th>
-                    <th><p  style=" width : 100px">Cidade</p></th>
+                    <th>Código</th>
+                    <th>Data</th>
+                    <th>Endereço</th>
+                    <th>Nº</th>
+                    <th>Cidade</th>
+                    <th>Categoria</th>
                 </tr>
               </thead>
             </table>
