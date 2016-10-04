@@ -74,13 +74,11 @@ if(isset($_POST['btn-login']))
         
         <div class="form-group">
        	 	<input type="text" class="form-control" name="txt_uname_email" placeholder="Usuário ou Email" required />
-        	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         <span id="check-e"></span>
         </div>
         
         <div class="form-group">
       	  	<input type="password" class="form-control" name="txt_password" placeholder="Senha"  required />
-       	 	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
        
      	<hr />
