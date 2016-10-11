@@ -83,6 +83,25 @@ require_once('../dbconfig.php');
               }
         }
         
+         public function listarUltimo(){
+            
+            try {
+                
+                $sql = "SELECT * FROM denuncia_img ORDER BY idden_img DESC LIMIT 1";
+
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+        }
+        
+      
         public function deletar($id) {
             
             try {

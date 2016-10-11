@@ -49,6 +49,28 @@ class DENUNCIA
 		}				
 	}
     
+    public function teste($udesc)
+	{
+		try
+		{
+			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
+			
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den) VALUES(:udesc)");
+												  
+			$stmt->bindparam(":udesc", $udesc);
+            
+            
+			$stmt->execute();	
+			
+            
+			return $stmt;	
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}				
+	}
+    
     
     public function retornaLoc(){
         try {

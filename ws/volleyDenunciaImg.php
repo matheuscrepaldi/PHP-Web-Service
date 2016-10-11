@@ -2,21 +2,29 @@
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
 
-         $image = $_POST['image'];
-         $name = $_POST['name'];
+         $imagem = $_POST['imagem'];
+         $descricao = $_POST['descricao'];
 
          require_once('../model/model_denuncia_img.php');
+        require_once('../class.denuncia.php');
         
-         $path = "imagens/teste.png";
+        $denunciaImg = new DenunciaImg();
+        $denuncia = new DENUNCIA();
+        
+        $ultimo_id = $denunciaImg->listarUltimo();
+
+        $nome = $ultimo_id['idden_img'] + 1;
+        
+         $path = "imagens/".$nome.".png";
 
          $actualpath = "../controller/$path";
-
-         $denunciaImg = new DenunciaImg();
+         
         
          if($denunciaImg->registrar($actualpath)){
              
-             file_put_contents($actualpath,base64_decode($image));
-             echo "Successfully Uploaded";
+             file_put_contents($actualpath,base64_decode($imagem));
+             $denuncia->teste($descricao);
+             echo "Cadastro realizado  com sucesso!";
          }
 
       
