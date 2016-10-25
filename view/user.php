@@ -11,6 +11,10 @@
   $obj_user = $auth_user->listarUnico($user_id);
 
   //print_r($obj_user);
+
+  $str = $obj_user['user_name'];
+
+  $str = ucfirst($str);
   
 ?>
 
@@ -58,7 +62,7 @@
              		 <img class="profile-user-img img-responsive img-circle" src="dist/img/avatar04.png" alt="User profile picture">
              	<?php } ?>
 
-              <h3 class="profile-username text-center"><?php echo $obj_user['user_name']; ?></h3>
+              <h3 class="profile-username text-center"><?php echo $str; ?></h3>
 
               <p class="text-muted text-center">
                 
