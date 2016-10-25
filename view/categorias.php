@@ -34,7 +34,7 @@
           "columns": [
              {
               "data": null,
-              "width": "20%",
+              "width": "50%",
               "targets": -1,
               "defaultContent": `
                 <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
@@ -220,7 +220,7 @@
           </div>
       
       
-     <div class="box box-primary collapsed-box">
+     <div class="box box-primary collapsed-box" >
             <div class="box-header with-border">
               <h3 class="box-title">Consultar Categorias
                 <small>&nbsp;</small>
@@ -249,4 +249,3 @@
           </div>
         </div>
 	</form>
-

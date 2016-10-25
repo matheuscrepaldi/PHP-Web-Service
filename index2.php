@@ -224,12 +224,13 @@
       </aside>
   
   <style>
-   		.Flexible-container {
+.Flexible-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
-    overflow: hidden;
+    width: auto;
+    overflow: auto;
 }
 
 .Flexible-container iframe,   
