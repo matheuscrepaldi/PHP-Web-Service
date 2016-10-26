@@ -19,7 +19,7 @@ require_once('../dbconfig.php');
             return $stmt;
         }
 
-        public function registrar($uimg) {
+        public function register($uimg) {
         
             try {
             

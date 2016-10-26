@@ -49,16 +49,18 @@ class DENUNCIA
 		}				
 	}
     
-    public function teste($udesc)
+    public function teste($udesc, $ucat, $lat, $long)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den) VALUES(:udesc)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, cat_den, latitude, longitude) VALUES(:udesc, :ucat, :ulat, :ulong)");
 												  
 			$stmt->bindparam(":udesc", $udesc);
-            
+            $stmt->bindparam(":ucat", $ucat);
+            $stmt->bindparam(":ulat", $lat);
+            $stmt->bindparam(":ulong", $long);
             
 			$stmt->execute();	
 			
