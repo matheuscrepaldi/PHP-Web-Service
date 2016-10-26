@@ -223,7 +223,7 @@
   <style>
 .Flexible-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 51.5%;
     padding-top: 30px;
     height: 0;
     width: auto;
