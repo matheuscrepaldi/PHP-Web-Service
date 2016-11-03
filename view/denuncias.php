@@ -209,7 +209,10 @@ function showPosition(position)
       <?php if(($userRow['user_tipo'] == 'A')){ ?>
           <div class="box box-primary collapsed-box">
         <?php } ?>
-        <div class="box box-primary box">
+              
+        <?php if(($userRow['user_tipo'] == 'U')){ ?>      
+            <div class="box box-primary box">
+        <?php } ?>
             <div class="box-header with-border">
               <h3 class="box-title">Consultar Denúncias
                 <small>&nbsp;</small>
