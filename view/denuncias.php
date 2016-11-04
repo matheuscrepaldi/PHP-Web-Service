@@ -108,7 +108,7 @@ function showPosition(position)
        
       <div class="form-group">
             <div class="col-xs-2">
-                <label>Date:</label>
+                <label>Data:</label>
                <div class='input-group date' id='datetimepicker1'>
                     <input type='date' class="form-control" id='datetimepicker4' name="data"/>
                     <span class="input-group-addon">
@@ -226,7 +226,39 @@ function showPosition(position)
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-              
+            <!--FILTRO POR PERÍODO -->
+            <div class="form-group">
+                <div class="col-xs-2">
+                    <label>Data Inicial:</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='date' class="form-control" id='datetimepicker4' name="data"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <!-- /.input group -->
+                <div class="col-xs-2">
+                    <label>Data Final:</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='date' class="form-control" id='datetimepicker4' name="data"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>                
+            </div>
+                
+                <div class="col-xs-2">
+                    <div style="margin-top:10px">
+                     <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onclick="#">
+                        <i class="glyphicon glyphicon-search"></i>&nbsp; Buscar
+                     </button>
+                    </div>
+                </div>
+                
+            <br><br><br>
+            <!--FIM FILTRO-->
             <table id="tabelaDenuncias" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -247,8 +279,4 @@ function showPosition(position)
       
         </div>
 	</form>
-
-          </div>
-
-       
-
+</div>
