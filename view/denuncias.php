@@ -21,6 +21,28 @@ $auth_user = new USER();
 <script>
     
       $(function(){
+          
+        $.fn.datepicker.dates['pt'] = {
+            days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+            daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+            daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa"],
+            months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+            monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+            today: "Hoje",
+            clear: "Limpar",
+            format: "dd/mm/yyyy",
+            titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+            weekStart: 0
+        };
+          
+          $('#d1').datepicker({
+            language: 'pt'
+          });
+          
+          $('#d2').datepicker({
+              language: 'pt'
+          });
+          
         tabela = $('#tabelaDenuncias').DataTable({
           "ajax": {
             "url": 'controller/controller_denuncias.php',
@@ -199,7 +221,7 @@ function showPosition(position)
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
 
-        </div>
+            </div>
 
             </div>
             </div>
@@ -231,7 +253,7 @@ function showPosition(position)
                 <div class="col-xs-2">
                     <label>Data Inicial:</label>
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='date' class="form-control" id='datetimepicker4' name="data"/>
+                        <input type='date' date-provider="date" class="form-control" id='d1' name="data"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -241,7 +263,7 @@ function showPosition(position)
                 <div class="col-xs-2">
                     <label>Data Final:</label>
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='date' class="form-control" id='datetimepicker4' name="data"/>
+                        <input type='date' date-provider="date" class="form-control" id='d2' name="data"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -251,7 +273,7 @@ function showPosition(position)
                 
                 <div class="col-xs-2">
                     <div style="margin-top:10px">
-                     <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onclick="#">
+                     <button type="button" class="btn btn-default btn-lrg" title="Bucar" onclick="validarBotao('buscar')">
                         <i class="glyphicon glyphicon-search"></i>&nbsp; Buscar
                      </button>
                     </div>
