@@ -115,6 +115,25 @@ class DENUNCIA
                   echo '<p>', $error->getMessage(), '</p>';
               }
     }
+    
+     public function retornaCidade(){
+        try {
+                
+
+                $stmt = $this->conn->query("select id_den, cidade_den from denuncias group by cidade_den order by cidade_den ");
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
 
 }
 ?>
