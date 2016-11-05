@@ -16,7 +16,7 @@
       foreach($resultado as $registro) { 
 
        
-          $teste = array_push($res, array("latitude" => $registro['latitude'], "longitude" => $registro['longitude'], "rua_den" => $registro['rua_den'], "num_den" => $registro['num_den']));     
+          $teste = array_push($res, array("id_den" => $registro['id_den'], "latitude" => $registro['latitude'], "longitude" => $registro['longitude'], "rua_den" => $registro['rua_den'], "num_den" => $registro['num_den']));     
 
       }    
 

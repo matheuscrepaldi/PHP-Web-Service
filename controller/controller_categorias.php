@@ -97,7 +97,7 @@
                 else {
 
                     $categoria->register($_POST['descricao'], $imagem);
-                    header("Location: ../index2.php?page=view/categorias");
+                    header("Location: ../index2.php?page=view/categorias&alerta=Cadastro realizado com sucesso!");
                 }
             }
 
@@ -112,7 +112,7 @@
     else if ($_POST['operacao'] == 'excluir'){
         
        $categoria->deletar($_POST['btn_cons']);
-       header("Location: ../index2.php?page=view/categorias"); 
+       header("Location: ../index2.php?page=view/categorias&alerta=Cadastro excluído com sucesso!"); 
     }
 
     else if ($_POST['operacao'] == 'editar') {

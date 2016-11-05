@@ -80,7 +80,7 @@ function initMap() {
           
         position: location,
         label: labels[labelIndex++ % labels.length],
-        icon: 'img/mega.png',
+       // icon: 'img/'+ img + '.png',
         map: map
       });
 }

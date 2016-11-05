@@ -39,7 +39,7 @@ class USER
 		}
 		catch(PDOException $e)
 		{
-			echo "ja tem fera" . $e->getMessage();
+			echo "Usuário já cadastrado!" . $e->getMessage();
 		}				
 	}
 

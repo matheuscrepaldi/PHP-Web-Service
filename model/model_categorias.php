@@ -67,7 +67,7 @@ require_once('../dbconfig.php');
             try {
                 
 
-                $stmt = $this->conn->query("select * from categorias order by id_categoria");
+                $stmt = $this->conn->query("select * from categorias order by desc_categoria");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

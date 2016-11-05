@@ -12,12 +12,16 @@
  
  
  if($usuario->doLogin($username,$email,$password)){
- echo "Login efetuado";
- }else{
- echo "nao foi possivel logar";
- 
+ echo "login";
  }
- }else{
+     
+ else{
+    echo "Não foi possível logar!";
+ }
+     
+ }
+
+else{
 echo 'error';
 }
 

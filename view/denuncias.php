@@ -45,15 +45,12 @@ $auth_user = new USER();
               {"data": "data_den", 
              "width": "40%"},
             {"data": "rua_den", 
-             "width": "40%"},
-              
-            {"data": "num_den", 
-             "width": "40%"},  
+             "width": "40%"}, 
            
                {"data": "cidade_den", 
              "width": "40%"},
               
-              {"data": "cat_den", 
+              {"data": "desc_categoria", 
              "width": "40%"}
               
           ]
@@ -208,8 +205,17 @@ function showPosition(position)
       
       <?php if(($userRow['user_tipo'] == 'A')){ ?>
           <div class="box box-primary collapsed-box">
-        <?php } ?>
+        <?php } 
+              
+              
+            if(($userRow['user_tipo'] == 'U')){   
+              
+              ?>
+              
+              
         <div class="box box-primary box">
+        
+        <?php } ?>    
             <div class="box-header with-border">
               <h3 class="box-title">Consultar Denúncias
                 <small>&nbsp;</small>
@@ -231,7 +237,6 @@ function showPosition(position)
                     <th>Código</th>
                     <th>Data</th>
                     <th>Endereço</th>
-                    <th>Nº</th>
                     <th>Cidade</th>
                     <th>Categoria</th>
                 </tr>
