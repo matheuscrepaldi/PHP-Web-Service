@@ -78,6 +78,34 @@ function showPosition(position)
   x.innerHTML= position.coords.latitude + "/" + position.coords.longitude; 
   }
     
+    //CONFIGURAÇÕES CALENDÁRIO
+        $(".dropdown-menu li a").click(function(){
+            var selText = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+        });
+        
+        $(function(){
+          
+        $.fn.datepicker.dates['pt'] = {
+            days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+            daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+            daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa"],
+            months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+            monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+            today: "Hoje",
+            clear: "Limpar",
+            format: "dd/mm/yyyy",
+            titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+            weekStart: 0
+        };
+          
+          $('#datetimepicker4').datepicker({
+            language: 'pt'
+          });
+            
+        });
+    //FIM CONFIG CALENDARIO
+    
 </script>
 
 <div>
@@ -107,7 +135,7 @@ function showPosition(position)
             <div class="col-xs-2">
                 <label>Date:</label>
                <div class='input-group date' id='datetimepicker1'>
-                    <input type='date' class="form-control" id='datetimepicker4' name="data"/>
+                    <input type='date' date-provider="date" class="form-control" id='datetimepicker4' name="data"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
