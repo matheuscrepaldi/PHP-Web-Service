@@ -4,7 +4,7 @@
 
     $denuncia = new DENUNCIA();
 
-//print_r($endereco); exit;
+//print_r($_POST); exit;
 
      if($_REQUEST['operacao'] == 'ListarDenuncias'){
       header('Content-type: application/json');

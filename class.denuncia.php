@@ -116,11 +116,34 @@ class DENUNCIA
               }
     }
     
+     public function retornaUmaCidade($cidade){
+        try {
+                
+
+                $stmt = $this->conn->query("select id_den, cidade_den from denuncias where cidade_den = '". $cidade ."' group by cidade_den order by cidade_den ");
+            
+                //print_r($stmt); exit;
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                
+                //print_r($rows);
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
+    
      public function retornaCidade(){
         try {
                 
 
                 $stmt = $this->conn->query("select id_den, cidade_den from denuncias group by cidade_den order by cidade_den ");
+            
+                
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
