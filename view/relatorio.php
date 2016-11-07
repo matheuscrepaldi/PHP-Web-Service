@@ -44,6 +44,18 @@ header('Content-type: text/html; charset=UTF-8');
 		 document.form_rel.operacao.value = botao;
 		 document.form_rel.submit();
 	}
+        function chama_relatorio(){
+            di = $('#d1').val();
+            df = $('#d2').val();
+            categoria = $('#categoria').val();
+            cidade = $('#cidade').val();   
+            checkSim = $('#checkSim').val(); 
+            checkNao = $('#checkNao').val(); 
+            checkbox = $('#checkbox').val();
+            
+            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&checkSim=' + checkbox;
+            changePageParam('relatorios/rel_padrao.php', data);
+        }
         
         
     </script>
@@ -55,7 +67,7 @@ header('Content-type: text/html; charset=UTF-8');
 <form action="relatorios/rel_padrao.php" method="post" name="form_rel" id="form_rel">
     <input name="operacao" type="hidden" id="operacao" value="nula">
   <div class="content"> 
-      <div class="box">
+      <div class="box box-primary">
         <div class="box-header with-border">
             <center>
                 <h3 class="box-title">Consultar Denúncias</h3>  
@@ -75,7 +87,7 @@ header('Content-type: text/html; charset=UTF-8');
                     <div class="col-md-2">
                         <label>Data Inicial</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='date' date-provider="date" class="form-control" id='d1' name="data1"/>
+                            <input type='date' date-provider="date" class="form-control" id='d1' name="d1"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -89,7 +101,7 @@ header('Content-type: text/html; charset=UTF-8');
                         
                         <label>Data Final</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='date' date-provider="date" class="form-control" id='d2' name="data2"/>
+                            <input type='date' date-provider="date" class="form-control" id='d2' name="d2"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -117,7 +129,7 @@ header('Content-type: text/html; charset=UTF-8');
                         <!--Categorias Combo Box-->
                         
                         	  <label>Categoria</label>
-                <select class="form-control select2" name="categoria" style="width: 100%;">
+                <select class="form-control select2" name="categoria" id="categoria" style="width: 100%;">
                   <option selected="selected"></option>
                 
                 <?php 
@@ -129,6 +141,7 @@ header('Content-type: text/html; charset=UTF-8');
                     foreach($resultado as $registro) {  ?>
 
                     <option value="<?php echo $registro['id_categoria']?>"><?php echo $registro['desc_categoria']?></option>
+                    
                                                       
          <?php     }  ?>   
                     
@@ -140,7 +153,7 @@ header('Content-type: text/html; charset=UTF-8');
                         <!--Cidades Combo Box-->
                         
                         	  <label>Cidade</label>
-                <select class="form-control select2" name="cidade" style="width: 100%;">
+                <select class="form-control select2" name="cidade" id="cidade" style="width: 100%;">
                   <option selected="selected"></option>
                 
                 <?php 
@@ -153,7 +166,8 @@ header('Content-type: text/html; charset=UTF-8');
                     
                     foreach($resultado as $registro) {  ?>
 
-                    <option value="<?php echo $registro['cidade_den']?>"><?php echo utf8_decode($registro['cidade_den'])?></option>
+                    <option value="<?php echo $registro['cidade_den']?>"><?php echo $registro['cidade_den']?></option>
+                    
                                                       
          <?php     }  ?>   
                     
@@ -164,9 +178,9 @@ header('Content-type: text/html; charset=UTF-8');
                         <label>Denúncia resolvida?</label>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox"> Sim
+                                    <input class="form-check-input" type="checkbox" name="checkbox" value="sim" id="checkbox"> Sim
                                     &nbsp;
-                                    <input class="form-check-input" type="checkbox"> Somente resolvidas
+                                    <input class="form-check-input" type="checkbox" name="checkbox"  value="nao" id="checkbox"> Não
                                 </label>
                             </div>
                         
@@ -182,7 +196,8 @@ header('Content-type: text/html; charset=UTF-8');
             </div>
             <br>
             <div class="col-xs-12 text-center">
-          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onClick="validarBotao('buscar')">
+                
+          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onClick="chama_relatorio();">
           			<i class="glyphicon glyphicon-search"></i>&nbsp; Buscar
           		</button>
          	

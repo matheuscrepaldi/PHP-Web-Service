@@ -16,7 +16,7 @@
       foreach($resultado as $registro) { 
 
        
-          $teste = array_push($res, array("id_categoria" => $registro['id_categoria'], "desc_categoria" => $registro['desc_categoria'], "img_categoria" => "http://192.168.0.103:81/tcc/controller/" . $registro['img_categoria']));     
+          $teste = array_push($res, array("id_categoria" => $registro['id_categoria'], "desc_categoria" => $registro['desc_categoria'], "img_categoria" => "http://192.168.0.3:81/tcc/controller/" . $registro['img_categoria']));     
 
       }    
 

@@ -49,13 +49,26 @@
     <script type="text/javascript">
     
       function changePage(url) {
-        if(url == ''){ return; }
-          //$("#localAtualizar").html('<div class="text-center"><img src="images/loading.gif" alt="Carregando"></div>');
+        if(url == ''){ 
+            return; 
+        }
          $.post( url , function( data ) {
             $( "#localAtualizar" ).html( data );
           });
 
       }
+        
+        function changePageParam(url, params) {
+          params = params || '';
+
+          if(url == ''){ 
+            return; 
+          }
+
+          $.post( url + params , function( data ) {
+            $( "#localAtualizar" ).html( data );
+          });
+        }
 
       // redirect to page
       var page =  "<?php  if(isset($_GET['page'])) echo $_GET['page']; ?>";
