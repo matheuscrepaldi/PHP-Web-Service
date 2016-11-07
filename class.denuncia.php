@@ -20,16 +20,17 @@ class DENUNCIA
 		return $stmt;
 	}
 	
-	public function register($udata, $lat, $long, $categoria, $rua, $numero, $cidade)
+	public function register($udata, $lat, $long, $ustatus, $categoria, $rua, $numero, $cidade)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_den, latitude, longitude, cat_den, rua_den, num_den, cidade_den) 
-		                                               VALUES(:udata, :ulat, :ulon, :ucat, :urua, :unum, :ucid)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(data_den, latitude, longitude, status_den, cat_den, rua_den, num_den, cidade_den) 
+		                                               VALUES(:udata, :ulat, :ulon, :ucat, :ustatus, :urua, :unum, :ucid)");
 												  
 			$stmt->bindparam(":udata", $udata);
+            $stmt->bindparam(":ustatus", $ustatus);
 			$stmt->bindparam(":ulat", $lat);
             $stmt->bindparam(":ulon", $long);
             $stmt->bindparam(":ucat", $categoria);
@@ -49,16 +50,17 @@ class DENUNCIA
 		}				
 	}
     
-    public function inserir($udesc, $ucat, $lat, $long, $end, $cid)
+    public function inserir($udesc, $ustatus,$ucat, $lat, $long, $end, $cid)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, status_den, cat_den, latitude, longitude, rua_den, cidade_den) VALUES(:udesc, now(), :ucat, ustatus, :ulat, :ulong, :uend, :ucid)");
 												  
 			$stmt->bindparam(":udesc", $udesc);
             $stmt->bindparam(":ucat", $ucat);
+            $stmt->bindparam(":ustatus", $ustatus);
             $stmt->bindparam(":ulat", $lat);
             $stmt->bindparam(":ulong", $long);
             $stmt->bindparam(":uend", $end);
@@ -80,7 +82,7 @@ class DENUNCIA
         try {
                 
 
-                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, cat_den,latitude, longitude, rua_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) order by id_den");
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, status_den,cat_den,latitude, longitude, rua_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) order by id_den");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

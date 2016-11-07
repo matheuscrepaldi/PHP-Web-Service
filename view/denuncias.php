@@ -51,6 +51,9 @@ $auth_user = new USER();
              "width": "40%"},
               
               {"data": "desc_categoria", 
+             "width": "40%"},
+              
+              {"data": "status_den", 
              "width": "40%"}
               
           ]
@@ -267,6 +270,7 @@ function showPosition(position)
                     <th>Endereço</th>
                     <th>Cidade</th>
                     <th>Categoria</th>
+                    <th>Status</th>
                 </tr>
               </thead>
             </table>
