@@ -17,8 +17,25 @@ class DENUNCIA
 	public function runQuery($sql)
 	{
 		$stmt = $this->conn->prepare($sql);
+        
 		return $stmt;
 	}
+    
+     public function selectDinamico($sql){
+        try {
+                
+                //echo "to aqui";
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
 	
 	public function register($udata, $lat, $long, $categoria, $rua, $numero, $cidade)
 	{
@@ -55,7 +72,7 @@ class DENUNCIA
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, 0)");
 												  
 			$stmt->bindparam(":udesc", $udesc);
             $stmt->bindparam(":ucat", $ucat);
@@ -74,6 +91,9 @@ class DENUNCIA
 			echo $e->getMessage();
 		}				
 	}
+    
+    
+    
     
     
     public function retornaLoc(){

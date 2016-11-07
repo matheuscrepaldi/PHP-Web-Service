@@ -43,7 +43,19 @@ header('Content-type: text/html; charset=UTF-8');
 		
 		 document.form_rel.operacao.value = botao;
 		 document.form_rel.submit();
-	}
+	   }
+        
+        function validaSim(click){
+            
+            document.form_rel.checkSim.value = click;
+        }
+        
+        function validaNao(click){
+            
+            document.form_rel.checkNao.value = click;
+        }
+        
+        
         function chama_relatorio(){
             di = $('#d1').val();
             df = $('#d2').val();
@@ -51,9 +63,10 @@ header('Content-type: text/html; charset=UTF-8');
             cidade = $('#cidade').val();   
             checkSim = $('#checkSim').val(); 
             checkNao = $('#checkNao').val(); 
-            checkbox = $('#checkbox').val();
+            buscar = $('#btn-buscar').val();
             
-            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&checkSim=' + checkbox;
+            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&checkSim=' + checkSim + '&checkNao=' + checkNao + '&buscar=' + buscar;
+
             changePageParam('relatorios/rel_padrao.php', data);
         }
         
@@ -64,7 +77,7 @@ header('Content-type: text/html; charset=UTF-8');
 
   <!-- =============================================== -->
 
-<form action="relatorios/rel_padrao.php" method="post" name="form_rel" id="form_rel">
+<form action="relatorios/rel_padrao.php" method="get" name="form_rel" id="form_rel">
     <input name="operacao" type="hidden" id="operacao" value="nula">
   <div class="content"> 
       <div class="box box-primary">
@@ -176,13 +189,13 @@ header('Content-type: text/html; charset=UTF-8');
                         
                         <br>
                         <label>Denúncia resolvida?</label>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" value="sim" id="checkbox"> Sim
+                       
+                            <div>  
+                                    <input type="checkbox" name="checkSim" value="0" id="checkSim" onClick="validaSim(1)"> Sim
                                     &nbsp;
-                                    <input class="form-check-input" type="checkbox" name="checkbox"  value="nao" id="checkbox"> Não
-                                </label>
-                            </div>
+                                    <input type="checkbox" name="checkNao" value="0" id="checkNao" onClick="validaNao(1)"> Não
+                              
+                        </div>
                         
                    
 				    </div>
@@ -197,11 +210,11 @@ header('Content-type: text/html; charset=UTF-8');
             <br>
             <div class="col-xs-12 text-center">
                 
-          		<button type="button" class="btn btn-default btn-lrg" name="btn-salvar" onClick="chama_relatorio();">
+          		<button type="button" class="btn btn-default btn-lrg" name="btn-buscar" id="btn-buscar" value="buscar" onClick="chama_relatorio();">
           			<i class="glyphicon glyphicon-search"></i>&nbsp; Buscar
           		</button>
          	
-	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar" onClick="validarBotao('cancelar')">
+	          <button type="button" class="btn btn-default btn-lrg" title="Cancelar" name="btn-cancelar" id="btn-cancelar" value="cancelar" onClick="validarBotao('cancelar')">
 	          		<i class="glyphicon glyphicon-remove"></i>&nbsp; Cancelar
 	          </button>
 
