@@ -10,8 +10,8 @@
 
     if($_POST['operacao'] == 'cancelar'){
 
-        //header("Location: ../index2.php");
-        echo "ta dando erro aki";
+        header("Location: ../index2.php");
+        //echo "ta dando erro aki";
     }
 
     else if ($_POST['operacao'] == 'salvar'){

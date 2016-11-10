@@ -1,6 +1,7 @@
 <?php
 
 require_once('dbconfig.php');
+require_once('class.user.php');
 
 class DENUNCIA
 {	
@@ -96,11 +97,11 @@ class DENUNCIA
     
     
     
-    public function retornaLoc(){
+    public function retornaLoc($user_id){
         try {
                 
 
-                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, cat_den,latitude, longitude, rua_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) order by id_den");
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, status_den,cat_den,latitude, longitude, rua_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) left join users on (user_den = user_id) where user_id = ". $user_id ." order by id_den");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

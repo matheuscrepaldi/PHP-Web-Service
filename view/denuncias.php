@@ -248,7 +248,7 @@ function showPosition(position)
         
         <?php } ?>    
             <div class="box-header with-border">
-              <h3 class="box-title">Consultar Denúncias
+              <h3 class="box-title">Denúncias Realizadas
                 <small>&nbsp;</small>
               </h3>
               <!-- tools box -->

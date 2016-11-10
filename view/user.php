@@ -4,11 +4,14 @@
   
   require_once("../class.user.php");
 
+
+
   $auth_user = new USER();
   
   $user_id = $_SESSION['user_session'];
 
   $obj_user = $auth_user->listarUnico($user_id);
+
 
   //print_r($obj_user);
 
@@ -26,6 +29,41 @@
 		 document.form_user.operacao.value = botao;
 		 document.form_user.submit();
 	}
+    
+    
+      $(function(){
+          usuario = "<?php $str; ?>";
+        tabela = $('#minhasDenuncias').DataTable({
+          "ajax": {
+            "url": 'controller/controller_denuncias.php',
+            "data": {operacao: "ListarDenuncias", usuario: usuario},
+            "type": "POST"
+          },
+          "language": {
+            "url": "plugins/datatables/pt-br.json"
+          },
+          "columns": [
+             
+            {"data": "id_den", 
+             "width": "5%"},
+              {"data": "data_den", 
+             "width": "10%"},
+            {"data": "rua_den", 
+             "width": "30%"}, 
+           
+               {"data": "cidade_den", 
+             "width": "20%"},
+              
+              {"data": "desc_categoria", 
+             "width": "20%"},
+              
+              {"data": "status_den", 
+             "width": "40%"}
+              
+          ]
+        })
+
+      });
     
 </script>    
 
@@ -157,10 +195,39 @@
 
 
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+          
+          <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Minhas Denúncias</h3>
+                </div>
+              <!-- tools box -->
+              
+                    <div class="box-body">
+                    <!--Conteudo da tabela-->    
+        
+                    <div class="box-body pad">
+              
+                        <table id="minhasDenuncias" class="table table-bordered table-hover">
+                          <thead>
+                            <tr>  
+                                <th>Código</th>
+                                <th>Data</th>
+                                <th>Endereço</th>
+                                <th>Cidade</th>
+                                <th>Categoria</th>
+                                <th>Status</th>
+                            </tr>
+                          </thead>
+                        </table>
+                        </div>
+           
+                        <!--Fim conteudo-->
+                    </div>
+                
+                </div>
+            </div>
+              
+          </div>
 
     </section>
-    </form>
-    <!-- /.content -->

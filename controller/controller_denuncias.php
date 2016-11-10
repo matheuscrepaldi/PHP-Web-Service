@@ -4,11 +4,11 @@
 
     $denuncia = new DENUNCIA();
 
-//print_r($_POST); exit;
+print_r($_REQUEST); exit;
 
      if($_REQUEST['operacao'] == 'ListarDenuncias'){
       header('Content-type: application/json');
-      $denuncias = $denuncia->retornaLoc();
+      $denuncias = $denuncia->retornaLoc($_REQUEST['usuario']);
 
       $data['data'] = $denuncias;
       echo json_encode($data);
