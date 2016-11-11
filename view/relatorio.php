@@ -45,27 +45,48 @@ header('Content-type: text/html; charset=UTF-8');
 		 document.form_rel.submit();
 	   }
         
-        function validaSim(click){
+        function validaRadio1(click){
             
-            document.form_rel.checkSim.value = click;
+            //alert(click);
+            document.form_rel.radio1.value = click;
         }
         
-        function validaNao(click){
+        function validaRadio2(click){
             
-            document.form_rel.checkNao.value = click;
+            //alert(click);
+            document.form_rel.radio2.value = click;
         }
         
+        function validaRadio3(click){
+            
+            //alert(click);
+            document.form_rel.radio3.value = click;
+        }
         
         function chama_relatorio(){
             di = $('#d1').val();
             df = $('#d2').val();
             categoria = $('#categoria').val();
-            cidade = $('#cidade').val();   
-            checkSim = $('#checkSim').val(); 
-            checkNao = $('#checkNao').val(); 
+            cidade = $('#cidade').val();
+            bairro = $('#bairro').val();
+            radio1 = $('#radio1').val();
+            radio2 = $('#radio2').val(); 
+            radio3 = $('#radio3').val(); 
             buscar = $('#btn-buscar').val();
             
-            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&checkSim=' + checkSim + '&checkNao=' + checkNao + '&buscar=' + buscar;
+            radio = '';
+            
+            if(radio1 != '') radio = radio1;
+            if(radio2 != '') radio = radio2;
+            if(radio3 != '') radio = radio3;
+            
+            if(radio == '') {
+                
+                bootbox.alert("Atenção! Selecione o status da ");
+                return
+            }
+            
+            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&radio=' + radio + '&buscar=' + buscar + '&bairro=' + bairro;
 
             changePageParam('relatorios/rel_padrao.php', data);
         }
@@ -187,13 +208,36 @@ header('Content-type: text/html; charset=UTF-8');
                 </select>
                         <!--Fim Combo Box-->
                         
+                        <!--Cidades Combo Box-->
+                        <BR>
+                        	  <label>Bairro</label>
+                <select class="form-control select2" name="bairro" id="bairro" style="width: 100%;">
+                  <option selected="selected"></option>
+                
+                <?php 
+                    
+                    
+                    
+
+                    $resultado = $cidade->retornaBairro();
+                    
+                    foreach($resultado as $registro) {  ?>
+
+                    <option value="<?php echo $registro['bairro_den']?>"><?php echo $registro['bairro_den']?></option>
+                    
+                                                      
+         <?php     }  ?>   
+                    
+                </select>
+                        <!--Fim Combo Box-->
+                        
                         <br>
                         <label>Denúncia resolvida?</label>
                        
                             <div>  
-                                    <input type="checkbox" name="checkSim" value="0" id="checkSim" onClick="validaSim(1)"> Sim
-                                    &nbsp;
-                                    <input type="checkbox" name="checkNao" value="0" id="checkNao" onClick="validaNao(1)"> Não
+                                   <label class="radio-inline"><input type="radio" name="radio" id="radio1" value="" onClick="validaRadio1('sim')">Sim</label>
+                                   <label class="radio-inline"><input type="radio" name="radio" id="radio2" value="" onClick="validaRadio2('nao')">Não</label>
+                                   <label class="radio-inline"><input type="radio" name="radio" id="radio3" value="" onClick="validaRadio3('ambos')">Ambos</label>
                               
                         </div>
                         

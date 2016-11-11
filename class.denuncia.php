@@ -67,13 +67,16 @@ class DENUNCIA
 		}				
 	}
     
-    public function inserir($udesc, $ucat, $lat, $long, $end, $cid)
+    public function inserir($udesc, $ucat, $lat, $long, $end, $cid, $bairro, $user)
 	{
 		try
 		{
 			//$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, 0)");
+			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den, bairro_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, user_den = (select user_name from users where user_name = '" . $user . "'), :ubairro)");
+            
+           /* echo "INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den, bairro_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, user_den = (select * from users where user_name = '" . $user . "'), :ubairro)";
+            exit;*/
 												  
 			$stmt->bindparam(":udesc", $udesc);
             $stmt->bindparam(":ucat", $ucat);
@@ -81,6 +84,7 @@ class DENUNCIA
             $stmt->bindparam(":ulong", $long);
             $stmt->bindparam(":uend", $end);
             $stmt->bindparam(":ucid", $cid);
+            $stmt->bindparam(":ubairro", $bairro);
             
 			$stmt->execute();	
 			
@@ -93,8 +97,24 @@ class DENUNCIA
 		}				
 	}
     
-    
-    
+    public function retornaDenuncia($id){
+        try {
+                
+
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, status_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) where id_den = ".$id." order by id_den");
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
     
     
     public function retornaLoc($user_id){
@@ -178,6 +198,28 @@ class DENUNCIA
                   echo '<p>', $error->getMessage(), '</p>';
               }
     }
+    
+    public function retornaBairro(){
+        try {
+                
+
+                $stmt = $this->conn->query("select id_den, bairro_den from denuncias group by bairro_den order by bairro_den ");
+            
+                
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                /*echo "'<pre>";
+                print_r($rows) . "</pre>";*/
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
+
 
 }
 ?>

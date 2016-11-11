@@ -26,11 +26,13 @@
         // $imagem2 = $_POST['imagem2'];
        //  $imagem3 = $_POST['imagem3'];
        //  $imagem4 = $_POST['imagem4'];
+         $user = $_POST['user'];
          $descricao = $_POST['descricao'];
          $latitude = $_POST['latitude'];
          $longitude = $_POST['longitude'];
          $endereco = $_POST['endereco'];
          $cidade = $_POST['cidade'];
+         $bairro = $_POST['bairro'];
         
         if($_POST['categoria'] > 0){
             
@@ -93,7 +95,7 @@
              
              $denunciaImg->register($actualpath);
              file_put_contents($actualpath,base64_decode($imagem));
-             $denuncia->inserir($descricao, $id_cat, $latitude, $longitude, $endereco, $cidade);
+             $denuncia->inserir($descricao, $id_cat, $latitude, $longitude, $endereco, $cidade, $bairro, $user);
              
               if($imagem2 != ''){
                 $denunciaImg->register($actualpath2);
