@@ -32,7 +32,7 @@
     
     
       $(function(){
-          usuario = "<?php $str; ?>";
+          usuario = "<?php echo $user_id; ?>";
         tabela = $('#minhasDenuncias').DataTable({
           "ajax": {
             "url": 'controller/controller_denuncias.php',

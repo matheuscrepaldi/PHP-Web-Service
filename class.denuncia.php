@@ -75,8 +75,7 @@ class DENUNCIA
 			
 			$stmt = $this->conn->prepare("INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den, bairro_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, user_den = (select user_name from users where user_name = '" . $user . "'), :ubairro)");
             
-           /* echo "INSERT INTO denuncias(desc_den, data_den, cat_den, latitude, longitude, rua_den, cidade_den, user_den, bairro_den) VALUES(:udesc, now(), :ucat, :ulat, :ulong, :uend, :ucid, user_den = (select * from users where user_name = '" . $user . "'), :ubairro)";
-            exit;*/
+        
 												  
 			$stmt->bindparam(":udesc", $udesc);
             $stmt->bindparam(":ucat", $ucat);
@@ -97,11 +96,11 @@ class DENUNCIA
 		}				
 	}
     
-    public function retornaDenuncia($id){
+    public function retornaDenuncia(){
         try {
                 
 
-                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, status_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) where id_den = ".$id." order by id_den");
+                $stmt = $this->conn->query("select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, status_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) order by id_den");
                 
                 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

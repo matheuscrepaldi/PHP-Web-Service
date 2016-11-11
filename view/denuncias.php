@@ -24,7 +24,7 @@ $auth_user = new USER();
         tabela = $('#tabelaDenuncias').DataTable({
           "ajax": {
             "url": 'controller/controller_denuncias.php',
-            "data": {operacao: "ListarDenuncias"},
+            "data": {operacao: "Denuncias"},
             "type": "POST"
           },
           "language": {

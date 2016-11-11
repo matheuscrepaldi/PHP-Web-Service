@@ -110,7 +110,7 @@ function handleLocationError(browserHasGeolocation, marker, pos) {
            <?php 
                  $denLoc = new DENUNCIA();
 
-                $resultado = $denLoc->retornaLoc();
+                $resultado = $denLoc->retornaDenuncia();
 
                 foreach($resultado as $result){ ?>
                    var latlng = {lat:  <?php echo $result['latitude']; ?>, lng: <?php echo $result['longitude']; ?>};
