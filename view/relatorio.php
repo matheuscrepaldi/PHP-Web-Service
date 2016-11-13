@@ -25,7 +25,7 @@ header('Content-type: text/html; charset=UTF-8');
             today: "Hoje",
             clear: "Limpar",
             format: "dd/mm/yyyy",
-            titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+            titleFormat: "MM yyyy", 
             weekStart: 0
         };
           
@@ -82,7 +82,7 @@ header('Content-type: text/html; charset=UTF-8');
             
             if(radio == '') {
                 
-                bootbox.alert("Atenção! Selecione o status da ");
+                bootbox.alert("Atenção! Selecione o status da denúncia (Sim, Não ou Ambos)");
                 return
             }
             

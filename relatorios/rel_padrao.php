@@ -3,8 +3,8 @@
     require('../class.denuncia.php');
 
     
-//print_r($_GET);
-//exit;
+print_r($_GET);
+exit;
 
 
 
@@ -56,6 +56,21 @@
             
             $sql .= " and bairro_den = '" . $bairro . "'";
         }
+        
+        if($_GET['radio'] == 'sim'){
+            
+            $sql .= " and status_den = 'F'";
+        }
+        
+        else if($_GET['radio'] == 'nao'){
+            
+            $sql .= " and status_den = 'A'";
+        }
+        
+         else if($_GET['radio'] == 'ambos'){
+            
+            $sql .= " and status_den = 'A' or status_den = 'F'";
+        }
        
         $sql .= " order by data_den";
         
@@ -64,6 +79,8 @@
         $denuncia = new DENUNCIA();
         
         $resposta = $denuncia->selectDinamico($sql);
+        
+        //print_r($resposta); exit;
 ?>
 
 
@@ -97,8 +114,8 @@
               <td>".$registro['cidade_den']."</td>
               <td>"; 
                 
-            if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvido</font>";
-            else echo "<font color='green'>Resolvido</font>";
+            if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvida</font>";
+            else echo "<font color='green'>Resolvida</font>";
             
             echo "</td>
             </tr>";
