@@ -3,8 +3,8 @@
     require('../class.denuncia.php');
 
     
-print_r($_GET);
-exit;
+//print_r($_GET);
+//exit;
 
 
 
@@ -17,10 +17,8 @@ exit;
     if(isset($_GET['buscar']) and $_GET['buscar'] == 'buscar'){
         
                 
-        $cidade = utf8_encode($_GET['cidade']);
-        $bairro= utf8_encode($_GET['bairro']);
-        
-        //$sql_data = "SELECT * FROM denuncias WHERE DATE(data_den) = date_format(str_to_date('07/11/2016', '%d/%m/%Y'), '%Y-%m-%d')";
+        $cidade = $_GET['cidade'];
+        $bairro = $_GET['bairro'];
         
         $sql = "select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, cat_den,latitude, longitude, rua_den, num_den, cidade_den, status_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria)
         
@@ -38,13 +36,20 @@ exit;
         
          else if($_GET['df']!= ''){
             
-          echo "<div class='callout callout-danger'>
-          
-          <h4>Erro!</h4>
-          
-          <p>Favor informar a data final!</p>
-                </div>";
+          echo "
+            <div class='content'>
+                <div class='box box-danger'>
+                  <div class='callout callout-danger'>
+                    <h4>Erro!</h4> <p>Favor informar a data final!</p>
+                  </div>
+                  </div>
+            </div>";
              exit;
+        }
+        
+        if($_GET['categoria'] > 0){
+            
+            $sql .= " and cat_den = " . $_GET['categoria'];
         }
         
         if($cidade != ''){
@@ -67,9 +72,9 @@ exit;
             $sql .= " and status_den = 'A'";
         }
         
-         else if($_GET['radio'] == 'ambos'){
+         else if($_GET['radio'] == 'ambossss'){
             
-            $sql .= " and status_den = 'A' or status_den = 'F'";
+            $sql .= " and (status_den = 'A' or status_den = 'F')";
         }
        
         $sql .= " order by data_den";
@@ -77,6 +82,7 @@ exit;
        //echo $sql; exit;
  
         $denuncia = new DENUNCIA();
+        
         
         $resposta = $denuncia->selectDinamico($sql);
         

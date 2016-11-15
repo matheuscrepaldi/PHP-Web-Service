@@ -217,9 +217,9 @@ header('Content-type: text/html; charset=UTF-8');
                 <?php 
                     
                     
-                    
+                    $bairro = new DENUNCIA();
 
-                    $resultado = $cidade->retornaBairro();
+                    $resultado = $bairro->retornaBairro();
                     
                     foreach($resultado as $registro) {  ?>
 
