@@ -81,7 +81,8 @@ function initMap() {
         });
         
         marker.addListener('click', function() {
-            window.location.assign("view/relatorio.php");
+            parent.changePage('view/relatorio.php');
+            //window.location.assign("view/relatorio.php");
           
         });
     }
