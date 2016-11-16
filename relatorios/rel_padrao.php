@@ -85,10 +85,14 @@
         
         
         $resposta = $denuncia->selectDinamico($sql);
-        
         //print_r($resposta); exit;
 ?>
 
+    <section class="content-header">
+        <h1>
+            Filtro por:             
+        </h1>
+    </section>
 
     <div class="content">
     <div class="box box-primary">

@@ -21,12 +21,13 @@
   </head>
   <body>
     <div id="map"></div>
+
     <script>
         
         
-var labels = '';
-var labelIndex = 0;
-var map;
+    var labels = '';
+    var labelIndex = 0;
+    var map;
 
     
 function initMap() {
@@ -46,10 +47,6 @@ function initMap() {
         icon: 'img/marcador.png',
         title: 'Você está aqui.'
     });
-    
-   /* google.maps.event.addListener(map, 'click', function(event) {
-        addMarker(event.latLng);
-    });*/
     
         //addMarker(myLatLng, map);
 
@@ -76,17 +73,18 @@ function initMap() {
         
         
     function addMarker(location) {
-      var marker = new google.maps.Marker({
-          
-        position: location,
-        label: labels[labelIndex++ % labels.length],
-       // icon: 'img/'+ img + '.png',
-        map: map
-      });
-}
+        var marker = new google.maps.Marker({
+            position: location,
+            label: labels[labelIndex++ % labels.length],
+            // icon: 'img/'+ img + '.png',
+            map: map
+        });
         
+        marker.addListener('click', function() {
+            window.location.assign("view/relatorio.php");
+        });
+    }
         
-
 google.maps.event.addDomListener(window, 'click', initMap);
 
 

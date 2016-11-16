@@ -215,7 +215,7 @@
             <i class="fa fa-fw fa-table"></i> <span>Relatórios</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>  
+            <!--<li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i> Consultar</a></li>  -->
             
             <li><a href="#" onClick="changePage('view/relatorio.php');"><i class="fa fa-circle-o"></i> Relatório</a></li>
           </ul>
@@ -228,7 +228,7 @@
             <i class="fa fa-fw fa-gears"></i> <span>Administração</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onClick="changePage('');"><i class="fa fa-circle-o"></i>Configurações</a></li>           
+            <li><a href="#" onClick="changePage('view/denuncias.php');"><i class="fa fa-circle-o"></i>Fechar Denúncias</a></li>           
           </ul>
         </li>
    <?php } ?> 
