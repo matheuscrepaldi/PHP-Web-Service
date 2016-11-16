@@ -15,6 +15,25 @@
       exit;
     }
 
+    if($_REQUEST['operacao'] == 'ConsultaDenuncia'){
+      header('Content-type: application/json');
+      $sql = "select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, status_den, num_den, cidade_den, categorias.*, denuncia_img.*  from denuncias  left join categorias on (cat_den = id_categoria) left join denuncia_img on (id_den = deni_den) where id_den = ". $_REQUEST['denuncia'] ." order by id_den";
+        
+      $res = array(); 
+        
+      $denuncias = $denuncia->selectDinamico($sql);
+        
+       /* foreach($denuncias as $registro) {
+        
+            //$teste = array_push($res, array("id_den" => $registro['id_den'], "data_den" => $registro['data_den'], "desc_categoria" => $registro['desc_categoria']));  
+        }*/
+
+      $data['data'] = $denuncias;
+      echo json_encode($data);
+        //echo json_encode($res);
+      exit;
+    }
+
     if($_REQUEST['operacao'] == 'Denuncias'){
       header('Content-type: application/json');
       $denuncias = $denuncia->retornaDenuncia();

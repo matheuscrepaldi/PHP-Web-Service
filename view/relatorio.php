@@ -86,9 +86,9 @@ header('Content-type: text/html; charset=UTF-8');
                 return
             }
             
-            data = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&radio=' + radio + '&buscar=' + buscar + '&bairro=' + bairro;
+            dados = '?di=' + di + '&df=' + df + '&categoria=' + categoria + '&cidade=' + cidade + '&radio=' + radio + '&buscar=' + buscar + '&bairro=' + bairro;
 
-            changePageParam('relatorios/rel_padrao.php', data);
+            changePageParam('relatorios/rel_padrao.php', dados);
         }
         
         

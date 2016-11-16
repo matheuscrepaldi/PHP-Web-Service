@@ -6,8 +6,6 @@
 //print_r($_GET);
 //exit;
 
-
-
     if(isset($_GET['operacao']) and $_GET['operacao'] == 'cancelar'){
 
         header("Location: ../index2.php?page=view/relatorio");
@@ -89,6 +87,34 @@
         //print_r($resposta); exit;
 ?>
 
+<script>
+    
+    function abrirDenuncia(id){
+  
+        $.ajax({
+          type: "POST",
+          url: 'controller/controller_denuncias.php',
+          dataType: 'json',    
+          data: {operacao : "ConsultaDenuncia", denuncia : id},
+          success: function (response) {
+                           
+             console.log(data);
+      
+              //return
+        }
+        });
+        
+        bootbox.alert({ message: '<form id="userForm" method="post" class="form-horizontal"> <div class="form-group"><label class="col-xs-3 control-label">Data: </label>  <div class="col-xs-3"><input type="text" class="form-control" name="id" disabled="disabled" value="" /></div></div><div class="form-group"><label class="col-xs-3 control-label">Categoria: </label><div class="col-xs-5"><input type="text" class="form-control" name="name" value=""  disabled="disabled" /></div></div><div class="form-group"><label class="col-xs-3 control-label">Descrição: </label><div class="col-xs-5"><input type="text" class="form-control" name="email" value=""  disabled="disabled" /></div> </div><div class="form-group"><label class="col-xs-3 control-label">Localização: </label><div class="col-xs-5"><input type="text" class="form-control" name="website" value=""  disabled="disabled" /> </div></div><div class="form-group"></div></form>',
+        title: "Denúncia: " + id,               
+        size: 'large',
+        backdrop: true
+                      
+    });
+    }
+    
+
+</script>
+
 
     <div class="content">
     <div class="box box-primary">
@@ -110,21 +136,23 @@
       
         foreach($resposta as $registro) {
             
-         
-            //echo $registro['desc_den']
-      echo "<tr>
-              <th scope='row'>".$registro['id_den']."</th>
-              <td>".$registro['data_den']."</td>
-              <td>".$registro['rua_den']."</td>
-              <td>".$registro['desc_categoria']."</td>
-              <td>".$registro['cidade_den']."</td>
-              <td>"; 
-                
-            if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvida</font>";
-            else echo "<font color='green'>Resolvida</font>";
+        
             
-            echo "</td>
-            </tr>";
+          echo "<tr onClick='abrirDenuncia(".$registro['id_den'].")' style='cursor: pointer'>
+                    
+                  <th scope='row'>".$registro['id_den']."</th>
+                  <td>".$registro['data_den']."</td>
+                  <td>".$registro['rua_den']."</td>
+                  <td>".$registro['desc_categoria']."</td>
+                  <td>".$registro['cidade_den']."</td>
+                  <td>"; 
+
+                if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvida</font>";
+                else echo "<font color='green'>Resolvida</font>";
+
+                echo "</td>
+                
+                </tr>";
         }
 
 
@@ -135,6 +163,10 @@
         
     </div>
 </div>
+
+
+
+
 
 
 <?php } ?>
