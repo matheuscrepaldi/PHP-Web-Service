@@ -154,8 +154,14 @@ function initMap() {
         });
         
         marker.addListener('click', function() {
+<<<<<<< HEAD
             //window.location.assign("view/relatorio.php");
             abrirDenuncia(id);
+=======
+            parent.changePage('view/relatorio.php');
+            //window.location.assign("view/relatorio.php");
+          
+>>>>>>> origin/master
         });
     }
         
