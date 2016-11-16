@@ -33,7 +33,7 @@ $auth_user = new USER();
           "columns": [
              {
               "data": null,
-              "width": "20%",
+              "width": "15%",
               "targets": -1,
               "defaultContent": `
                 <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
@@ -41,14 +41,14 @@ $auth_user = new USER();
               `
             },  
             {"data": "id_den", 
-             "width": "40%"},
+             "width": "3%"},
               {"data": "data_den", 
-             "width": "40%"},
+             "width": "10%"},
             {"data": "rua_den", 
-             "width": "40%"}, 
+             "width": "30%"}, 
            
                {"data": "cidade_den", 
-             "width": "40%"},
+             "width": "20%"},
               
               {"data": "desc_categoria", 
              "width": "40%"},
@@ -120,7 +120,7 @@ function showPosition(position)
     <!-- Content Header (Page header) -->
 
       <!-- Default box -->
-      <?php if(($userRow['user_tipo'] == 'A')){ ?>
+      <?php if(($userRow['user_tipo'] == 'g')){ ?>
       <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Cadastrar Denúncia</h3>
@@ -234,31 +234,14 @@ function showPosition(position)
           </div>
       <?php } ?>
       
-      <?php if(($userRow['user_tipo'] == 'A')){ ?>
-          <div class="box box-primary collapsed-box">
-        <?php } 
-              
-              
-            if(($userRow['user_tipo'] == 'U')){   
-              
-              ?>
-              
-              
-        <div class="box box-primary box">
-        
-        <?php } ?>    
+     
+          <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Denúncias Realizadas
                 <small>&nbsp;</small>
               </h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="">
-                  <i class="fa fa-plus"></i></button>
-              </div>
-              <!-- /. tools -->
             </div>
-            <!-- /.box-header -->
+
             <div class="box-body pad">
               
             <table id="tabelaDenuncias" class="table table-bordered table-hover">
@@ -275,14 +258,10 @@ function showPosition(position)
               </thead>
             </table>
             </div>
-            </div>
           </div>
       
       
         </div>
 	</form>
 
-          </div>
-
-       
-
+</div>
