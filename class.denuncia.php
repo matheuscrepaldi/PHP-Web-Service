@@ -218,6 +218,24 @@ class DENUNCIA
                   echo '<p>', $error->getMessage(), '</p>';
               }
     }
+    
+      public function listarUltimo(){
+            
+            try {
+                
+                $sql = "SELECT * FROM denuncias ORDER BY id_den DESC LIMIT 1";
+
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+        }
 
 
 }

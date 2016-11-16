@@ -55,6 +55,7 @@
         
         $ultimo_id = $denunciaImg->listarUltimo();
         
+        
         if($imagem != ''){
             
             $nome = $ultimo_id['idden_img'] + 1;
@@ -93,22 +94,24 @@
         
          if($imagem != ''){
              
-             $denunciaImg->register($actualpath);
-             file_put_contents($actualpath,base64_decode($imagem));
              $denuncia->inserir($descricao, $id_cat, $latitude, $longitude, $endereco, $cidade, $bairro, $user);
+             $ultima_den = $denuncia->listarUltimo();
+             $denunciaImg->register($actualpath, $ultima_den['id_den']);
+             file_put_contents($actualpath,base64_decode($imagem));
+             
              
               if($imagem2 != ''){
-                $denunciaImg->register($actualpath2);
+                $denunciaImg->register($actualpath2, $ultima_den['id_den']);
                 file_put_contents($actualpath2,base64_decode($imagem2));           
               }
              
               if($imagem3 != ''){
-                $denunciaImg->register($actualpath3);
+                $denunciaImg->register($actualpath3, $ultima_den['id_den']);
                 file_put_contents($actualpath3,base64_decode($imagem3));           
               }
              
               if($imagem4 != ''){
-                $denunciaImg->register($actualpath4);
+                $denunciaImg->register($actualpath4, $ultima_den['id_den']);
                 file_put_contents($actualpath4,base64_decode($imagem4));           
               }
              

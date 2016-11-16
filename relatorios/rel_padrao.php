@@ -6,8 +6,6 @@
 //print_r($_GET);
 //exit;
 
-
-
     if(isset($_GET['operacao']) and $_GET['operacao'] == 'cancelar'){
 
         header("Location: ../index2.php?page=view/relatorio");
@@ -85,14 +83,51 @@
         
         
         $resposta = $denuncia->selectDinamico($sql);
+        
         //print_r($resposta); exit;
 ?>
 
-    <section class="content-header">
-        <h1>
-            Filtro por:             
-        </h1>
-    </section>
+<script>
+    
+    function abrirDenuncia(id){
+  
+        $.ajax({
+          type: "POST",
+          url: 'controller/controller_denuncias.php',
+          dataType: 'json',    
+          data: {operacao : "ConsultaDenuncia", denuncia : id},
+          success: function (response) {
+
+            console.log(response);
+             var denuncia = response.data[0];
+             var status = 'Não Resolvida';
+             var imgs = '';
+             var caminho_img = '';
+              
+             if(denuncia.status_den == 'F') status = 'Resolvida';
+
+             $.each(response.img, function (index, value) {
+                //console.log(value);
+                 caminho_img = value.deni_img.replace("../", "");
+                imgs += '<a href="'+ caminho_img +'" target="_blank"><img id="output" src="'+ caminho_img +'" alt="" class="img-responsive img-thumbnail" style=" max-width: 160px; max-height: 160px; border: none;"/></a>';
+
+             });
+             
+             
+            bootbox.alert({ message: '<form id="userForm" method="post" class="form-horizontal"> <div class="form-group"><label class="col-xs-4 control-label">Data: </label>  <div class="col-xs-2"><input type="text" class="form-control" name="id" disabled="disabled" value="'+ denuncia.data_den +'" /></div><label class="col-xs-1 control-label">Status: </label><div class="col-xs-3"><input type="text" class="form-control" name="id" disabled="disabled" value="'+ status +'" /></div></div><div class="form-group"><label class="col-xs-4 control-label">Categoria: </label><div class="col-xs-6"><input type="text" class="form-control" name="name" value="'+ denuncia.desc_categoria +'"  disabled="disabled" /></div></div><div class="form-group"><label class="col-xs-4 control-label">Descrição: </label><div class="col-xs-6"><textarea class="form-control" rows="2" id="comment" disabled="disabled" style="resize: none;">'+ denuncia.desc_den +'</textarea></div> </div><div class="form-group"><label class="col-xs-4 control-label">Localização: </label><div class="col-xs-6"><input type="text" class="form-control" name="website" value="'+ denuncia.rua_den + ' / ' + denuncia.cidade_den +'"  disabled="disabled" /> </div></div><div class="form-group"><div class="col-xs-2"></div><div class="col-xs-8"><div class="imagem">'+imgs+'</div></div><div class="col-xs-2"></div></div></form>',
+              title: "Denúncia: " + id,               
+              size: 'large',
+              backdrop: true
+            });
+        }
+        });
+      }
+        
+        
+    
+
+</script>
+
 
     <div class="content">
     <div class="box box-primary">
@@ -114,21 +149,23 @@
       
         foreach($resposta as $registro) {
             
-         
-            //echo $registro['desc_den']
-      echo "<tr>
-              <th scope='row'>".$registro['id_den']."</th>
-              <td>".$registro['data_den']."</td>
-              <td>".$registro['rua_den']."</td>
-              <td>".$registro['desc_categoria']."</td>
-              <td>".$registro['cidade_den']."</td>
-              <td>"; 
-                
-            if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvida</font>";
-            else echo "<font color='green'>Resolvida</font>";
+        
             
-            echo "</td>
-            </tr>";
+          echo "<tr onClick='abrirDenuncia(".$registro['id_den'].")' style='cursor: pointer'>
+                    
+                  <th scope='row'>".$registro['id_den']."</th>
+                  <td>".$registro['data_den']."</td>
+                  <td>".$registro['rua_den']."</td>
+                  <td>".$registro['desc_categoria']."</td>
+                  <td>".$registro['cidade_den']."</td>
+                  <td>"; 
+
+                if($registro['status_den'] == 'A') echo "<font color='red'>Não Resolvida</font>";
+                else echo "<font color='green'>Resolvida</font>";
+
+                echo "</td>
+                
+                </tr>";
         }
 
 
@@ -139,6 +176,10 @@
         
     </div>
 </div>
+
+
+
+
 
 
 <?php } ?>

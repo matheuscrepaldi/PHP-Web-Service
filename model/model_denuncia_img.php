@@ -19,14 +19,15 @@ require_once('../dbconfig.php');
             return $stmt;
         }
 
-        public function register($uimg) {
+        public function register($uimg, $uden) {
         
             try {
             
 
-                $stmt = $this->conn->prepare("INSERT INTO denuncia_img(deni_img) VALUES (:uimg)");
+                $stmt = $this->conn->prepare("INSERT INTO denuncia_img(deni_img, deni_den) VALUES (:uimg, :uden)");
 
                 $stmt->bindparam(":uimg", $uimg);
+                $stmt->bindparam(":uden", $uden);
 
                 $stmt->execute();	
 
