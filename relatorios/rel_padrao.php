@@ -97,20 +97,22 @@
           dataType: 'json',    
           data: {operacao : "ConsultaDenuncia", denuncia : id},
           success: function (response) {
-                           
-             console.log(data);
-      
-              //return
+
+            console.log(response);
+             var denuncia = response.data[0];
+             var status = 'Não Resolvida';
+             if(denuncia.status_den == 'F') status = 'Resolvida'; 
+             
+            bootbox.alert({ message: '<form id="userForm" method="post" class="form-horizontal"> <div class="form-group"><label class="col-xs-4 control-label">Data: </label>  <div class="col-xs-2"><input type="text" class="form-control" name="id" disabled="disabled" value="'+ denuncia.data_den +'" /></div><label class="col-xs-1 control-label">Status: </label><div class="col-xs-3"><input type="text" class="form-control" name="id" disabled="disabled" value="'+ status +'" /></div></div><div class="form-group"><label class="col-xs-4 control-label">Categoria: </label><div class="col-xs-6"><input type="text" class="form-control" name="name" value="'+ denuncia.desc_categoria +'"  disabled="disabled" /></div></div><div class="form-group"><label class="col-xs-4 control-label">Descrição: </label><div class="col-xs-6"><textarea class="form-control" rows="2" id="comment" disabled="disabled" style="resize: none;">'+ denuncia.desc_den +'</textarea></div> </div><div class="form-group"><label class="col-xs-4 control-label">Localização: </label><div class="col-xs-6"><input type="text" class="form-control" name="website" value="'+ denuncia.rua_den + ' / ' + denuncia.cidade_den +'"  disabled="disabled" /> </div></div><div class="form-group"></div></form>',
+              title: "Denúncia: " + id,               
+              size: 'large',
+              backdrop: true
+            });
         }
         });
+      }
         
-        bootbox.alert({ message: '<form id="userForm" method="post" class="form-horizontal"> <div class="form-group"><label class="col-xs-3 control-label">Data: </label>  <div class="col-xs-3"><input type="text" class="form-control" name="id" disabled="disabled" value="" /></div></div><div class="form-group"><label class="col-xs-3 control-label">Categoria: </label><div class="col-xs-5"><input type="text" class="form-control" name="name" value=""  disabled="disabled" /></div></div><div class="form-group"><label class="col-xs-3 control-label">Descrição: </label><div class="col-xs-5"><input type="text" class="form-control" name="email" value=""  disabled="disabled" /></div> </div><div class="form-group"><label class="col-xs-3 control-label">Localização: </label><div class="col-xs-5"><input type="text" class="form-control" name="website" value=""  disabled="disabled" /> </div></div><div class="form-group"></div></form>',
-        title: "Denúncia: " + id,               
-        size: 'large',
-        backdrop: true
-                      
-    });
-    }
+        
     
 
 </script>
