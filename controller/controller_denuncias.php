@@ -15,6 +15,16 @@
       exit;
     }
 
+    if($_REQUEST['operacao'] == 'alterarDenuncias'){
+      header('Content-type: application/json');
+      $sql = "UPDATE denuncias SET status_den = 'F' WHERE id_den = " . $_REQUEST['denuncia'];
+      $denuncias = $denuncia->selectDinamico($sql);
+
+      $data['data'] = $denuncias;
+      echo json_encode($data);
+      exit;
+    }
+
     if($_REQUEST['operacao'] == 'ConsultaDenuncia'){
       header('Content-type: application/json');
       $sql = "select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, status_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) where id_den = ". $_REQUEST['denuncia'] ." order by id_den";   

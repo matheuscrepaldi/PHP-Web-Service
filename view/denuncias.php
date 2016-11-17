@@ -17,7 +17,6 @@ $auth_user = new USER();
 
 ?>
 
-
 <script>
     
       $(function(){
@@ -33,15 +32,14 @@ $auth_user = new USER();
           "columns": [
              {
               "data": null,
-              "width": "15%",
+              "width": "5%",
               "targets": -1,
               "defaultContent": `
                 <a class="btn btn-success" id="editarlink"><em class="fa fa-pencil"></em></a>
-                <a class="btn btn-danger" id="excluirlink"><em class="fa fa-trash"></em></a>
               `
             },  
             {"data": "id_den", 
-             "width": "3%"},
+             "width": "1%"},
               {"data": "data_den", 
              "width": "10%"},
             {"data": "rua_den", 
@@ -58,8 +56,41 @@ $auth_user = new USER();
               
           ]
         })
+        
+         $("#tabelaDenuncias tbody").on('click', 'a#editarlink', function(){
+             data = tabela.row( $(this).parents('TR') ).data();
+            validarExclusao(data.id_den);
+         });
 
       });
+    
+    function validarExclusao(id){	
+        bootbox.confirm({
+            title: "Alterar Status",
+            message: "Você deseja alterar o status da denúncia " + id + "?",
+            buttons: {
+            cancel: {
+                    label: '<i class="fa fa-times"></i> Cancelar'
+                },
+            confirm: {
+                    label: '<i class="fa fa-check"></i> Confirmar'
+                }
+            },
+            
+            callback: function (result) {
+                $.ajax({
+                  type: "POST",
+                  url: 'controller/controller_denuncias.php',
+                  dataType: 'json',    
+                  data: {operacao : "alterarDenuncias", denuncia : id},
+                    
+                });
+                location.reload();
+             }
+        });
+    }
+    
+    
     
 function validarBotao(botao){
 		
