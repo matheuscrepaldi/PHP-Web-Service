@@ -121,7 +121,7 @@ header('Content-type: text/html; charset=UTF-8');
                     <div class="col-md-2">
                         <label>Data Inicial</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='date' date-provider="date" class="form-control" id='d1' name="d1"/>
+                            <input type='text' date-provider="date" class="form-control" id='d1' name="d1"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -135,7 +135,7 @@ header('Content-type: text/html; charset=UTF-8');
                         
                         <label>Data Final</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='date' date-provider="date" class="form-control" id='d2' name="d2"/>
+                            <input type='text' date-provider="date" class="form-control" id='d2' name="d2"/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>

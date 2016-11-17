@@ -78,14 +78,19 @@ $auth_user = new USER();
             },
             
             callback: function (result) {
-                $.ajax({
-                  type: "POST",
-                  url: 'controller/controller_denuncias.php',
-                  dataType: 'json',    
-                  data: {operacao : "alterarDenuncias", denuncia : id},
-                    
-                });
-                changePage('view/denuncias.php');
+              
+                if(result == true){
+                    $.ajax({
+                      type: "POST",
+                      url: 'controller/controller_denuncias.php',
+                      dataType: 'json',    
+                      data: {operacao : "alterarDenuncias", denuncia : id},
+
+                    });
+                    changePage('view/denuncias.php');
+                }
+                
+                else return
              }
         });
     }
