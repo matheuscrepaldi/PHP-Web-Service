@@ -85,7 +85,7 @@ $auth_user = new USER();
                   data: {operacao : "alterarDenuncias", denuncia : id},
                     
                 });
-                location.reload();
+                changePage('view/denuncias.php');
              }
         });
     }
