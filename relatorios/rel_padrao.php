@@ -38,7 +38,7 @@
             <div class='content'>
                 <div class='box box-danger'>
                   <div class='callout callout-danger'>
-                    <h4>Erro!</h4> <p>Favor informar a data final!</p>
+                    <h4>Erro!</h4> <p>Favor informar a data inicial!</p>
                   </div>
                   </div>
             </div>";

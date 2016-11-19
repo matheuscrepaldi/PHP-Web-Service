@@ -12,6 +12,15 @@
 
   $obj_user = $auth_user->listarUnico($user_id);
 
+  $sql = "select count(*) as total from denuncias where user_den = " . $user_id;
+
+  $total_den = $auth_user->selectDinamico($sql); 
+
+    foreach($total_den as $registro) {
+    
+        $total = $registro['total'];
+    }
+
 
   //print_r($obj_user);
 
@@ -75,11 +84,10 @@
   <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
-
-    
+  
       <h1>
         Perfil do Usuário
-      </h1>
+        </h1>
     </section>
 
     <!-- Main content -->
@@ -116,12 +124,22 @@
 
               </p>
                 <br>
+                <br>
                 
-            <div class="box-header with-border">
-              <h3 class="box-title">Email:</h3>
-              <br/>
+            <div class="box-header ">
+              <h3 class="box-title">E-mail:</h3>
+            
               <?php print($obj_user['user_email']); ?>
+                <br>
+                <br>
+                <h3 class="box-title">Total de denúncias:</h3>
+         
+               <?php echo $total; ?>
             </div>
+                
+               
+              
+            
 
             </div>
             <!-- /.box-body -->
@@ -170,7 +188,7 @@
       	  		<input type="password" class="form-control input-sm" name="senhaRepetir" id="senhaRepetir" placeholder="" value="" required />
        	 	</div>
        	  </div>
-            
+          
           <br>
           <br>
           <div class="row">

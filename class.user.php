@@ -19,6 +19,22 @@ class USER
 		$stmt = $this->conn->prepare($sql);
 		return $stmt;
 	}
+    
+    public function selectDinamico($sql){
+        try {
+                
+                //echo "to aqui";
+                $stmt = $this->conn->query($sql);
+                
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+                return $rows;
+              }
+            
+              catch(Exception $error) {
+                  echo '<p>', $error->getMessage(), '</p>';
+              }
+    }
 	
 	public function register($uname,$umail,$upass)
 	{

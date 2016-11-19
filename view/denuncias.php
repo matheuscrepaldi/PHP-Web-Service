@@ -49,7 +49,7 @@ $auth_user = new USER();
              "width": "20%"},
               
               {"data": "desc_categoria", 
-             "width": "40%"},
+             "width": "20%"},
               
               {"data": "status_den", 
              "width": "40%"}

@@ -28,13 +28,19 @@ header('Content-type: text/html; charset=UTF-8');
             titleFormat: "MM yyyy", 
             weekStart: 0
         };
+        
+         var dataAtual = new Date();
           
           $('#d1').datepicker({
-            language: 'pt'
+            language: 'pt',
+            autoclose: true,
+            endDate: dataAtual  
           });
           
           $('#d2').datepicker({
-              language: 'pt'
+              language: 'pt',
+              autoclose: true,
+              startDate: dataAtual
           });
             
         });
@@ -44,6 +50,42 @@ header('Content-type: text/html; charset=UTF-8');
 		 document.form_rel.operacao.value = botao;
 		 document.form_rel.submit();
 	   }
+        
+        /*function validaData(){
+            
+           var d1 = $("#d1").val();
+           var d2 = $("#d2").val();
+            
+           var data1 = d1.split("/");
+           var dia1 = parseInt(data1[0], 10);
+           var mes1 = parseInt(data1[1], 10);
+           var ano1 = parseInt(data1[2], 10);
+            
+           var data2 = d2.split("/");
+           var dia2 = parseInt(data2[0], 10);
+           var mes2 = parseInt(data2[1], 10);
+           var ano2 = parseInt(data2[2], 10);
+            
+            //console.log(dia1 + mes1 + ano1);
+           //console.log(dia2 + mes2 + ano2);
+           
+            //return
+            
+            
+            if(dia1 > dia2){
+                
+               
+            }
+
+            if((d1 > d2) && (d2 != '')){
+               bootbox.alert("Data Final menor do que a Data Inicial!");
+                $("#d2").val("");
+                return
+            }
+            
+           
+        }*/
+          
         
         function validaRadio1(click){
             
@@ -121,7 +163,7 @@ header('Content-type: text/html; charset=UTF-8');
                     <div class="col-md-2">
                         <label>Data Inicial</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' date-provider="date" class="form-control" id='d1' name="d1"/>
+                            <input type='text' date-provider="date" class="form-control" id='d1' name="d1" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -135,7 +177,7 @@ header('Content-type: text/html; charset=UTF-8');
                         
                         <label>Data Final</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' date-provider="date" class="form-control" id='d2' name="d2"/>
+                            <input type='text' date-provider="date" class="form-control" id='d2' name="d2" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>

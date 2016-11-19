@@ -8,7 +8,15 @@
 
      if($_REQUEST['operacao'] == 'ListarDenuncias'){
       header('Content-type: application/json');
-      $denuncias = $denuncia->retornaLoc($_REQUEST['usuario']);
+      //$denuncias = $denuncia->retornaLoc($_REQUEST['usuario']);
+         
+      $sql = "select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, IF(status_den = 'A', 'Não Resolvida','Resolvida') as status_den, cat_den,latitude, longitude, rua_den, num_den, cidade_den, categorias.*  
+                            from denuncias  
+                            left join categorias on (cat_den = id_categoria) 
+                            left join users on (user_den = user_id) 
+                            where user_id = ". $_REQUEST['usuario'] ." order by id_den";   
+         
+      $denuncias = $denuncia->selectDinamico($sql);     
 
       $data['data'] = $denuncias;
       echo json_encode($data);
@@ -44,7 +52,10 @@
 
     if($_REQUEST['operacao'] == 'Denuncias'){
       header('Content-type: application/json');
-      $denuncias = $denuncia->retornaDenuncia();
+      //$denuncias = $denuncia->retornaDenuncia();
+      $sql = "select id_den, DATE_FORMAT(data_den, '%d/%m/%Y') data_den, desc_den, cat_den,latitude, longitude, rua_den, IF(status_den = 'A', 'Não Resolvida','Resolvida') as status_den, num_den, cidade_den, categorias.*  from denuncias  left join categorias on (cat_den = id_categoria) order by id_den";    
+      
+      $denuncias = $denuncia->selectDinamico($sql); 
 
       $data['data'] = $denuncias;
       echo json_encode($data);
